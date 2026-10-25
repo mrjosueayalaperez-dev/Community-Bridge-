@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Bridge — Find help nearby / Encuentra ayuda cerca de ti</title>
+<style>
+  :root{
+    --ink:#1d2733; --muted:#5a6a78; --bg:#f6f3ec; --card:#ffffff;
+    --teal:#0f5e52; --teal-dark:#0a453c; --amber:#f2b234; --red:#b3261e;
+    --line:#e2dccf; --chip:#eef4f1; --sample:#8a6d1a; --sample-bg:#fdf3d7;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .wrap{max-width:760px;margin:0 auto;padding:0 14px 40px}
+  header.top{padding:18px 0 6px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .brand{font-size:26px;font-weight:800;color:var(--teal-dark);letter-spacing:-.5px}
+  .brand small{display:block;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0}
+  .langtoggle{display:flex;border:2px solid var(--teal);border-radius:999px;overflow:hidden;flex:none;margin-top:4px}
+  .langtoggle button{border:0;background:#fff;padding:8px 14px;font-size:15px;font-weight:700;color:var(--teal);cursor:pointer}
+  .langtoggle button.on{background:var(--teal);color:#fff}
+  .crisis{background:var(--red);color:#fff;border-radius:12px;padding:12px 14px;font-weight:700;font-size:16px;margin:10px 0}
+  .crisis a{color:#fff;text-decoration:underline}
+  .noacct{display:inline-block;background:var(--chip);color:var(--teal-dark);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:6px}
+  h1{font-size:24px;margin:8px 0 4px}
+  h2{font-size:19px;margin:22px 0 10px;color:var(--teal-dark)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 12px}
+  .askbox{display:flex;gap:8px;flex-wrap:wrap}
+  .askbox input[type=text],.searchbox input[type=text]{flex:1;min-width:180px;font-size:17px;padding:12px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+  .btn{border:0;border-radius:10px;padding:12px 18px;font-size:16px;font-weight:700;cursor:pointer}
+  .btn-primary{background:var(--teal);color:#fff}
+  .btn-mic{background:var(--amber);color:#3a2c00}
+  .btn-mic.listening{background:var(--red);color:#fff}
+  .fineprint{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .cats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:520px){.cats{grid-template-columns:1fr}}
+  .cat{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--teal);border-radius:12px;padding:12px 14px;cursor:pointer}
+  .cat b{font-size:17px;color:var(--teal-dark);display:block}
+  .cat span{font-size:14px;color:var(--muted)}
+  .scope{font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--muted)}
+  .chip-sample{display:inline-block;background:var(--sample-bg);color:var(--sample);font-weight:800;font-size:12px;padding:2px 8px;border-radius:999px;margin-left:6px;text-transform:uppercase;letter-spacing:.4px}
+  .lname{font-size:19px;font-weight:800;margin:2px 0 4px}
+  .ldesc{font-size:15.5px;margin:0 0 10px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+  .callbtn{display:inline-block;background:var(--teal);color:#fff;font-weight:800;font-size:16px;padding:11px 16px;border-radius:10px;text-decoration:none}
+  .textbtn{display:inline-block;background:#fff;color:var(--teal);border:2px solid var(--teal);font-weight:800;font-size:16px;padding:9px 14px;border-radius:10px;text-decoration:none}
+  .detailsbtn{background:none;border:0;color:var(--teal);font-weight:700;font-size:15px;cursor:pointer;padding:6px 0;text-decoration:underline}
+  .fields{border-top:1px dashed var(--line);margin-top:8px;padding-top:8px;font-size:15px}
+  .fields h3{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:12px 0 2px}
+  .fields p{margin:0}
+  .fictional{background:var(--sample-bg);border-radius:8px;padding:8px 10px;font-size:14px;margin:8px 0}
+  .backbtn{background:none;border:0;color:var(--teal);font-weight:700;font-size:16px;cursor:pointer;padding:4px 0}
+  .hidden{display:none}
+  footer{margin-top:28px;font-size:13px;color:var(--muted)}
+  .noresults{font-size:16px;color:var(--muted);padding:10px 0}
+  .chip-verified{display:inline-block;background:#e3f2e8;color:#14532d;font-weight:800;font-size:12px;padding:2px 8px;border-radius:999px;margin-left:6px;text-transform:uppercase;letter-spacing:.4px}
+  .localcard{border-left:6px solid var(--teal)}
+  .laddr{font-size:16.5px;font-weight:700;margin:6px 0 2px}
+  .lhours{font-size:15.5px;margin:2px 0 6px}
+  .lstatus{background:#fdf3d7;color:#6b5310;border-radius:8px;padding:8px 10px;font-size:14.5px;font-weight:600;margin:6px 0}
+  .dirbtn{display:inline-flex;align-items:center;background:var(--amber);color:#3a2c00;font-weight:800;font-size:16px;padding:11px 16px;border-radius:10px;text-decoration:none}
+  .bigbtn{min-height:52px}
+  .notecard{background:var(--chip);font-size:16px}
+  .notecard p{margin:0}
+  .srcline{font-size:13px;color:var(--muted);margin:8px 0 0}
+  .micstatus{font-size:15px;font-weight:600;color:var(--teal-dark);margin-top:8px}
+  .locbtn{background:#fff;color:var(--teal);border:2px solid var(--teal)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Community Bridge<small data-i18n="tagline">Find help nearby</small></div>
+    <div class="langtoggle" role="group" aria-label="Language / Idioma">
+      <button id="btn-en" class="on" type="button">EN</button>
+      <button id="btn-es" type="button">ES</button>
+    </div>
+  </header>
+
+  <div class="crisis" data-i18n="crisisBanner">If someone is in immediate danger, call 911. For emotional crisis, call or text 988.</div>
+  <span class="noacct" data-i18n="noAccount">No account needed</span>
+
+  <h1 data-i18n="headline">Find help nearby. Ask in English or Spanish.</h1>
+
+  <section class="card" aria-label="Ask">
+    <h2 style="margin-top:0" data-i18n="askLoud">Ask out loud</h2>
+    <p data-i18n="askHint">Hold the microphone, ask for food, shelter, a clinic, or a crisis line. You can also type.</p>
+    <div class="askbox">
+      <input type="text" id="askInput" data-i18n-ph="askPlaceholder" placeholder="What do you need? e.g. food, shelter, a clinic">
+      <button class="btn btn-primary" id="askBtn" type="button" data-i18n="askBtn">Ask</button>
+      <button class="btn btn-mic" id="micBtn" type="button" aria-label="Microphone">🎤</button>
+      <button class="btn locbtn" id="locBtn" type="button" data-i18n="useLocation">📍 Use my location</button>
+    </div>
+    <p class="micstatus hidden" id="micStatus" role="status"></p>
+    <p class="fineprint" data-i18n="searchNote">This is a keyword search of the directory on this page — not an AI. Nothing you type is sent anywhere.</p>
+    <p class="fineprint" data-i18n="voiceNote">Voice: if you use the microphone, your browser's speech service may send your voice to its provider (for example, Google on Android Chrome) to turn it into text. This site itself receives only the text and sends nothing anywhere.</p>
+    <p class="fineprint hidden" id="micUnsupported" data-i18n="micUnsupported">Voice is not supported in this browser — please type instead.</p>
+  </section>
+
+  <section aria-label="Search">
+    <div class="searchbox askbox">
+      <input type="text" id="searchInput" data-i18n-ph="searchPlaceholder" placeholder="Search all listings…">
+    </div>
+  </section>
+
+  <main id="homeView">
+    <h2 data-i18n="browse">Browse by need</h2>
+    <div class="cats" id="catGrid"></div>
+    <h2 data-i18n="startHere">Start here</h2>
+    <div id="featured"></div>
+  </main>
+
+  <main id="resultsView" class="hidden">
+    <button class="backbtn" id="backBtn" type="button">← <span data-i18n="backHome">Back to all needs</span></button>
+    <h2 id="resultsTitle">Results</h2>
+    <div id="results"></div>
+  </main>
+
+  <footer data-i18n="footerNote">Community Bridge is a community directory. Listings marked “Sample listing” are fictional examples, not real services — call 211 for real local help.</footer>
+</div>
+<script>
+"use strict";
+/* ============ CHROME STRINGS (EN verbatim from the original; ES = faithful translations) ============ */
+var I18N = {
+  en: {
+    tagline: "Find help nearby",
+    crisisBanner: "If someone is in immediate danger, call 911. For emotional crisis, call or text 988.",
+    noAccount: "No account needed",
+    headline: "Find help nearby. Ask in English or Spanish.",
+    askLoud: "Ask out loud",
+    askHint: "Hold the microphone, ask for food, shelter, a clinic, or a crisis line. You can also type.",
+    askPlaceholder: "What do you need? e.g. food, shelter, a clinic",
+    askBtn: "Ask",
+    searchNote: "This is a keyword search of the directory on this page — not an AI. Nothing you type is sent anywhere.",
+    voiceNote: "Voice: if you use the microphone, your browser's speech service may send your voice to its provider (for example, Google on Android Chrome) to turn it into text. This site itself receives only the text and sends nothing anywhere.",
+    micUnsupported: "Voice is not supported in this browser — please type instead.",
+    searchPlaceholder: "Search all listings…",
+    browse: "Browse by need",
+    startHere: "Start here",
+    results: "Results",
+    backHome: "Back to all needs",
+    details: "Details",
+    hide: "Hide details",
+    call: "Call",
+    text: "Text",
+    hours: "Hours",
+    who: "Who it is for",
+    cost: "Cost",
+    languages: "Languages",
+    wheelchair: "Wheelchair access",
+    coverage: "Coverage",
+    website: "Website",
+    sampleListing: "Sample listing",
+    national: "National",
+    sampleScope: "Harbor County sample",
+    yes: "Yes",
+    notListed: "Not listed",
+    noResults: "No listings match. Try a different word, or browse by need above.",
+    showingFor: "Showing help for:",
+    localHeading: "Verified local food help",
+    verifiedLocal: "Verified local",
+    source: "Source",
+    directions: "Directions",
+    websiteBtn: "Website",
+    inTown: "in town",
+    fromFellsmere: "from Fellsmere",
+    supplement: "More help — national lines",
+    localSection: "Verified local help — Indian River County, Florida",
+    localFoodNote: "These places were checked on 2026-10-23. If a place is farther away, its town and the approximate distance from Fellsmere are shown.",
+    foodNoPlace: "Tip: add your city or ZIP code to see verified local places first. We currently cover Fellsmere, Sebastian, and Vero Beach, Florida.",
+    notCovered: "We don't have verified listings for {place} yet. The nearest towns we cover are Fellsmere, Sebastian, and Vero Beach, Florida. You can also call 211 for local help anywhere.",
+    nonFoodLocal: "Our verified local listings for this area currently cover food only. For other needs, the national lines below can help — or call 211.",
+    useLocation: "📍 Use my location",
+    geoFinding: "Finding your location…",
+    geoNear: "Showing verified food help near {place}, based on your location.",
+    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.” / No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
+    micListening: "Listening… speak now",
+    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below. / El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
+    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question. / No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
+    micError: "Voice didn't work this time. Please type your question instead. / La voz no funcionó esta vez. Por favor escribe tu pregunta.",
+    footerNote: "Community Bridge is a community directory. Listings marked “Sample listing” are fictional examples, not real services — call 211 for real local help."
+  },
+  es: {
+    tagline: "Encuentra ayuda cerca de ti",
+    crisisBanner: "Si alguien está en peligro inmediato, llama al 911. Para una crisis emocional, llama o envía un mensaje de texto al 988.",
+    noAccount: "No necesitas una cuenta",
+    headline: "Encuentra ayuda cerca de ti. Pregunta en inglés o español.",
+    askLoud: "Pregunta en voz alta",
+    askHint: "Mantén presionado el micrófono y pide comida, refugio, una clínica o una línea de crisis. También puedes escribir.",
+    askPlaceholder: "¿Qué necesitas? Ej.: comida, refugio, una clínica",
+    askBtn: "Preguntar",
+    searchNote: "Esto es una búsqueda por palabras clave del directorio de esta página — no es una IA. Nada de lo que escribes se envía a ningún sitio.",
+    voiceNote: "Voz: si usas el micrófono, el servicio de voz de tu navegador puede enviar tu voz a su proveedor (por ejemplo, Google en Chrome para Android) para convertirla en texto. Este sitio solo recibe el texto y no envía nada a ningún sitio.",
+    micUnsupported: "La voz no es compatible con este navegador — por favor escribe tu pregunta.",
+    searchPlaceholder: "Buscar en todos los listados…",
+    browse: "Buscar por necesidad",
+    startHere: "Empieza aquí",
+    results: "Resultados",
+    backHome: "Volver a todas las necesidades",
+    details: "Detalles",
+    hide: "Ocultar detalles",
+    call: "Llamar",
+    text: "Enviar mensaje",
+    hours: "Horario",
+    who: "Para quién es",
+    cost: "Costo",
+    languages: "Idiomas",
+    wheelchair: "Acceso para silla de ruedas",
+    coverage: "Cobertura",
+    website: "Sitio web",
+    sampleListing: "Listado de muestra",
+    national: "Nacional",
+    sampleScope: "Muestra de Harbor County",
+    yes: "Sí",
+    notListed: "No indicado",
+    noResults: "Ningún listado coincide. Prueba con otra palabra o busca por necesidad arriba.",
+    showingFor: "Mostrando ayuda para:",
+    localHeading: "Ayuda local de comida verificada",
+    verifiedLocal: "Local verificado",
+    source: "Fuente",
+    directions: "Cómo llegar",
+    websiteBtn: "Sitio web",
+    inTown: "en la ciudad",
+    fromFellsmere: "de Fellsmere",
+    supplement: "Más ayuda — líneas nacionales",
+    localSection: "Ayuda local verificada — Condado de Indian River, Florida",
+    localFoodNote: "Estos lugares se verificaron el 2026-10-23. Si un lugar está más lejos, se muestra su ciudad y la distancia aproximada desde Fellsmere.",
+    foodNoPlace: "Consejo: agrega tu ciudad o código postal para ver primero los lugares locales verificados. Por ahora cubrimos Fellsmere, Sebastian y Vero Beach, Florida.",
+    notCovered: "Todavía no tenemos listados verificados para {place}. Las ciudades cercanas que sí cubrimos son Fellsmere, Sebastian y Vero Beach, Florida. También puedes llamar al 211 para ayuda local en cualquier lugar.",
+    nonFoodLocal: "Nuestros listados locales verificados para esta área por ahora solo cubren comida. Para otras necesidades, las líneas nacionales de abajo pueden ayudar — o llama al 211.",
+    useLocation: "📍 Usar mi ubicación",
+    geoFinding: "Buscando tu ubicación…",
+    geoNear: "Mostrando ayuda de comida verificada cerca de {place}, según tu ubicación.",
+    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.” / No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
+    micListening: "Escuchando… habla ahora",
+    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below. / El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
+    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question. / No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
+    micError: "Voice didn't work this time. Please type your question instead. / La voz no funcionó esta vez. Por favor escribe tu pregunta.",
+    footerNote: "Community Bridge es un directorio comunitario. Los listados marcados como “Listado de muestra” son ejemplos ficticios, no servicios reales — llama al 211 para ayuda local real."
+  }
+};
+
+/* ============ CATEGORIES (names/descriptions verbatim EN; ES = faithful translations) ============ */
+var CATEGORIES = [
+  {slug:"crisis",    en:"Crisis",       es:"Crisis",          den:"Immediate emotional support and safety lines",        des:"Apoyo emocional inmediato y líneas de seguridad"},
+  {slug:"food",      en:"Food",         es:"Comida",          den:"Groceries, meals, and hunger hotlines",               des:"Comestibles, comidas y líneas de ayuda contra el hambre"},
+  {slug:"housing",   en:"Housing",      es:"Vivienda",        den:"Shelter, rent help, and a safe bed",                  des:"Refugio, ayuda con el alquiler y una cama segura"},
+  {slug:"health",    en:"Health",       es:"Salud",           den:"Clinics, insurance, and care navigation",             des:"Clínicas, seguros y orientación sobre la atención médica"},
+  {slug:"mental",    en:"Mental health",es:"Salud mental",    den:"Counseling, substance use, and listening lines",      des:"Consejería, uso de sustancias y líneas de escucha"},
+  {slug:"jobs",      en:"Work",         es:"Trabajo",         den:"Job search, training, and hiring help",               des:"Búsqueda de empleo, capacitación y ayuda para conseguir trabajo"},
+  {slug:"legal",     en:"Legal",        es:"Ayuda legal",     den:"Free or low-cost legal help",                         des:"Ayuda legal gratuita o de bajo costo"},
+  {slug:"transit",   en:"Transit",      es:"Transporte",      den:"Rides to care, work, and appointments",               des:"Viajes a servicios de salud, al trabajo y a citas"},
+  {slug:"childcare", en:"Child care",   es:"Cuidado infantil",den:"Child care referrals and family support",             des:"Referencias de cuidado infantil y apoyo a las familias"},
+  {slug:"utilities", en:"Utilities",    es:"Servicios básicos",den:"Help keeping heat, power, and water on",             des:"Ayuda para mantener la calefacción, la electricidad y el agua"},
+  {slug:"seniors",   en:"Older adults", es:"Adultos mayores", den:"Meals, caregivers, and aging services",              des:"Comidas, cuidadores y servicios para adultos mayores"},
+  {slug:"education", en:"Learning",     es:"Educación",       den:"English classes, GED, and adult learning",            des:"Clases de inglés, GED y aprendizaje para adultos"}
+];
+
+/* ============ LISTINGS (every field verbatim from the live site) ============ */
+var SAMPLE_NOTE = "This Harbor County record is fictional so the directory works before real local providers are added. Do not contact it.";
+var LISTINGS = [
+ {id:"988", cat:"crisis", scope:"national", name:"988 Suicide & Crisis Lifeline",
+  desc:"Call or text 988 for confidential support if you or someone you know is in emotional distress or thinking about suicide.",
+  phone:"988", tel:"988", text:"988", textNum:"988",
+  hours:"24 hours, every day. Spanish: press 2.", who:"Anyone in emotional distress in the United States.",
+  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Trained counselors answer 24 hours a day. For Spanish, press 2 after calling. This is a national line, not a Harbor County office. If there is immediate danger, call 911.",
+  web:"988lifeline.org"},
+ {id:"ndvh", cat:"crisis", scope:"national", name:"National Domestic Violence Hotline",
+  desc:"Confidential help if you are experiencing domestic violence, or if you are worried about someone who is.",
+  phone:"1-800-799-7233", tel:"+18007997233", text:"START to 88788", textNum:"88788", textBody:"START",
+  hours:"24 hours. Text START to 88788.", who:"People affected by domestic or intimate-partner violence.",
+  cost:"Free and confidential.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Advocates can help with safety planning and local referrals. Text START to 88788. Spanish is available. If you are in immediate danger, call 911.",
+  web:"www.thehotline.org"},
+ {id:"childhelp", cat:"crisis", scope:"national", name:"Childhelp National Child Abuse Hotline",
+  desc:"Professional counselors for child abuse, neglect, or concerns about a child's safety.",
+  phone:"1-800-422-4453", tel:"+18004224453", text:"1-800-422-4453", textNum:"18004224453",
+  hours:"24 hours.", who:"Anyone concerned about a child. Callers can remain anonymous.",
+  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Call or text 1-800-422-4453. Counselors can help you think through next steps and local reporting. If a child is in immediate danger, call 911.",
+  web:"www.childhelp.org"},
+ {id:"veterans-crisis", cat:"crisis", scope:"national", name:"Veterans Crisis Line",
+  desc:"Confidential support for veterans, service members, and their families. Call 988 and press 1.",
+  phone:"988", tel:"988", text:"838255", textNum:"838255",
+  hours:"24 hours. Call 988, then press 1. Text 838255.", who:"Veterans, service members, and people who care about them.",
+  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Available 24 hours. You can also text 838255. This listing uses the official national line. It does not replace local VA care.",
+  web:"www.veteranscrisisline.net"},
+ {id:"dial-211", cat:"food", scope:"national", name:"211",
+  desc:"Call 211 to reach local information and referral for food, housing, utilities, and other basic needs.",
+  phone:"211", tel:"211",
+  hours:"Depends on the local 211 center. Many answer 24 hours.", who:"Open to the public. Coverage depends on your local 211.",
+  cost:"Free call in most areas.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"211 is staffed by local centers, so hours and languages vary. Many answer around the clock. Ask for the specific need and your city. This app also lists national lines and sample Harbor County programs you can replace.",
+  web:"www.211.org"},
+ {id:"harbor-harvest", cat:"food", scope:"sample", name:"Harbor Harvest Food Pantry",
+  desc:"Sample listing: a weekday grocery pantry for Harbor County residents. Replace it with a real local pantry.",
+  phone:"555-014-2100", tel:"+15550142100",
+  hours:"Monday to Friday, 10:00 a.m. to 4:00 p.m. Sample hours only.", who:"Sample rule: one visit per week with a photo ID.",
+  cost:"Free. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"100 Wharf Street, Harbor City, Harbor County",
+  notes:"This organization is fictional demonstration data so the directory is usable before a steward adds real providers. Do not send people here. The phone number is reserved (555) and does not connect.",
+  web:null},
+ {id:"hunger-hotline", cat:"food", scope:"national", name:"USDA National Hunger Hotline",
+  desc:"Help finding food pantries, meal sites, and nutrition programs anywhere in the United States.",
+  phone:"1-866-348-6479", tel:"+18663486479",
+  hours:"Monday to Friday, typical business hours. Check the site for holidays.", who:"Anyone looking for food assistance.",
+  cost:"Free referral.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Operated by Hunger Free America with USDA support. Call 1-866-348-6479. Spanish-speaking assistance is available. This is a referral line, not a food delivery service.",
+  web:"www.hungerfreeamerica.org"},
+ {id:"riverside-shelter", cat:"housing", scope:"sample", name:"Riverside Family Shelter",
+  desc:"Sample listing: an intake line for family shelter beds in Harbor County. Not a real shelter.",
+  phone:"555-014-2200", tel:"+15550142200",
+  hours:"Sample intake line answers 24 hours. Beds depend on availability.", who:"Sample: families with children first. Adults referred onward.",
+  cost:"Free shelter stay. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"40 River Road, Harbor City, Harbor County",
+  notes:"Fictional demonstration record. Beds, rules, and the address are not real. For actual homelessness help, call 211 or a shelter you know is operating.",
+  web:null},
+ {id:"bridge-clinic", cat:"health", scope:"sample", name:"Bridge Community Clinic",
+  desc:"Sample listing: a sliding-scale clinic for people without insurance in Harbor County.",
+  phone:"555-014-2300", tel:"+15550142300",
+  hours:"Monday to Friday, 8:00 a.m. to 6:00 p.m. Sample hours.", who:"Sample: uninsured and underinsured patients. Call before visiting.",
+  cost:"Sliding scale. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"220 Pine Avenue, Harbor City, Harbor County",
+  notes:"Fictional. It shows the fields a real clinic listing should have: hours, languages, wheelchair access, and cost. Do not seek care at this address.",
+  web:null},
+ {id:"marketplace", cat:"health", scope:"national", name:"Health Insurance Marketplace",
+  desc:"Official place to compare health plans and see if you qualify for savings.",
+  phone:"1-800-318-2596", tel:"+18003182596", tty:"1-855-889-4325",
+  hours:"The call center posts seasonal hours on HealthCare.gov. TTY 1-855-889-4325.", who:"People shopping for individual or family coverage.",
+  cost:"Calling is free. Plan premiums vary.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Call 1-800-318-2596 or use HealthCare.gov. This is enrollment help, not a clinic and not emergency care. Local enrollment assisters can be added by a steward.",
+  web:"www.healthcare.gov"},
+ {id:"maternal-mental", cat:"mental", scope:"national", name:"National Maternal Mental Health Hotline",
+  desc:"Free, confidential counselors for pregnant people and new parents who feel overwhelmed, anxious, or sad.",
+  phone:"1-833-852-6262", tel:"+18338526262", text:"1-833-852-6262", textNum:"18338526262",
+  hours:"24 hours. Call or text.", who:"Pregnant people, postpartum people, and their supporters.",
+  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"Call or text 1-833-852-6262 (1-833-TLC-MAMA). Counselors offer support and referrals. They do not replace emergency care. Operated for HRSA.",
+  web:"mchb.hrsa.gov"},
+ {id:"samhsa", cat:"mental", scope:"national", name:"SAMHSA National Helpline",
+  desc:"Treatment referral and information for mental health and substance use, 24 hours a day.",
+  phone:"1-800-662-4357", tel:"+18006624357",
+  hours:"24 hours, every day.", who:"People seeking help for mental health or substance use, and their families.",
+  cost:"Free referral service.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"The helpline refers callers to local treatment, support groups, and community organizations. It is not a counseling session and it is not emergency care. For suicidal crisis, use 988.",
+  web:"www.samhsa.gov"},
+ {id:"harborworks", cat:"jobs", scope:"sample", name:"HarborWorks Career Desk",
+  desc:"Sample listing: resume help and job listings at a fictional career desk.",
+  phone:"555-014-2400", tel:"+15550142400",
+  hours:"Monday to Friday, 9:00 a.m. to 5:00 p.m.", who:"Sample: open to job seekers 18 and older.",
+  cost:"Free. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"15 Market Street, Harbor City, Harbor County",
+  notes:"Use this record as a template. A steward should replace the name, phone, and address with the real American Job Center or library career desk.",
+  web:null},
+ {id:"harbor-legal", cat:"legal", scope:"sample", name:"Harbor Legal Aid Desk",
+  desc:"Sample listing: brief legal advice for housing and benefits. Not a law firm.",
+  phone:"555-014-2500", tel:"+15550142500",
+  hours:"Monday, Wednesday, and Friday, 9:00 a.m. to 3:00 p.m.", who:"Sample: income limits apply. No criminal defense.",
+  cost:"Free if eligible. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"8 Courthouse Square, Harbor City, Harbor County",
+  notes:"Fictional. It does not create an attorney-client relationship. Real legal aid should be added by a steward, or callers can start with 211.",
+  web:null},
+ {id:"ridelink", cat:"transit", scope:"sample", name:"RideLink",
+  desc:"Sample listing: ride vouchers to medical visits and job interviews.",
+  phone:"555-014-2600", tel:"+15550142600",
+  hours:"Monday to Friday, 8:00 a.m. to 5:00 p.m. Book a day ahead.", who:"Sample: county residents traveling to a covered appointment.",
+  cost:"Free voucher when eligible. Sample listing.", langs:"English", wheel:"Yes", coverage:"90 Depot Lane, Harbor City, Harbor County",
+  notes:"Fictional transportation program. Directions from this address are not meaningful. Replace with the real paratransit or medical ride program.",
+  web:null},
+ {id:"dockside-childcare", cat:"childcare", scope:"sample", name:"Dockside Child Care Network",
+  desc:"Sample listing: referrals to licensed child care, not a child care center itself.",
+  phone:"555-014-2700", tel:"+15550142700",
+  hours:"Monday to Friday, 8:00 a.m. to 5:00 p.m.", who:"Sample: families seeking care for children under 13.",
+  cost:"Referral is free. Care fees vary. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"12 Harbor Walk, Harbor City, Harbor County",
+  notes:"Fictional referral desk. Do not drop off a child at this address. A steward should list real CCR&R (child care resource and referral) contacts.",
+  web:null},
+ {id:"warm-homes", cat:"utilities", scope:"sample", name:"Warm Homes Utility Aid",
+  desc:"Sample listing: help applying for heat and electric assistance.",
+  phone:"555-014-2800", tel:"+15550142800",
+  hours:"Monday to Friday, 9:00 a.m. to 4:00 p.m.", who:"Sample: renters and owners with a shutoff notice get priority.",
+  cost:"Assistance amount varies. Sample listing.", langs:"English, Español", wheel:"Not listed", coverage:"50 Cedar Street, Harbor City, Harbor County",
+  notes:"Fictional stand-in for a LIHEAP or charity utility fund. The application rules shown here are examples, not current law. Confirm any real program before you apply.",
+  web:null},
+ {id:"eldercare", cat:"seniors", scope:"national", name:"Eldercare Locator",
+  desc:"Connects older adults and caregivers with local aging services, meals, and support.",
+  phone:"1-800-677-1116", tel:"+18006771116",
+  hours:"Monday to Friday, 9:00 a.m. to 8:00 p.m. Eastern.", who:"Older adults, families, and caregivers.",
+  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
+  notes:"A public service of the U.S. Administration for Community Living. Call 1-800-677-1116 on weekdays. Use it to find the Area Agency on Aging for a real city. The Harbor County senior lunch below is sample data.",
+  web:"eldercare.acl.gov"},
+ {id:"senior-lunch", cat:"seniors", scope:"sample", name:"Harbor Library Senior Lunch",
+  desc:"Sample listing: a weekday lunch for older adults at the library.",
+  phone:"555-014-2900", tel:"+15550142900",
+  hours:"Monday, Wednesday, Friday, 11:30 a.m. to 1:00 p.m.", who:"Sample: adults 60 and older. Suggested donation, not required.",
+  cost:"Suggested donation. Sample listing.", langs:"English", wheel:"Yes", coverage:"1 Library Plaza, Harbor City, Harbor County",
+  notes:"Fictional meal site. For a real meal program, start with the Eldercare Locator at 1-800-677-1116 and ask for home-delivered or congregate meals.",
+  web:null},
+ {id:"harbor-esl", cat:"education", scope:"sample", name:"Harbor College ESL & Adult Learning",
+  desc:"Sample listing: evening English classes and GED information.",
+  phone:"555-014-3000", tel:"+15550143000",
+  hours:"Tuesday and Thursday, 6:00 p.m. to 8:30 p.m.", who:"Sample: adults 18 and older. No immigration status asked at the front desk.",
+  cost:"Free classes. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"400 College Way, Harbor City, Harbor County",
+  notes:"Fictional campus program. Replace with the real adult school, library, or community college ESL schedule. Classes in this record do not enroll students.",
+  web:null}
+];
+var FEATURED = ["988","ndvh","dial-211","bridge-clinic"];
+
+/* ============ VERIFIED LOCAL LISTINGS — Indian River County, FL ============
+   Verified 2026-10-23 from authoritative sources (organizations' own pages,
+   211 Palm Beach & Treasure Coast Food Reference Guide, School District of
+   Indian River County). Full provenance: local-data.md in the project folder.
+   This is a separate dataset from LISTINGS above — never blended with the
+   fictional Harbor County samples. Hours are shown only where a source states
+   them; contested hours read "call to confirm." */
+var LOCAL_VERIFIED_DATE = "2026-10-23";
+var LOCAL_LISTINGS = [
+ {id:"operation-hope", cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
+  name:"Operation Hope of Fellsmere",
+  address:"12285 County Road 512, Fellsmere, FL 32948",
+  phone:"(321) 403-2604", tel:"+13214032604",
+  hoursEn:"Food distribution on the 1st and 3rd Saturday of each month — call to confirm the time.",
+  hoursEs:"Distribución de alimentos el primer y tercer sábado de cada mes — llama para confirmar la hora.",
+  whatEn:"Free food distribution for families. No sign-up required.",
+  whatEs:"Distribución gratuita de alimentos para familias. No necesitas registrarte.",
+  noteEn:"Status note: the organization's own posts announced distributions at 10:00 AM on 1st & 3rd Saturdays in early 2026, but one directory listing flags this site as temporarily closed — please call before going to confirm the next distribution.",
+  noteEs:"Nota sobre el estado: las publicaciones de la propia organización anunciaron distribuciones a las 10:00 AM el primer y tercer sábado a principios de 2026, pero un directorio marca este sitio como cerrado temporalmente — llama antes de ir para confirmar la próxima distribución, por favor.",
+  sourceName:"Operation Hope (operationhopefl.org)", sourceUrl:"https://operationhopefl.org/", web:"https://operationhopefl.org/"},
+ {id:"fellsmere-enrichment", cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
+  name:"Fellsmere Community Enrichment Program",
+  address:"10074 Esperanza Circle, Fellsmere, FL 32948",
+  phone:"(772) 571-0031", tel:"+17725710031",
+  hoursEn:"Food pantry: Monday–Friday, 9:00 AM–3:30 PM. Free soup-kitchen lunch: Monday–Friday, 11:00 AM–12:00 PM.",
+  hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM–3:30 PM. Almuerzo gratuito (comedor comunitario): lunes a viernes, 11:00 AM–12:00 PM.",
+  whatEn:"Food pantry, a free weekday lunch, and baby-item distributions.",
+  whatEs:"Despensa de alimentos, almuerzo gratuito entre semana y distribución de artículos para bebés.",
+  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null},
+ {id:"roseland-pantry", cat:"food", tier:1, distMi:9, townEn:"Sebastian (Roseland)", townEs:"Sebastian (Roseland)",
+  name:"Roseland Ecumenical Food Pantry",
+  address:"12962 Roseland Road, Sebastian, FL 32958",
+  phone:"(772) 589-3035", tel:"+17725893035",
+  hoursEn:"Monday, Wednesday & Friday, 9:00 AM–12:00 PM.",
+  hoursEs:"Lunes, miércoles y viernes, 9:00 AM–12:00 PM.",
+  whatEn:"Food pantry at Roseland United Methodist Church. Serves Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay and nearby areas — food once a month per household with a simple income form. No ID required.",
+  whatEs:"Despensa de alimentos en la iglesia Roseland United Methodist. Atiende a Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay y áreas cercanas — alimentos una vez al mes por hogar con un formulario sencillo de ingresos. No se requiere identificación.",
+  sourceName:"Roseland United Methodist Church", sourceUrl:"https://eridan.websrvcs.com/templates/System/details.asp?id=42377&PID=1055143", web:null},
+ {id:"svdp-wabasso", cat:"food", tier:1, distMi:13, townEn:"Wabasso", townEs:"Wabasso",
+  name:"St. Vincent de Paul — Sebastian / Wabasso",
+  address:"5480 85th Street, Wabasso, FL 32967",
+  phone:"(772) 589-3312", tel:"+17725893312",
+  hoursEn:"Groceries on Tuesdays and Thursdays — call to confirm hours.",
+  hoursEs:"Entrega de comestibles los martes y jueves — llama para confirmar el horario.",
+  whatEn:"Free groceries from the Society of St. Vincent de Paul. Help with utility bills may also be available — ask when you call.",
+  whatEs:"Comestibles gratuitos de la Sociedad de San Vicente de Paúl. También puede haber ayuda con las facturas de servicios — pregunta cuando llames.",
+  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null},
+ {id:"food-pantry-irc", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
+  name:"Food Pantry of Indian River County",
+  address:"2206 16th Avenue, Vero Beach, FL 32960",
+  phone:"(772) 770-2068", tel:"+17727702068",
+  hoursEn:"Monday, Wednesday & Friday, 9:00 AM–12:30 PM; Tuesday & Thursday, 2:00–5:00 PM.",
+  hoursEs:"Lunes, miércoles y viernes, 9:00 AM–12:30 PM; martes y jueves, 2:00–5:00 PM.",
+  whatEn:"Emergency food (usually 3–4 days of staples). Indian River County residents may visit up to twice a month.",
+  whatEs:"Alimentos de emergencia (normalmente para 3–4 días). Los residentes del condado de Indian River pueden venir hasta dos veces al mes.",
+  sourceName:"Food Pantry of Indian River County (foodpantryirc.org)", sourceUrl:"https://www.foodpantryirc.org/", web:"https://www.foodpantryirc.org/"},
+ {id:"the-source", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
+  name:"The Source",
+  address:"1015 Commerce Avenue, Vero Beach, FL 32960",
+  phone:"(772) 564-0202", tel:"+17725640202",
+  hoursEn:"Call to confirm hours — open six days a week.",
+  hoursEs:"Llama para confirmar el horario — abierto seis días a la semana.",
+  whatEn:"Hot meals, emergency food boxes, clothing, showers and laundry for people in need.",
+  whatEs:"Comidas calientes, cajas de alimentos de emergencia, ropa, duchas y lavandería para personas necesitadas.",
+  sourceName:"The Source (iamthesource.org)", sourceUrl:"https://www.iamthesource.org/", web:"https://www.iamthesource.org/"},
+ {id:"salvation-army-vero", cat:"food", tier:2, distMi:15, townEn:"Vero Beach", townEs:"Vero Beach",
+  name:"The Salvation Army — Vero Beach",
+  address:"2655 5th Street SW, Vero Beach, FL 32962",
+  phone:"(772) 978-0265", tel:"+17729780265",
+  hoursEn:"Food pantry: Monday–Friday, 9:00 AM–12:00 PM and 1:00 PM–4:00 PM.",
+  hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM–12:00 PM y 1:00 PM–4:00 PM.",
+  whatEn:"Food pantry and social services.",
+  whatEs:"Despensa de alimentos y servicios sociales.",
+  sourceName:"The Salvation Army — Indian River County Corps", sourceUrl:"http://www.salvationarmyflorida.org/verobeach/", web:"http://www.salvationarmyflorida.org/verobeach/"},
+ {id:"st-helen-svdp", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
+  name:"St. Helen Catholic Church — St. Vincent de Paul Pantry",
+  address:"1031 18th Street, Suites F & G, Vero Beach, FL 32960",
+  phone:"(772) 567-5193", tel:"+17725675193",
+  hoursEn:"Call to confirm hours.",
+  hoursEs:"Llama para confirmar el horario.",
+  whatEn:"Parish food pantry run by the Society of St. Vincent de Paul.",
+  whatEs:"Despensa parroquial de alimentos de la Sociedad de San Vicente de Paúl.",
+  sourceName:"St. Helen Catholic Church (sthelenvero.org)", sourceUrl:"https://www.sthelenvero.org/", web:null},
+ {id:"our-fathers-table", cat:"food", tier:2, distMi:15, townEn:"Vero Beach (Gifford)", townEs:"Vero Beach (Gifford)",
+  name:"Our Father's Table Soup Kitchen",
+  address:"4221 28th Avenue, Vero Beach, FL 32967",
+  phone:"(772) 562-6268", tel:"+17725626268",
+  hoursEn:"Free lunch Monday–Friday, 12:00–1:00 PM.",
+  hoursEs:"Almuerzo gratuito de lunes a viernes, 12:00–1:00 PM.",
+  whatEn:"Soup kitchen serving a free midday meal on weekdays.",
+  whatEs:"Comedor comunitario que sirve un almuerzo gratuito entre semana.",
+  sourceName:"Our Father's Table Soup Kitchen", sourceUrl:"https://ourfatherstablesoupkitchen.org/", web:"https://ourfatherstablesoupkitchen.org/"}
+];
+
+/* Covered places, nearest-first expansion tiers: 0 Fellsmere, 1 Sebastian area, 2 Vero Beach area */
+var PLACES = [
+ {key:"fellsmere", tier:0, en:"Fellsmere", es:"Fellsmere", zips:["32948"], names:["fellsmere"], lat:27.7676, lon:-80.6018},
+ {key:"sebastian", tier:1, en:"Sebastian", es:"Sebastian", zips:["32958","32957","32970"], names:["sebastian","roseland","wabasso","micco","barefoot bay","valkaria","grant"], lat:27.8166, lon:-80.4706},
+ {key:"vero", tier:2, en:"Vero Beach", es:"Vero Beach", zips:["32960","32961","32962","32963","32964","32966","32967","32968","32969"], names:["vero beach","vero","gifford","winter beach","indian river shores"], lat:27.6386, lon:-80.3973}
+];
+var UNCOVERED_PLACES = ["palm bay","melbourne","fort pierce","port st lucie","okeechobee","malabar"];
+function detectPlace(q){
+  var n = norm(q);
+  if (/(cerca de mi|near me|nearby|close to me|a mi alrededor|mi ubicacion|my location)/.test(n)) return {type:"nearme"};
+  var i, j;
+  var zipM = n.match(/\b(329\d{2})\b/);
+  if (zipM){
+    for (i=0;i<PLACES.length;i++) if (PLACES[i].zips.indexOf(zipM[1]) !== -1) return {type:"covered", place:PLACES[i]};
+    return {type:"uncovered", label:zipM[1]};
+  }
+  var names = [];
+  PLACES.forEach(function(pl){ pl.names.forEach(function(nm){ names.push({nm:nm, place:pl}); }); });
+  names.sort(function(a,b){ return b.nm.length - a.nm.length; });
+  for (i=0;i<names.length;i++){
+    if (new RegExp("\\b" + names[i].nm.replace(/ /g, "\\s+") + "\\b").test(n)) return {type:"covered", place:names[i].place};
+  }
+  var anyZip = n.match(/\b\d{5}\b/);
+  if (anyZip) return {type:"uncovered", label:anyZip[0]};
+  for (j=0;j<UNCOVERED_PLACES.length;j++){
+    if (new RegExp("\\b" + UNCOVERED_PLACES[j].replace(/ /g, "\\s+") + "\\b").test(n)) return {type:"uncovered", label:UNCOVERED_PLACES[j]};
+  }
+  return null;
+}
+function tierOrder(t0){
+  var order = [t0], d;
+  for (d=1; d<=2; d++) if (t0 + d <= 2) order.push(t0 + d);
+  for (d=1; d<=2; d++) if (t0 - d >= 0) order.push(t0 - d);
+  return order;
+}
+function localsFor(tier, cat){
+  var order = tierOrder(tier);
+  return LOCAL_LISTINGS.filter(function(l){ return l.cat === cat; }).sort(function(a,b){
+    var d = order.indexOf(a.tier) - order.indexOf(b.tier);
+    return d !== 0 ? d : a.distMi - b.distMi;
+  });
+}
+function mapsUrl(l){ return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(l.address); }
+function nearestPlace(lat, lon){
+  var best = null, bd = 1e9;
+  PLACES.forEach(function(p){
+    var dLat = (lat - p.lat) * Math.PI / 180, dLon = (lon - p.lon) * Math.PI / 180;
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat * Math.PI / 180) * Math.cos(p.lat * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+    var d = 3959 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    if (d < bd){ bd = d; best = p; }
+  });
+  return best;
+}
+
+/* ============ KEYWORD ROUTING (EN + ES) ============ */
+var KEYWORDS = {
+  crisis:["crisis","suicide","suicidal","kill myself","self harm","self-harm","domestic violence","violencia domestica","abuse","abus","veteran","veterano","hotline","linea de crisis","emergency","emergencia","danger","peligro","child abuse","maltrato","988","suicidio","depressed","depresion"],
+  food:["food","hungry","hunger","comida","hambre","pantry","despensa","groceries","comestibles","meal","meals","comidas","aliment","snap","hunger hotline"],
+  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir"],
+  health:["health","clinic","clinica","doctor","medico","insurance","seguro","salud","uninsured","medical","healthcare","enroll","coverage","cobertura","dentist","vacuna","vaccine"],
+  mental:["mental","anxiety","ansiedad","anxious","ansios","sad","triste","counsel","consejer","therapy","terapia","substance","sustancia","drug","droga","alcohol","addiction","adiccion","overwhelmed","agobiad","postpartum","posparto","pregnant","embarazada","samhsa","listening"],
+  jobs:["job","jobs","work","trabajo","empleo","career","carrera","resume","curriculum","hiring","contrat","training","capacitacion","unemployed","desemple"],
+  legal:["legal","lawyer","abogado","law","ley","court","corte","attorney","rights","derechos","eviction court","benefits appeal"],
+  transit:["ride","rides","transit","transporte","transportation","bus","viaje","viajes","travel","appointment ride","paratransit","driver","conducir","llevar"],
+  childcare:["child care","childcare","daycare","guarderia","cuidado infantil","cuidado de ninos","babysit","ninos","children care","after school"],
+  utilities:["utilities","utility","servicios basicos","electric","electricidad","luz","heat","calefaccion","water","agua","bill","recibo","factura","shutoff","corte de luz","liheap","power","energia","gas bill"],
+  seniors:["senior","seniors","older adult","adultos mayores","elder","eldercare","anciano","caregiver","cuidador","aging","envejec","meals on wheels","lunch senior"],
+  education:["education","educacion","english classes","clases de ingles","esl","ged","learning","aprendizaje","aprender","adult learning","school","escuela","learn english","aprender ingles","classes","clases"]
+};
+function norm(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+function routeCategory(q){
+  var n = " " + norm(q) + " ";
+  var best = null, bestScore = 0;
+  for (var slug in KEYWORDS){
+    var score = 0, keys = KEYWORDS[slug];
+    for (var i=0;i<keys.length;i++){ if (n.indexOf(norm(keys[i])) !== -1) score += keys[i].length; }
+    if (score > bestScore){ bestScore = score; best = slug; }
+  }
+  return bestScore > 0 ? best : null;
+}
+function listingText(l){ return norm(l.name + " " + l.desc + " " + l.notes + " " + l.coverage + " " + l.cat); }
+function searchListings(q){
+  var n = norm(q).trim(); if (!n) return [];
+  var terms = n.split(/\s+/);
+  var listingMatches = LISTINGS.filter(function(l){
+    var t = listingText(l);
+    return terms.every(function(w){ return t.indexOf(w) !== -1; });
+  });
+  var localMatches = LOCAL_LISTINGS.filter(function(l){
+    var t = norm(l.name + " " + l.townEn + " " + l.whatEn + " " + l.whatEs + " " + l.address + " " + l.cat);
+    return terms.every(function(w){ return t.indexOf(w) !== -1; });
+  }).map(function(l){ return {kind:"local", ref:l}; });
+  return localMatches.concat(listingMatches);
+}
+
+/* ============ STATE + RENDERING ============ */
+var state = { lang:"en", view:"home", category:null, results:null, titleMode:null, query:"", openDetails:{} };
+function t(k){ return I18N[state.lang][k]; }
+function catName(c){ return state.lang === "es" ? c.es : c.en; }
+function catDesc(c){ return state.lang === "es" ? c.des : c.den; }
+function catBySlug(slug){ for (var i=0;i<CATEGORIES.length;i++) if (CATEGORIES[i].slug===slug) return CATEGORIES[i]; return null; }
+function byId(id){ for (var i=0;i<LISTINGS.length;i++) if (LISTINGS[i].id===id) return LISTINGS[i]; return null; }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+
+function listingCard(l){
+  var cat = catBySlug(l.cat);
+  var scopeLabel = l.scope === "sample" ? t("sampleScope") : t("national");
+  var h = '<article class="card" data-listing="' + l.id + '">';
+  h += '<div class="scope">' + esc(catName(cat)) + " · " + esc(scopeLabel);
+  if (l.scope === "sample") h += '<span class="chip-sample">' + esc(t("sampleListing")) + "</span>";
+  h += "</div>";
+  h += '<div class="lname">' + esc(l.name) + "</div>";
+  h += '<p class="ldesc">' + esc(l.desc) + "</p>";
+  if (l.scope === "sample") h += '<div class="fictional">' + esc(SAMPLE_NOTE) + "</div>";
+  h += '<div class="actions">';
+  h += '<a class="callbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
+  if (l.textNum) {
+    var smsHref = "sms:" + l.textNum + (l.textBody ? "?&body=" + encodeURIComponent(l.textBody) : "");
+    h += '<a class="textbtn" href="' + smsHref + '">💬 ' + esc(t("text")) + " " + esc(l.text) + "</a>";
+  }
+  h += "</div>";
+  var open = !!state.openDetails[l.id];
+  h += '<button class="detailsbtn" type="button" data-details="' + l.id + '">' + (open ? esc(t("hide")) : esc(t("details"))) + "</button>";
+  if (open) {
+    var wheel = l.wheel === "Yes" ? t("yes") : t("notListed");
+    h += '<div class="fields">';
+    h += "<h3>" + esc(t("hours")) + "</h3><p>" + esc(l.hours) + "</p>";
+    h += "<h3>" + esc(t("who")) + "</h3><p>" + esc(l.who) + "</p>";
+    h += "<h3>" + esc(t("cost")) + "</h3><p>" + esc(l.cost) + "</p>";
+    h += "<h3>" + esc(t("languages")) + "</h3><p>" + esc(l.langs) + "</p>";
+    h += "<h3>" + esc(t("wheelchair")) + "</h3><p>" + esc(wheel) + "</p>";
+    h += "<h3>" + esc(t("coverage")) + "</h3><p>" + esc(l.coverage) + "</p>";
+    h += "<p style='margin-top:10px'>" + esc(l.notes) + "</p>";
+    if (l.web) h += "<h3>" + esc(t("website")) + "</h3><p>" + esc(l.web) + "</p>";
+    h += "</div>";
+  }
+  h += "</article>";
+  return h;
+}
+
+function localCard(l){
+  var cat = catBySlug(l.cat);
+  var town = state.lang === "es" ? l.townEs : l.townEn;
+  var dist = l.distMi === 0 ? t("inTown") : "approx. " + l.distMi + " mi " + t("fromFellsmere");
+  var h = '<article class="card localcard" data-local="' + l.id + '">';
+  h += '<div class="scope">' + esc(catName(cat)) + " · " + esc(town) + ", FL · " + esc(dist);
+  h += '<span class="chip-verified">✓ ' + esc(t("verifiedLocal")) + " " + LOCAL_VERIFIED_DATE + "</span></div>";
+  h += '<div class="lname">' + esc(l.name) + "</div>";
+  h += '<p class="ldesc">' + esc(state.lang === "es" ? l.whatEs : l.whatEn) + "</p>";
+  h += '<p class="laddr">📍 ' + esc(l.address) + "</p>";
+  h += '<p class="lhours">🕒 ' + esc(state.lang === "es" ? l.hoursEs : l.hoursEn) + "</p>";
+  if (l.noteEn) h += '<p class="lstatus">⚠️ ' + esc(state.lang === "es" ? l.noteEs : l.noteEn) + "</p>";
+  h += '<div class="actions">';
+  h += '<a class="callbtn bigbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
+  h += '<a class="dirbtn bigbtn" href="' + mapsUrl(l) + '" target="_blank" rel="noopener">🗺️ ' + esc(t("directions")) + "</a>";
+  if (l.web) h += '<a class="textbtn bigbtn" href="' + l.web + '" target="_blank" rel="noopener">' + esc(t("websiteBtn")) + "</a>";
+  h += "</div>";
+  h += '<p class="srcline">' + esc(t("source")) + ': <a href="' + l.sourceUrl + '" target="_blank" rel="noopener">' + esc(l.sourceName) + "</a> · " + esc(t("verifiedLocal")) + " " + LOCAL_VERIFIED_DATE + "</p>";
+  h += "</article>";
+  return h;
+}
+function noteItem(text){ return {kind:"note", text:text}; }
+function renderItem(it){
+  if (!it) return "";
+  if (it.kind === "note") return '<div class="card notecard"><p>' + esc(it.text) + "</p></div>";
+  if (it.kind === "local") return localCard(it.ref);
+  return listingCard(it);
+}
+
+function renderChrome(){
+  document.documentElement.lang = state.lang;
+  var dict = I18N[state.lang];
+  var nodes = document.querySelectorAll("[data-i18n]");
+  for (var i=0;i<nodes.length;i++){ var k = nodes[i].getAttribute("data-i18n"); if (dict[k]) nodes[i].textContent = dict[k]; }
+  var phs = document.querySelectorAll("[data-i18n-ph]");
+  for (var j=0;j<phs.length;j++){ var pk = phs[j].getAttribute("data-i18n-ph"); if (dict[pk]) phs[j].setAttribute("placeholder", dict[pk]); }
+  document.getElementById("btn-en").className = state.lang === "en" ? "on" : "";
+  document.getElementById("btn-es").className = state.lang === "es" ? "on" : "";
+}
+function renderHome(){
+  var grid = document.getElementById("catGrid");
+  grid.innerHTML = CATEGORIES.map(function(c){
+    return '<button class="cat" type="button" data-cat="' + c.slug + '"><b>' + esc(catName(c)) + "</b><span>" + esc(catDesc(c)) + "</span></button>";
+  }).join("");
+  document.getElementById("featured").innerHTML = FEATURED.map(function(id){ return listingCard(byId(id)); }).join("");
+  bindCards(document.getElementById("featured"));
+  var cats = grid.querySelectorAll("[data-cat]");
+  for (var i=0;i<cats.length;i++){ cats[i].addEventListener("click", function(){ openCategory(this.getAttribute("data-cat")); }); }
+}
+function bindCards(container){
+  var btns = container.querySelectorAll("[data-details]");
+  for (var i=0;i<btns.length;i++){
+    btns[i].addEventListener("click", function(){
+      var id = this.getAttribute("data-details");
+      state.openDetails[id] = !state.openDetails[id];
+      render();
+    });
+  }
+}
+function renderResults(){
+  var title = document.getElementById("resultsTitle");
+  var titleText = t("results");
+  if (state.titleMode === "category" && state.category) titleText = catName(catBySlug(state.category));
+  else if (state.titleMode === "ask" && state.category) titleText = t("showingFor") + " " + catName(catBySlug(state.category));
+  else if (state.titleMode === "search") titleText = t("results") + ": " + state.query;
+  title.textContent = titleText;
+  var box = document.getElementById("results");
+  if (!state.results || state.results.length === 0){
+    box.innerHTML = '<p class="noresults">' + esc(t("noResults")) + "</p>";
+  } else {
+    box.innerHTML = state.results.map(renderItem).join("");
+  }
+  bindCards(box);
+}
+function render(){
+  renderChrome();
+  var home = document.getElementById("homeView");
+  var res = document.getElementById("resultsView");
+  if (state.view === "home"){ home.className = ""; res.className = "hidden"; renderHome(); }
+  else { home.className = "hidden"; res.className = ""; renderResults(); }
+}
+function openCategory(slug){
+  state.view = "results"; state.category = slug;
+  var listings = LISTINGS.filter(function(l){ return l.cat === slug; });
+  if (slug === "food"){
+    var items = [noteItem(t("localSection") + " — " + t("localFoodNote"))];
+    localsFor(0, "food").forEach(function(l){ items.push({kind:"local", ref:l}); });
+    items.push(noteItem(t("supplement")));
+    state.results = items.concat(listings);
+  } else {
+    state.results = listings;
+  }
+  state.titleMode = "category";
+  render();
+  window.scrollTo(0,0);
+}
+function goHome(){ state.view = "home"; state.category = null; state.results = null; render(); window.scrollTo(0,0); }
+
+function showLocalFood(place, viaGeo){
+  var placeName = state.lang === "es" ? place.es : place.en;
+  var head = viaGeo
+    ? t("geoNear").replace("{place}", placeName) + " " + t("localFoodNote")
+    : t("localHeading") + " — " + placeName + ", Florida. " + t("localFoodNote");
+  var items = [noteItem(head)];
+  localsFor(place.tier, "food").forEach(function(l){ items.push({kind:"local", ref:l}); });
+  items.push(noteItem(t("supplement")));
+  items.push(byId("dial-211"));
+  items.push(byId("hunger-hotline"));
+  state.view = "results"; state.category = "food";
+  state.results = items; state.titleMode = "ask";
+  render();
+  window.scrollTo(0,0);
+}
+function showGeoFallback(slug){
+  var items = [noteItem(t("geoDenied")), byId("dial-211")];
+  if (slug === "food" || !slug) items.push(byId("hunger-hotline"));
+  state.view = "results"; state.category = slug || "food";
+  state.results = items; state.titleMode = "ask";
+  render();
+  window.scrollTo(0,0);
+}
+function locateAndAsk(slug){
+  var status = document.getElementById("micStatus");
+  if (!navigator.geolocation){ showGeoFallback(slug); return; }
+  status.textContent = t("geoFinding");
+  status.className = "micstatus";
+  navigator.geolocation.getCurrentPosition(function(pos){
+    status.textContent = ""; status.className = "micstatus hidden";
+    var place = nearestPlace(pos.coords.latitude, pos.coords.longitude);
+    if (slug && slug !== "food"){
+      var items = [noteItem(t("nonFoodLocal"))];
+      state.view = "results"; state.category = slug;
+      state.results = items.concat(LISTINGS.filter(function(l){ return l.cat === slug; }));
+      state.titleMode = "ask"; render(); window.scrollTo(0,0);
+      return;
+    }
+    showLocalFood(place, true);
+  }, function(){ status.textContent = ""; status.className = "micstatus hidden"; showGeoFallback(slug); }, {timeout:10000});
+}
+function doAsk(){
+  var q = document.getElementById("askInput").value;
+  if (!q || !q.trim()) return;
+  var slug = routeCategory(q);
+  var place = detectPlace(q);
+  if (place && place.type === "nearme"){ locateAndAsk(slug); return; }
+  if (place && place.type === "covered" && slug === "food"){ showLocalFood(place.place, false); return; }
+  if (place && place.type === "uncovered"){
+    var uItems = [noteItem(t("notCovered").replace("{place}", place.label)), byId("dial-211")];
+    if (slug === "food") uItems.push(byId("hunger-hotline"));
+    state.view = "results"; state.category = slug;
+    state.results = uItems; state.titleMode = slug ? "ask" : "search"; state.query = q;
+    render();
+    window.scrollTo(0,0);
+    return;
+  }
+  if (slug){
+    state.view = "results"; state.category = slug;
+    var items = LISTINGS.filter(function(l){ return l.cat === slug; });
+    if (slug === "food"){
+      var foodItems = [noteItem(t("foodNoPlace"))];
+      items = foodItems.concat(items);
+    } else if (place && place.type === "covered"){
+      items = [noteItem(t("nonFoodLocal"))].concat(items);
+    }
+    state.results = items;
+    state.titleMode = "ask";
+  } else {
+    state.view = "results"; state.category = null;
+    state.results = searchListings(q);
+    state.titleMode = "search"; state.query = q;
+  }
+  render();
+  window.scrollTo(0,0);
+}
+function doSearch(){
+  var q = document.getElementById("searchInput").value;
+  if (!q || !q.trim()){ if (state.view !== "home") goHome(); return; }
+  state.view = "results"; state.category = null;
+  state.results = searchListings(q);
+  state.titleMode = "search"; state.query = q;
+  renderResults(); /* keep home chrome visible state; results view shown below */
+  document.getElementById("homeView").className = "hidden";
+  document.getElementById("resultsView").className = "";
+  renderChrome();
+}
+
+/* ============ EVENTS ============ */
+document.getElementById("btn-en").addEventListener("click", function(){ state.lang = "en"; render(); });
+document.getElementById("btn-es").addEventListener("click", function(){ state.lang = "es"; render(); });
+document.getElementById("backBtn").addEventListener("click", goHome);
+document.getElementById("askBtn").addEventListener("click", doAsk);
+document.getElementById("locBtn").addEventListener("click", function(){ locateAndAsk("food"); });
+document.getElementById("askInput").addEventListener("keydown", function(e){ if (e.key === "Enter") doAsk(); });
+document.getElementById("searchInput").addEventListener("input", doSearch);
+
+/* ============ VOICE (browser speech recognition, honestly disclosed) ============
+   Android Chrome target: webkitSpeechRecognition, lang follows the UI language,
+   visible listening indicator, spoken result fills the ask field AND runs the
+   search. Permission-denied / no-speech / error paths show a bilingual message
+   in the status line and always leave typed search fully working. */
+(function(){
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var micBtn = document.getElementById("micBtn");
+  var status = document.getElementById("micStatus");
+  function showStatus(msg){ status.textContent = msg; status.className = "micstatus"; }
+  function clearStatus(){ status.textContent = ""; status.className = "micstatus hidden"; }
+  if (!SR){ document.getElementById("micUnsupported").className = "fineprint"; micBtn.disabled = true; micBtn.style.opacity = ".5"; return; }
+  var rec = new SR();
+  rec.interimResults = false;
+  var listening = false;
+  function setListening(on){
+    listening = on;
+    micBtn.className = on ? "btn btn-mic listening" : "btn btn-mic";
+    micBtn.textContent = on ? "🎤 " + t("micListening") : "🎤";
+  }
+  micBtn.addEventListener("click", function(){
+    if (listening){ rec.stop(); return; }
+    rec.lang = state.lang === "es" ? "es-US" : "en-US";
+    clearStatus();
+    try { rec.start(); } catch(e) { showStatus(t("micError")); }
+  });
+  rec.addEventListener("start", function(){ setListening(true); showStatus(t("micListening")); });
+  rec.addEventListener("end", function(){ setListening(false); });
+  rec.addEventListener("result", function(ev){
+    var txt = "";
+    for (var i=0;i<ev.results.length;i++) txt += ev.results[i][0].transcript;
+    clearStatus();
+    document.getElementById("askInput").value = txt;
+    doAsk();
+  });
+  rec.addEventListener("error", function(ev){
+    setListening(false);
+    var err = ev && ev.error ? ev.error : "";
+    if (err === "not-allowed" || err === "service-not-allowed") showStatus(t("micDenied"));
+    else if (err === "no-speech") showStatus(t("micNoSpeech"));
+    else showStatus(t("micError"));
+  });
+})();
+
+render();
+</script>
+</body>
+</html>
