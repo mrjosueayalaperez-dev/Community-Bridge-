@@ -82,7 +82,7 @@
   <div class="crisis" data-i18n="crisisBanner">If someone is in immediate danger, call 911. For emotional crisis, call or text 988.</div>
   <span class="noacct" data-i18n="noAccount">No account needed</span>
 
-  <h1 data-i18n="headline">Find help nearby. Ask in English or Spanish.</h1>
+  <h1 data-i18n="headline">Find help nearby. Ask in English, Spanish, Haitian Creole, or Portuguese.</h1>
 
   <section class="card" aria-label="Ask">
     <h2 style="margin-top:0" data-i18n="askLoud">Ask out loud</h2>
@@ -128,7 +128,7 @@ var I18N = {
     tagline: "Find help nearby",
     crisisBanner: "If someone is in immediate danger, call 911. For emotional crisis, call or text 988.",
     noAccount: "No account needed",
-    headline: "Find help nearby. Ask in English or Spanish.",
+    headline: "Find help nearby. Ask in English, Spanish, Haitian Creole, or Portuguese.",
     askLoud: "Ask out loud",
     askHint: "Hold the microphone, ask for food, shelter, a clinic, or a crisis line. You can also type.",
     askPlaceholder: "What do you need? e.g. food, shelter, a clinic",
@@ -186,7 +186,7 @@ var I18N = {
     tagline: "Encuentra ayuda cerca de ti",
     crisisBanner: "Si alguien está en peligro inmediato, llama al 911. Para una crisis emocional, llama o envía un mensaje de texto al 988.",
     noAccount: "No necesitas una cuenta",
-    headline: "Encuentra ayuda cerca de ti. Pregunta en inglés o español.",
+    headline: "Encuentra ayuda cerca de ti. Pregunta en inglés, español, criollo haitiano o portugués.",
     askLoud: "Pregunta en voz alta",
     askHint: "Mantén presionado el micrófono y pide comida, refugio, una clínica o una línea de crisis. También puedes escribir.",
     askPlaceholder: "¿Qué necesitas? Ej.: comida, refugio, una clínica",
@@ -670,9 +670,9 @@ function nearestPlace(lat, lon){
 
 /* ============ KEYWORD ROUTING (EN + ES) ============ */
 var KEYWORDS = {
-  crisis:["crisis","suicide","suicidal","kill myself","self harm","self-harm","domestic violence","violencia domestica","abuse","abus","veteran","veterano","hotline","linea de crisis","emergency","emergencia","danger","peligro","child abuse","maltrato","988","suicidio","depressed","depresion"],
-  food:["food","hungry","hunger","comida","hambre","pantry","despensa","groceries","comestibles","meal","meals","comidas","aliment","snap","hunger hotline"],
-  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir"],
+  crisis:["crisis","suicide","suicidal","kill myself","self harm","self-harm","domestic violence","violencia domestica","abuse","abus","veteran","veterano","hotline","linea de crisis","emergency","emergencia","danger","peligro","child abuse","maltrato","988","suicidio","depressed","depresion","kriz","ijans","vyolans domestik","swisid","crise","preciso de ajuda","ajuda urgente"],
+  food:["food","hungry","hunger","comida","hambre","pantry","despensa","groceries","comestibles","meal","meals","comidas","aliment","snap","hunger hotline","manje","grangou","èd manje","ed manje","manje gratis","ajuda com comida","ajuda comida","comida gratis","onde encontrar comida","preciso de comida"],
+  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir","lojman","san kay","lwaye","abri","moradia","abrigo","sem casa","aluguel","preciso de moradia"],
   health:["health","clinic","clinica","doctor","medico","insurance","seguro","salud","uninsured","medical","healthcare","enroll","coverage","cobertura","dentist","vacuna","vaccine"],
   mental:["mental","anxiety","ansiedad","anxious","ansios","sad","triste","counsel","consejer","therapy","terapia","substance","sustancia","drug","droga","alcohol","addiction","adiccion","overwhelmed","agobiad","postpartum","posparto","pregnant","embarazada","samhsa","listening"],
   jobs:["job","jobs","work","trabajo","empleo","career","carrera","resume","curriculum","hiring","contrat","training","capacitacion","unemployed","desemple"],
