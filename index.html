@@ -85,16 +85,18 @@
   <h1 data-i18n="headline">Find help nearby. Ask in English, Spanish, Haitian Creole, or Portuguese.</h1>
 
   <section class="card greet-card" aria-label="Welcome">
-    <video id="profGreeting" src="professor-greeting-cb-EN.mp4" poster="cb-professor.jpg" controls playsinline preload="metadata" style="width:100%;border-radius:12px;display:block;background:#000"></video>
+    <video id="profGreeting" src="professor-greeting-cb-EN.mp4" poster="cb-professor.jpg" controls playsinline preload="metadata" style="width:100%;border-radius:12px;display:block;background:#000"><track kind="captions" src="captions-en.vtt" srclang="en" label="English"><track kind="captions" src="captions-es.vtt" srclang="es" label="Español"><track kind="captions" src="captions-ht.vtt" srclang="ht" label="Kreyòl"><track kind="captions" src="captions-pt.vtt" srclang="pt" label="Português"></video>
     <div style="display:flex;gap:12px;align-items:center;margin-top:10px">
       <img src="cb-professor.jpg" alt="Moose, your Community Bridge guide" style="width:58px;height:58px;object-fit:cover;object-position:top;border-radius:50%;flex:0 0 58px">
       <p data-i18n="greetCap" style="margin:0">Moose, your Community Bridge guide, welcomes you. Everything here is free.</p>
     </div>
+    <p data-i18n="greetText" style="margin:10px 0 0;font-size:15px">Hello, and welcome to Community Bridge. I'm Moose. Food, housing, or help nearby — everything here is free, no account needed. Let's find what you need.</p>
+    <p data-i18n="greetRecorded" style="margin:4px 0 0;font-size:12.5px;color:#5b6472">A recorded welcome from Moose, your guide — not a live chat.</p>
   </section>
 
   <section class="card" aria-label="Ask">
     <h2 style="margin-top:0" data-i18n="askLoud">Ask out loud</h2>
-    <p data-i18n="askHint">Hold the microphone, ask for food, shelter, a clinic, or a crisis line. You can also type.</p>
+    <p data-i18n="askHint">Tap the microphone and ask for food, shelter, a clinic, or a crisis line. You can also type.</p>
     <div class="askbox">
       <input type="text" id="askInput" data-i18n-ph="askPlaceholder" placeholder="What do you need? e.g. food, shelter, a clinic">
       <button class="btn btn-primary" id="askBtn" type="button" data-i18n="askBtn">Ask</button>
@@ -126,7 +128,17 @@
     <div id="results"></div>
   </main>
 
-  <footer data-i18n="footerNote">Community Bridge is a community directory. Listings marked “Sample listing” are fictional examples, not real services — call 211 for real local help.</footer>
+  <main id="privacyView" class="hidden">
+    <button class="backbtn" id="privacyBackBtn" type="button">← <span data-i18n="privacyBack">Back</span></button>
+    <h2 data-i18n="privacyTitle">Privacy at Community Bridge</h2>
+    <p data-i18n="privacyLead">Free four-language community-resource finder for Indian River County, FL — English, Spanish, Haitian Creole and Portuguese.</p>
+    <p data-i18n="privacyFree">Find community resources without an account or payment.</p>
+    <p data-i18n="privacyMain">Typed searches are processed in your browser and are not sent to Community Bridge. If you use voice search, your browser's speech-recognition provider may process your audio. If you enable location access, your browser or device location service may process your location. Community Bridge does not store these inputs or transmit them to its own servers.</p>
+    <p data-i18n="privacyHost">Hosting note: this site is hosted on GitHub Pages. Like any web host, GitHub may keep standard security logs of visits, such as IP addresses. Those logs belong to GitHub — Community Bridge does not receive or use them.</p>
+  </main>
+
+  <div style="text-align:center;margin:12px 0 2px"><button class="backbtn" id="privacyBtn" type="button">🔒 <span data-i18n="privacyBtn">Privacy</span></button></div>
+  <footer data-i18n="footerNote">Community Bridge is a free community directory — no account, no cost. For local help anywhere, call 211.</footer>
 </div>
 <script>
 "use strict";
@@ -139,7 +151,7 @@ var I18N = {
     noAccount: "No account needed",
     headline: "Find help nearby. Ask in English, Spanish, Haitian Creole, or Portuguese.",
     askLoud: "Ask out loud",
-    askHint: "Hold the microphone, ask for food, shelter, a clinic, or a crisis line. You can also type.",
+    askHint: "Tap the microphone and ask for food, shelter, a clinic, or a crisis line. You can also type.",
     askPlaceholder: "What do you need? e.g. food, shelter, a clinic",
     askBtn: "Ask",
     searchNote: "This is a keyword search of the directory on this page — not an AI. Nothing you type is sent anywhere.",
@@ -177,19 +189,32 @@ var I18N = {
     fromFellsmere: "from Fellsmere",
     supplement: "More help — national lines",
     localSection: "Verified local help — Indian River County, Florida",
-    localFoodNote: "These places were checked on 2026-10-23. If a place is farther away, its town and the approximate distance from Fellsmere are shown.",
+    localFoodNote: "These places were checked on 2026-10-23. Distances are measured from your location when you share it; otherwise from the town shown.",
     foodNoPlace: "Tip: add your city or ZIP code to see verified local places first. We currently cover Fellsmere, Sebastian, and Vero Beach, Florida.",
     notCovered: "We don't have verified listings for {place} yet. The nearest towns we cover are Fellsmere, Sebastian, and Vero Beach, Florida. You can also call 211 for local help anywhere.",
     nonFoodLocal: "Our verified local listings for this area currently cover food only. For other needs, the national lines below can help — or call 211.",
     useLocation: "📍 Use my location",
     geoFinding: "Finding your location…",
     geoNear: "Showing verified food help near {place}, based on your location.",
-    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.” / No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
+    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.”",
     micListening: "Listening… speak now",
-    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below. / El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
-    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question. / No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
-    micError: "Voice didn't work this time. Please type your question instead. / La voz no funcionó esta vez. Por favor escribe tu pregunta.",
-    footerNote: "Community Bridge is a community directory. Listings marked “Sample listing” are fictional examples, not real services — call 211 for real local help."
+    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below.",
+    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question.",
+    micError: "Voice didn't work this time. Please type your question instead.",
+    footerNote: "Community Bridge is a free community directory — no account, no cost. For local help anywhere, call 211.",
+    geoOutside: "You're outside the area Community Bridge covers with verified local listings (Fellsmere, Sebastian, and Vero Beach, Florida). These national lines work anywhere:",
+    notCoveredCat: "We don't have a verified local listing for {category} in our coverage area yet. Call 211 — free, 24/7 in most areas — for local help with {category} anywhere.",
+    distFromYou: "from you",
+    distFrom: "from",
+    greetText: "Hello, and welcome to Community Bridge. I'm Moose. Food, housing, or help nearby — everything here is free, no account needed. Let's find what you need.",
+    greetRecorded: "A recorded welcome from Moose, your guide — not a live chat.",
+    privacyBtn: "Privacy",
+    privacyBack: "Back",
+    privacyTitle: "Privacy at Community Bridge",
+    privacyLead: "Free four-language community-resource finder for Indian River County, FL — English, Spanish, Haitian Creole and Portuguese.",
+    privacyFree: "Find community resources without an account or payment.",
+    privacyMain: "Typed searches are processed in your browser and are not sent to Community Bridge. If you use voice search, your browser's speech-recognition provider may process your audio. If you enable location access, your browser or device location service may process your location. Community Bridge does not store these inputs or transmit them to its own servers.",
+    privacyHost: "Hosting note: this site is hosted on GitHub Pages. Like any web host, GitHub may keep standard security logs of visits, such as IP addresses. Those logs belong to GitHub — Community Bridge does not receive or use them.",
   },
   es: {
     tagline: "Encuentra ayuda cerca de ti",
@@ -198,7 +223,7 @@ var I18N = {
     noAccount: "No necesitas una cuenta",
     headline: "Encuentra ayuda cerca de ti. Pregunta en inglés, español, criollo haitiano o portugués.",
     askLoud: "Pregunta en voz alta",
-    askHint: "Mantén presionado el micrófono y pide comida, refugio, una clínica o una línea de crisis. También puedes escribir.",
+    askHint: "Toca el micrófono y pide comida, refugio, una clínica o una línea de crisis. También puedes escribir.",
     askPlaceholder: "¿Qué necesitas? Ej.: comida, refugio, una clínica",
     askBtn: "Preguntar",
     searchNote: "Esto es una búsqueda por palabras clave del directorio de esta página — no es una IA. Nada de lo que escribes se envía a ningún sitio.",
@@ -236,19 +261,32 @@ var I18N = {
     fromFellsmere: "de Fellsmere",
     supplement: "Más ayuda — líneas nacionales",
     localSection: "Ayuda local verificada — Condado de Indian River, Florida",
-    localFoodNote: "Estos lugares se verificaron el 2026-10-23. Si un lugar está más lejos, se muestra su ciudad y la distancia aproximada desde Fellsmere.",
+    localFoodNote: "Estos lugares se verificaron el 2026-10-23. Las distancias se miden desde tu ubicación cuando la compartes; si no, desde la ciudad que se muestra.",
     foodNoPlace: "Consejo: agrega tu ciudad o código postal para ver primero los lugares locales verificados. Por ahora cubrimos Fellsmere, Sebastian y Vero Beach, Florida.",
     notCovered: "Todavía no tenemos listados verificados para {place}. Las ciudades cercanas que sí cubrimos son Fellsmere, Sebastian y Vero Beach, Florida. También puedes llamar al 211 para ayuda local en cualquier lugar.",
     nonFoodLocal: "Nuestros listados locales verificados para esta área por ahora solo cubren comida. Para otras necesidades, las líneas nacionales de abajo pueden ayudar — o llama al 211.",
     useLocation: "📍 Usar mi ubicación",
     geoFinding: "Buscando tu ubicación…",
     geoNear: "Mostrando ayuda de comida verificada cerca de {place}, según tu ubicación.",
-    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.” / No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
+    geoDenied: "No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
     micListening: "Escuchando… habla ahora",
-    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below. / El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
-    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question. / No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
-    micError: "Voice didn't work this time. Please type your question instead. / La voz no funcionó esta vez. Por favor escribe tu pregunta.",
-    footerNote: "Community Bridge es un directorio comunitario. Los listados marcados como “Listado de muestra” son ejemplos ficticios, no servicios reales — llama al 211 para ayuda local real."
+    micDenied: "El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
+    micNoSpeech: "No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
+    micError: "La voz no funcionó esta vez. Por favor escribe tu pregunta.",
+    footerNote: "Community Bridge es un directorio comunitario gratuito — sin cuenta, sin costo. Para ayuda local en cualquier lugar, llama al 211.",
+    geoOutside: "Estás fuera del área donde Community Bridge tiene listados locales verificados (Fellsmere, Sebastian y Vero Beach, Florida). Estas líneas nacionales funcionan en cualquier lugar:",
+    notCoveredCat: "Todavía no tenemos un listado local verificado para {category} en nuestra área de cobertura. Llama al 211 — gratis, 24/7 en la mayoría de las áreas — para ayuda local con {category} en cualquier lugar.",
+    distFromYou: "desde tu ubicación",
+    distFrom: "desde",
+    greetText: "Hola, y bienvenidos a Community Bridge. Soy Moose, su guía. Comida, vivienda o ayuda cercana — todo es gratuito, y no necesita cuenta. Encontremos lo que necesita.",
+    greetRecorded: "Una bienvenida grabada de Moose, su guía — no es un chat en vivo.",
+    privacyBtn: "Privacidad",
+    privacyBack: "Volver",
+    privacyTitle: "Privacidad en Community Bridge",
+    privacyLead: "Buscador gratuito de recursos comunitarios en cuatro idiomas para el condado de Indian River, FL — inglés, español, criollo haitiano y portugués.",
+    privacyFree: "Encuentre recursos comunitarios sin cuenta y sin pago.",
+    privacyMain: "Las búsquedas escritas se procesan en su navegador y no se envían a Community Bridge. Si usa la búsqueda por voz, el proveedor de reconocimiento de voz de su navegador puede procesar su audio. Si activa el acceso a su ubicación, el servicio de ubicación de su navegador o dispositivo puede procesar su ubicación. Community Bridge no almacena estos datos ni los transmite a sus propios servidores.",
+    privacyHost: "Nota sobre el alojamiento: este sitio está alojado en GitHub Pages. Como cualquier proveedor de alojamiento web, GitHub puede conservar registros de seguridad estándar de las visitas, como las direcciones IP. Esos registros pertenecen a GitHub — Community Bridge no los recibe ni los utiliza.",
   },
   ht: {
     tagline: "Jwenn èd tou pre w",
@@ -257,7 +295,7 @@ var I18N = {
     noAccount: "Ou pa bezwen kont",
     headline: "Jwenn èd tou pre w. Mande an Anglè, Panyòl, Kreyòl oswa Pòtigè.",
     askLoud: "Mande byen fò",
-    askHint: "Kenbe mikwofòn nan, mande manje, yon kote pou w dòmi, yon klinik, oswa yon liy kriz. Ou kapab ekri tou.",
+    askHint: "Peze mikwofòn nan, mande manje, yon kote pou w dòmi, yon klinik, oswa yon liy kriz. Ou kapab ekri tou.",
     askPlaceholder: "Kisa w bezwen? Egz.: manje, yon kote pou dòmi, yon klinik",
     askBtn: "Mande",
     searchNote: "Sa a se yon rechèch pa mo kle nan anyè ki sou paj sa a — se pa yon IA. Anyen ou ekri pa ale okenn kote.",
@@ -295,7 +333,7 @@ var I18N = {
     fromFellsmere: "aparti Fellsmere",
     supplement: "Plis èd — liy nasyonal yo",
     localSection: "Èd lokal verifye — Konte Indian River, Florid",
-    localFoodNote: "Yo te verifye kote sa yo nan dat 2026-10-23. Si yon kote pi lwen, yo montre vil li ak distans apeprè a apati Fellsmere.",
+    localFoodNote: "Yo te verifye kote sa yo nan dat 2026-10-23. Distans yo mezire apati kote w ye lè w pataje l; sinon, apati vil yo montre a.",
     foodNoPlace: "Konsèy: ajoute vil ou oswa kòd postal ou pou w wè kote lokal verifye yo anvan. Kounye a nou kouvri Fellsmere, Sebastian ak Vero Beach, Florid.",
     notCovered: "Nou poko gen lis verifye pou {place}. Vil ki pi pre nou kouvri yo se Fellsmere, Sebastian ak Vero Beach, Florid. Ou kapab rele 211 tou pou èd lokal nenpòt kote.",
     nonFoodLocal: "Lis lokal verifye nou yo pou zòn sa a kouvri manje sèlman pou kounye a. Pou lòt bezwen, liy nasyonal ki anba yo ka ede w — oswa rele 211.",
@@ -303,11 +341,24 @@ var I18N = {
     geoFinding: "N ap chèche pozisyon w…",
     geoNear: "N ap montre èd verifye pou manje tou pre {place}, selon pozisyon w.",
     micListening: "N ap koute w… pale kounye a",
-    footerNote: "Community Bridge se yon anyè kominotè. Lis ki make “Lis egzanp” yo se egzanp fiktif, se pa sèvis reyèl — rele 211 pou èd lokal reyèl.",
-    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.” / No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
-    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below. / El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
-    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question. / No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
-    micError: "Voice didn't work this time. Please type your question instead. / La voz no funcionó esta vez. Por favor escribe tu pregunta."
+    footerNote: "Community Bridge se yon anyè kominotè gratis — san kont, san kòb. Pou èd lokal nenpòt kote, rele 211.",
+    geoDenied: "Nou pa t ka jwenn kote w ye. Ekri vil ou oswa kòd postal ou pito — pa egzanp, «manje nan Fellsmere».",
+    micDenied: "Mikwofòn nan bloke. Verifye paramèt sit la nan navigatè w la pou w pèmèt mikwofòn nan — oswa ekri kesyon ou an anba a.",
+    micNoSpeech: "Nou pa t tande anyen. Peze mikwofòn nan epi eseye ankò, oswa ekri kesyon ou an.",
+    micError: "Vwa a pa t mache fwa sa a. Tanpri ekri kesyon ou an pito.",
+    geoOutside: "Ou deyò zòn Community Bridge kouvri ak lis lokal verifye (Fellsmere, Sebastian ak Vero Beach, Florid). Liy nasyonal sa yo fonksyone nenpòt kote:",
+    notCoveredCat: "Nou poko gen yon lis lokal verifye pou {category} nan zòn kouvèti nou an. Rele 211 — gratis, 24/7 nan pifò zòn — pou èd lokal ak {category} nenpòt kote.",
+    distFromYou: "apati ou",
+    distFrom: "apati",
+    greetText: "Bonjou, byenveni nan Community Bridge. Mwen se Moose. Manje, lojman, oswa èd — tout gratis, san kont. Ann jwenn sa w bezwen.",
+    greetRecorded: "Yon byenveni anrejistre nan men Moose, gid ou — se pa yon chat an dirèk.",
+    privacyBtn: "Konfidansyalite",
+    privacyBack: "Retounen",
+    privacyTitle: "Konfidansyalite nan Community Bridge",
+    privacyLead: "Community Bridge se yon zouti gratis an kat lang pou jwenn resous kominotè nan Konte Indian River, FL — anglè, panyòl, kreyòl ayisyen ak pòtigè.",
+    privacyFree: "Jwenn resous kominotè san kont epi san peman.",
+    privacyMain: "Rechèch ou tape yo trete nan navigatè w epi yo pa voye yo bay Community Bridge. Si w itilize rechèch vokal, founisè rekonesans vwa navigatè w la ka trete vwa w. Si w aktive aksè a pozisyon w, sèvis lokalizasyon navigatè w oswa aparèy ou a ka trete pozisyon w. Community Bridge pa konsève enfòmasyon sa yo, ni li pa transmèt yo sou pwòp sèvè li.",
+    privacyHost: "Nòt sou ebèjman an: sit sa a ebèje sou GitHub Pages. Tankou nenpòt ebèjè entènèt, GitHub ka konsève jounal sekirite estanda sou vizit yo, tankou adrès IP. Jounal sa yo se pou GitHub — Community Bridge pa resevwa yo, ni li pa itilize yo.",
   },
   pt: {
     tagline: "Encontre ajuda perto de você",
@@ -316,7 +367,7 @@ var I18N = {
     noAccount: "Não precisa de conta",
     headline: "Encontre ajuda perto de você. Pergunte em inglês, espanhol, crioulo haitiano ou português.",
     askLoud: "Pergunte em voz alta",
-    askHint: "Segure o microfone e peça comida, abrigo, uma clínica ou uma linha de crise. Você também pode digitar.",
+    askHint: "Toque no microfone e peça comida, abrigo, uma clínica ou uma linha de crise. Você também pode digitar.",
     askPlaceholder: "Do que você precisa? Ex.: comida, abrigo, uma clínica",
     askBtn: "Perguntar",
     searchNote: "Isto é uma busca por palavras-chave no diretório desta página — não é uma IA. Nada do que você digita é enviado para lugar nenhum.",
@@ -354,7 +405,7 @@ var I18N = {
     fromFellsmere: "de Fellsmere",
     supplement: "Mais ajuda — linhas nacionais",
     localSection: "Ajuda local verificada — Condado de Indian River, Flórida",
-    localFoodNote: "Estes lugares foram verificados em 2026-10-23. Se um lugar for mais longe, a cidade dele e a distância aproximada a partir de Fellsmere são mostradas.",
+    localFoodNote: "Estes lugares foram verificados em 23/10/2026. As distâncias são medidas a partir da sua localização quando você a compartilha; caso contrário, a partir da cidade mostrada.",
     foodNoPlace: "Dica: adicione sua cidade ou CEP para ver primeiro os lugares locais verificados. Atualmente cobrimos Fellsmere, Sebastian e Vero Beach, Flórida.",
     notCovered: "Ainda não temos listas verificadas para {place}. As cidades mais próximas que cobrimos são Fellsmere, Sebastian e Vero Beach, Flórida. Você também pode ligar para 211 para ajuda local em qualquer lugar.",
     nonFoodLocal: "Nossas listas locais verificadas para esta área cobrem apenas alimentos por enquanto. Para outras necessidades, as linhas nacionais abaixo podem ajudar — ou ligue para 211.",
@@ -362,67 +413,80 @@ var I18N = {
     geoFinding: "Buscando sua localização…",
     geoNear: "Mostrando ajuda verificada com alimentos perto de {place}, com base na sua localização.",
     micListening: "Ouvindo… fale agora",
-    footerNote: "Community Bridge é um diretório comunitário. As listas marcadas como “Lista de exemplo” são exemplos fictícios, não serviços reais — ligue 211 para ajuda local de verdade.",
-    geoDenied: "We couldn't get your location. Type your city or ZIP code instead — for example, “food in Fellsmere.” / No pudimos obtener tu ubicación. Escribe tu ciudad o código postal — por ejemplo, «comida en Fellsmere».",
-    micDenied: "The microphone is blocked. Check your browser's site settings to allow the microphone — or just type your question below. / El micrófono está bloqueado. Revisa los ajustes de tu navegador para permitir el micrófono — o simplemente escribe tu pregunta abajo.",
-    micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question. / No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
-    micError: "Voice didn't work this time. Please type your question instead. / La voz no funcionó esta vez. Por favor escribe tu pregunta."
+    footerNote: "O Community Bridge é um diretório comunitário gratuito — sem conta, sem custo. Para ajuda local em qualquer lugar, ligue para 211.",
+    geoDenied: "Não conseguimos obter sua localização. Digite sua cidade ou CEP — por exemplo, “comida em Fellsmere”.",
+    micDenied: "O microfone está bloqueado. Verifique as configurações do site no seu navegador para permitir o microfone — ou apenas digite sua pergunta abaixo.",
+    micNoSpeech: "Não ouvimos nada. Toque no microfone e tente de novo, ou digite sua pergunta.",
+    micError: "A voz não funcionou desta vez. Por favor, digite sua pergunta.",
+    geoOutside: "Você está fora da área que o Community Bridge cobre com listas locais verificadas (Fellsmere, Sebastian e Vero Beach, Flórida). Estas linhas nacionais funcionam em qualquer lugar:",
+    notCoveredCat: "Ainda não temos uma lista local verificada para {category} na nossa área de cobertura. Ligue para 211 — gratuito, 24 horas na maioria das áreas — para ajuda local com {category} em qualquer lugar.",
+    distFromYou: "de você",
+    distFrom: "de",
+    greetText: "Olá, e bem-vindo ao Community Bridge. Sou Moose. Comida, moradia ou ajuda perto de você — tudo é gratuito, sem conta. Vamos encontrar o que você precisa.",
+    greetRecorded: "Boas-vindas gravadas de Moose, seu guia — não é um chat ao vivo.",
+    privacyBtn: "Privacidade",
+    privacyBack: "Voltar",
+    privacyTitle: "Privacidade no Community Bridge",
+    privacyLead: "Ferramenta gratuita em quatro idiomas para encontrar recursos comunitários no condado de Indian River, FL — inglês, espanhol, crioulo haitiano e português.",
+    privacyFree: "Encontre recursos comunitários sem conta e sem pagamento.",
+    privacyMain: "As pesquisas digitadas são processadas no seu navegador e não são enviadas ao Community Bridge. Se você usar a pesquisa por voz, o provedor de reconhecimento de voz do seu navegador poderá processar o seu áudio. Se você ativar o acesso à localização, o serviço de localização do seu navegador ou dispositivo poderá processar a sua localização. O Community Bridge não armazena essas informações nem as transmite para seus próprios servidores.",
+    privacyHost: "Nota sobre hospedagem: este site está hospedado no GitHub Pages. Como qualquer provedor de hospedagem, o GitHub pode manter registros de segurança padrão das visitas, como endereços IP. Esses registros pertencem ao GitHub — o Community Bridge não os recebe nem os utiliza.",
   }
 };
 
 /* ============ CATEGORIES (names/descriptions verbatim EN; ES = faithful translations) ============ */
 var CATEGORIES = [
-  {slug:"crisis",    en:"Crisis",       es:"Crisis",          den:"Immediate emotional support and safety lines",        des:"Apoyo emocional inmediato y líneas de seguridad"},
-  {slug:"food",      en:"Food",         es:"Comida",          den:"Groceries, meals, and hunger hotlines",               des:"Comestibles, comidas y líneas de ayuda contra el hambre"},
-  {slug:"housing",   en:"Housing",      es:"Vivienda",        den:"Shelter, rent help, and a safe bed",                  des:"Refugio, ayuda con el alquiler y una cama segura"},
-  {slug:"health",    en:"Health",       es:"Salud",           den:"Clinics, insurance, and care navigation",             des:"Clínicas, seguros y orientación sobre la atención médica"},
-  {slug:"mental",    en:"Mental health",es:"Salud mental",    den:"Counseling, substance use, and listening lines",      des:"Consejería, uso de sustancias y líneas de escucha"},
-  {slug:"jobs",      en:"Work",         es:"Trabajo",         den:"Job search, training, and hiring help",               des:"Búsqueda de empleo, capacitación y ayuda para conseguir trabajo"},
-  {slug:"legal",     en:"Legal",        es:"Ayuda legal",     den:"Free or low-cost legal help",                         des:"Ayuda legal gratuita o de bajo costo"},
-  {slug:"transit",   en:"Transit",      es:"Transporte",      den:"Rides to care, work, and appointments",               des:"Viajes a servicios de salud, al trabajo y a citas"},
-  {slug:"childcare", en:"Child care",   es:"Cuidado infantil",den:"Child care referrals and family support",             des:"Referencias de cuidado infantil y apoyo a las familias"},
-  {slug:"utilities", en:"Utilities",    es:"Servicios básicos",den:"Help keeping heat, power, and water on",             des:"Ayuda para mantener la calefacción, la electricidad y el agua"},
-  {slug:"seniors",   en:"Older adults", es:"Adultos mayores", den:"Meals, caregivers, and aging services",              des:"Comidas, cuidadores y servicios para adultos mayores"},
-  {slug:"education", en:"Learning",     es:"Educación",       den:"English classes, GED, and adult learning",            des:"Clases de inglés, GED y aprendizaje para adultos"}
+  {slug:"crisis",    en:"Crisis",       es:"Crisis",          den:"Immediate emotional support and safety lines",        des:"Apoyo emocional inmediato y líneas de seguridad", ht:"Kriz", pt:"Crise", dht:"Sipò emosyonèl imedyat ak liy sekirite", dpt:"Apoio emocional imediato e linhas de segurança"},
+  {slug:"food",      en:"Food",         es:"Comida",          den:"Groceries, meals, and hunger hotlines",               des:"Comestibles, comidas y líneas de ayuda contra el hambre", ht:"Manje", pt:"Comida", dht:"Pwovizyon, manje pare ak liy èd kont grangou", dpt:"Mantimentos, refeições e linhas de ajuda contra a fome"},
+  {slug:"housing",   en:"Housing",      es:"Vivienda",        den:"Shelter, rent help, and a safe bed",                  des:"Refugio, ayuda con el alquiler y una cama segura", ht:"Lojman", pt:"Moradia", dht:"Abri, èd pou lwaye ak yon kabann ki an sekirite", dpt:"Abrigo, ajuda com aluguel e uma cama segura"},
+  {slug:"health",    en:"Health",       es:"Salud",           den:"Clinics, insurance, and care navigation",             des:"Clínicas, seguros y orientación sobre la atención médica", ht:"Sante", pt:"Saúde", dht:"Klinik, asirans ak oryantasyon pou swen", dpt:"Clínicas, seguro e orientação sobre cuidados"},
+  {slug:"mental",    en:"Mental health",es:"Salud mental",    den:"Counseling, substance use, and listening lines",      des:"Consejería, uso de sustancias y líneas de escucha", ht:"Sante mantal", pt:"Saúde mental", dht:"Konsèy, itilizasyon sibstans ak liy ekout", dpt:"Aconselhamento, uso de substâncias e linhas de escuta"},
+  {slug:"jobs",      en:"Work",         es:"Trabajo",         den:"Job search, training, and hiring help",               des:"Búsqueda de empleo, capacitación y ayuda para conseguir trabajo", ht:"Travay", pt:"Trabalho", dht:"Chèche travay, fòmasyon ak èd pou jwenn anboch", dpt:"Busca de emprego, treinamento e ajuda para contratação"},
+  {slug:"legal",     en:"Legal",        es:"Ayuda legal",     den:"Free or low-cost legal help",                         des:"Ayuda legal gratuita o de bajo costo", ht:"Èd legal", pt:"Ajuda jurídica", dht:"Èd legal gratis oswa ki pa chè", dpt:"Ajuda jurídica gratuita ou de baixo custo"},
+  {slug:"transit",   en:"Transit",      es:"Transporte",      den:"Rides to care, work, and appointments",               des:"Viajes a servicios de salud, al trabajo y a citas", ht:"Transpò", pt:"Transporte", dht:"Vwayaj pou swen, travay ak randevou", dpt:"Viagens para cuidados, trabalho e compromissos"},
+  {slug:"childcare", en:"Child care",   es:"Cuidado infantil",den:"Child care referrals and family support",             des:"Referencias de cuidado infantil y apoyo a las familias", ht:"Gad timoun", pt:"Cuidado infantil", dht:"Referans pou gad timoun ak sipò pou fanmi", dpt:"Indicações de cuidado infantil e apoio às famílias"},
+  {slug:"utilities", en:"Utilities",    es:"Servicios básicos",den:"Help keeping heat, power, and water on",             des:"Ayuda para mantener la calefacción, la electricidad y el agua", ht:"Sèvis debaz", pt:"Serviços básicos", dht:"Èd pou kenbe chalè, kouran ak dlo", dpt:"Ajuda para manter aquecimento, energia e água"},
+  {slug:"seniors",   en:"Older adults", es:"Adultos mayores", den:"Meals, caregivers, and aging services",              des:"Comidas, cuidadores y servicios para adultos mayores", ht:"Granmoun", pt:"Idosos", dht:"Manje, moun k ap pran swen ak sèvis pou granmoun", dpt:"Refeições, cuidadores e serviços para idosos"},
+  {slug:"education", en:"Learning",     es:"Educación",       den:"English classes, GED, and adult learning",            des:"Clases de inglés, GED y aprendizaje para adultos", ht:"Aprann", pt:"Aprendizagem", dht:"Klas anglè, GED ak aprantisaj pou granmoun", dpt:"Aulas de inglês, GED e aprendizagem para adultos"},
 ];
 
 /* ============ LISTINGS (every field verbatim from the live site) ============ */
 var SAMPLE_NOTE = "This Harbor County record is fictional so the directory works before real local providers are added. Do not contact it.";
 var LISTINGS = [
  {id:"988", cat:"crisis", scope:"national", name:"988 Suicide & Crisis Lifeline",
-  desc:"Call or text 988 for confidential support if you or someone you know is in emotional distress or thinking about suicide.",
+  desc:{en:"Call or text 988 for confidential support if you or someone you know is in emotional distress or thinking about suicide.", es:"Llama o envía un mensaje de texto al 988 para recibir apoyo confidencial si tú o alguien que conoces está en angustia emocional o pensando en el suicidio.", ht:"Rele oswa tèks 988 pou sipò konfidansyèl si ou menm oswa yon moun ou konnen an detrès emosyonèl oswa ap panse a swisid.", pt:"Ligue ou envie mensagem para 988 para apoio confidencial se você ou alguém que você conhece está em sofrimento emocional ou pensando em suicídio."},
   phone:"988", tel:"988", text:"988", textNum:"988",
-  hours:"24 hours, every day. Spanish: press 2.", who:"Anyone in emotional distress in the United States.",
-  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Trained counselors answer 24 hours a day. For Spanish, press 2 after calling. This is a national line, not a Harbor County office. If there is immediate danger, call 911.",
+  hours:{en:"24 hours, every day. Spanish: press 2.", es:"24 horas, todos los días. Español: presiona 2.", ht:"24 sou 24, chak jou. Panyòl: peze 2.", pt:"24 horas, todos os dias. Espanhol: pressione 2."}, who:{en:"Anyone in emotional distress in the United States.", es:"Cualquier persona en angustia emocional en los Estados Unidos.", ht:"Nenpòt moun an detrès emosyonèl Ozetazini.", pt:"Qualquer pessoa em sofrimento emocional nos Estados Unidos."},
+  cost:{en:"Free.", es:"Gratis.", ht:"Gratis.", pt:"Gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Trained counselors answer 24 hours a day. For Spanish, press 2 after calling. This is a national line, not a Harbor County office. If there is immediate danger, call 911.", es:"Consejeros capacitados responden las 24 horas. Para español, presiona 2 después de llamar. Es una línea nacional, no una oficina local. Si hay peligro inmediato, llama al 911.", ht:"Konseye ki resevwa fòmasyon reponn 24 sou 24. Pou Panyòl, peze 2 apre w fin rele. Sa a se yon liy nasyonal, pa yon biwo lokal. Si gen danje imedyat, rele 911.", pt:"Conselheiros treinados atendem 24 horas por dia. Para espanhol, pressione 2 após ligar. É uma linha nacional, não um escritório local. Se houver perigo imediato, ligue para 911."},
   web:"988lifeline.org"},
  {id:"ndvh", cat:"crisis", scope:"national", name:"National Domestic Violence Hotline",
-  desc:"Confidential help if you are experiencing domestic violence, or if you are worried about someone who is.",
+  desc:{en:"Confidential help if you are experiencing domestic violence, or if you are worried about someone who is.", es:"Ayuda confidencial si estás viviendo violencia doméstica, o si te preocupa alguien que la vive.", ht:"Èd konfidansyèl si w ap viv vyolans domestik, oswa si w enkyè pou yon moun k ap viv li.", pt:"Ajuda confidencial se você está sofrendo violência doméstica, ou se está preocupado com alguém que está."},
   phone:"1-800-799-7233", tel:"+18007997233", text:"START to 88788", textNum:"88788", textBody:"START",
-  hours:"24 hours. Text START to 88788.", who:"People affected by domestic or intimate-partner violence.",
-  cost:"Free and confidential.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Advocates can help with safety planning and local referrals. Text START to 88788. Spanish is available. If you are in immediate danger, call 911.",
+  hours:{en:"24 hours. Text START to 88788.", es:"24 horas. Envía START por mensaje de texto al 88788.", ht:"24 sou 24. Tèks START nan 88788.", pt:"24 horas. Envie START por mensagem de texto para 88788."}, who:{en:"People affected by domestic or intimate-partner violence.", es:"Personas afectadas por la violencia doméstica o de pareja.", ht:"Moun vyolans domestik oswa vyolans nan koup afekte.", pt:"Pessoas afetadas por violência doméstica ou de parceiro."},
+  cost:{en:"Free and confidential.", es:"Gratis y confidencial.", ht:"Gratis epi konfidansyèl.", pt:"Gratuito e confidencial."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Advocates can help with safety planning and local referrals. Text START to 88788. Spanish is available. If you are in immediate danger, call 911.", es:"Los defensores pueden ayudarte con un plan de seguridad y referencias locales. Envía START al 88788. Hay español disponible. Si estás en peligro inmediato, llama al 911.", ht:"Defansè yo ka ede w ak yon plan sekirite ak referans lokal. Tèks START nan 88788. Gen Panyòl. Si w an danje imedyat, rele 911.", pt:"Os defensores podem ajudar com um plano de segurança e indicações locais. Envie START para 88788. Há atendimento em espanhol. Se estiver em perigo imediato, ligue para 911."},
   web:"www.thehotline.org"},
  {id:"childhelp", cat:"crisis", scope:"national", name:"Childhelp National Child Abuse Hotline",
-  desc:"Professional counselors for child abuse, neglect, or concerns about a child's safety.",
+  desc:{en:"Professional counselors for child abuse, neglect, or concerns about a child's safety.", es:"Consejeros profesionales para abuso infantil, negligencia o preocupaciones sobre la seguridad de un niño.", ht:"Konseye pwofesyonèl pou abi sou timoun, neglijans, oswa enkyetid sou sekirite yon timoun.", pt:"Conselheiros profissionais para abuso infantil, negligência ou preocupações com a segurança de uma criança."},
   phone:"1-800-422-4453", tel:"+18004224453", text:"1-800-422-4453", textNum:"18004224453",
-  hours:"24 hours.", who:"Anyone concerned about a child. Callers can remain anonymous.",
-  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Call or text 1-800-422-4453. Counselors can help you think through next steps and local reporting. If a child is in immediate danger, call 911.",
+  hours:{en:"24 hours.", es:"24 horas.", ht:"24 sou 24.", pt:"24 horas."}, who:{en:"Anyone concerned about a child. Callers can remain anonymous.", es:"Cualquier persona preocupada por un niño. Las llamadas pueden ser anónimas.", ht:"Nenpòt moun ki enkyè pou yon timoun. Ou ka rete anonim.", pt:"Qualquer pessoa preocupada com uma criança. As ligações podem ser anônimas."},
+  cost:{en:"Free.", es:"Gratis.", ht:"Gratis.", pt:"Gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Call or text 1-800-422-4453. Counselors can help you think through next steps and local reporting. If a child is in immediate danger, call 911.", es:"Llama o envía un mensaje al 1-800-422-4453. Los consejeros pueden ayudarte a pensar los próximos pasos y cómo reportar localmente. Si un niño está en peligro inmediato, llama al 911.", ht:"Rele oswa tèks 1-800-422-4453. Konseye yo ka ede w reflechi sou pwochen etap yo ak rapò lokal. Si yon timoun an danje imedyat, rele 911.", pt:"Ligue ou envie mensagem para 1-800-422-4453. Os conselheiros podem ajudar você a pensar nos próximos passos e na denúncia local. Se uma criança estiver em perigo imediato, ligue para 911."},
   web:"www.childhelp.org"},
  {id:"veterans-crisis", cat:"crisis", scope:"national", name:"Veterans Crisis Line",
-  desc:"Confidential support for veterans, service members, and their families. Call 988 and press 1.",
+  desc:{en:"Confidential support for veterans, service members, and their families. Call 988 and press 1.", es:"Apoyo confidencial para veteranos, miembros del servicio militar y sus familias. Llama al 988 y presiona 1.", ht:"Sipò konfidansyèl pou veteran, manm sèvis militè ak fanmi yo. Rele 988 epi peze 1.", pt:"Apoio confidencial para veteranos, militares e suas famílias. Ligue para 988 e pressione 1."},
   phone:"988", tel:"988", text:"838255", textNum:"838255",
-  hours:"24 hours. Call 988, then press 1. Text 838255.", who:"Veterans, service members, and people who care about them.",
-  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Available 24 hours. You can also text 838255. This listing uses the official national line. It does not replace local VA care.",
+  hours:{en:"24 hours. Call 988, then press 1. Text 838255.", es:"24 horas. Llama al 988 y luego presiona 1. Mensaje de texto al 838255.", ht:"24 sou 24. Rele 988, apre peze 1. Tèks 838255.", pt:"24 horas. Ligue para 988 e pressione 1. Mensagem de texto para 838255."}, who:{en:"Veterans, service members, and people who care about them.", es:"Veteranos, miembros del servicio y las personas que se preocupan por ellos.", ht:"Veteran, manm sèvis, ak moun ki pran swen yo.", pt:"Veteranos, militares e as pessoas que se importam com eles."},
+  cost:{en:"Free.", es:"Gratis.", ht:"Gratis.", pt:"Gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Available 24 hours. You can also text 838255. This listing uses the official national line. It does not replace local VA care.", es:"Disponible las 24 horas. También puedes enviar un mensaje al 838255. Este listado usa la línea nacional oficial. No reemplaza la atención local del VA.", ht:"Disponib 24 sou 24. Ou ka tèks 838255 tou. Lis sa a itilize liy nasyonal ofisyèl la. Li pa ranplase swen VA lokal.", pt:"Disponível 24 horas. Você também pode enviar mensagem para 838255. Esta lista usa a linha nacional oficial. Não substitui o atendimento local do VA."},
   web:"www.veteranscrisisline.net"},
  {id:"dial-211", cat:"food", scope:"national", name:"211",
-  desc:"Call 211 to reach local information and referral for food, housing, utilities, and other basic needs.",
+  desc:{en:"Call 211 to reach local information and referral for food, housing, utilities, and other basic needs.", es:"Llama al 211 para información y referencias locales sobre alimentos, vivienda, servicios básicos y otras necesidades esenciales.", ht:"Rele 211 pou enfòmasyon ak referans lokal sou manje, lojman, sèvis debaz ak lòt bezwen esansyèl.", pt:"Ligue para 211 para informações e indicações locais sobre comida, moradia, serviços básicos e outras necessidades essenciais."},
   phone:"211", tel:"211",
-  hours:"Depends on the local 211 center. Many answer 24 hours.", who:"Open to the public. Coverage depends on your local 211.",
-  cost:"Free call in most areas.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"211 is staffed by local centers, so hours and languages vary. Many answer around the clock. Ask for the specific need and your city. This app also lists national lines and sample Harbor County programs you can replace.",
+  hours:{en:"Depends on the local 211 center. Many answer 24 hours.", es:"Depende del centro 211 local. Muchos responden las 24 horas.", ht:"Sa depann de sant 211 lokal la. Anpil reponn 24 sou 24.", pt:"Depende da central 211 local. Muitas atendem 24 horas."}, who:{en:"Open to the public. Coverage depends on your local 211.", es:"Abierto al público. La cobertura depende de tu 211 local.", ht:"Ouvè pou piblik la. Kouvèti a depann de 211 lokal ou a.", pt:"Aberto ao público. A cobertura depende da sua central 211 local."},
+  cost:{en:"Free call in most areas.", es:"Llamada gratuita en la mayoría de las áreas.", ht:"Apèl gratis nan pifò zòn.", pt:"Ligação gratuita na maioria das áreas."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"211 is staffed by local centers, so hours and languages vary. Many answer around the clock. Ask for the specific need and your city.", es:"El 211 lo atiende personal de centros locales, así que los horarios y los idiomas varían. Muchos responden a toda hora. Pide la necesidad específica y tu ciudad.", ht:"Sant lokal yo jere 211, kidonk orè ak lang yo varye. Anpil reponn tout lajounen kou lannwit. Mande bezwen presi ou a ak vil ou.", pt:"O 211 é atendido por centrais locais, então os horários e idiomas variam. Muitas atendem a qualquer hora. Peça pela necessidade específica e pela sua cidade."},
   web:"www.211.org"},
  {id:"harbor-harvest", cat:"food", scope:"sample", name:"Harbor Harvest Food Pantry",
   desc:"Sample listing: a weekday grocery pantry for Harbor County residents. Replace it with a real local pantry.",
@@ -432,11 +496,11 @@ var LISTINGS = [
   notes:"This organization is fictional demonstration data so the directory is usable before a steward adds real providers. Do not send people here. The phone number is reserved (555) and does not connect.",
   web:null},
  {id:"hunger-hotline", cat:"food", scope:"national", name:"USDA National Hunger Hotline",
-  desc:"Help finding food pantries, meal sites, and nutrition programs anywhere in the United States.",
+  desc:{en:"Help finding food pantries, meal sites, and nutrition programs anywhere in the United States.", es:"Ayuda para encontrar despensas de alimentos, comedores y programas de nutrición en cualquier lugar de los Estados Unidos.", ht:"Èd pou jwenn bank manje, kote yo bay manje, ak pwogram nitrisyon nenpòt kote Ozetazini.", pt:"Ajuda para encontrar bancos de alimentos, locais de refeições e programas de nutrição em qualquer lugar dos Estados Unidos."},
   phone:"1-866-348-6479", tel:"+18663486479",
-  hours:"Monday to Friday, typical business hours. Check the site for holidays.", who:"Anyone looking for food assistance.",
-  cost:"Free referral.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Operated by Hunger Free America with USDA support. Call 1-866-348-6479. Spanish-speaking assistance is available. This is a referral line, not a food delivery service.",
+  hours:{en:"Monday to Friday, typical business hours. Check the site for holidays.", es:"De lunes a viernes, en horario laboral habitual. Consulta el sitio por los días festivos.", ht:"Lendi rive vandredi, nan orè biznis abityèl. Verifye sit la pou jou ferye.", pt:"De segunda a sexta, em horário comercial típico. Consulte o site para feriados."}, who:{en:"Anyone looking for food assistance.", es:"Cualquier persona que busque ayuda con alimentos.", ht:"Nenpòt moun k ap chèche èd ak manje.", pt:"Qualquer pessoa que procura ajuda com alimentos."},
+  cost:{en:"Free referral.", es:"Referencia gratuita.", ht:"Referans gratis.", pt:"Indicação gratuita."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Operated by Hunger Free America with USDA support. Call 1-866-348-6479. Spanish-speaking assistance is available. This is a referral line, not a food delivery service.", es:"Operado por Hunger Free America con apoyo del USDA. Llama al 1-866-348-6479. Hay asistencia en español. Es una línea de referencias, no un servicio de entrega de alimentos.", ht:"Hunger Free America opere l ak sipò USDA. Rele 1-866-348-6479. Gen èd an Panyòl. Sa a se yon liy referans, pa yon sèvis livrezon manje.", pt:"Operado pela Hunger Free America com apoio do USDA. Ligue para 1-866-348-6479. Há assistência em espanhol. É uma linha de indicações, não um serviço de entrega de comida."},
   web:"www.hungerfreeamerica.org"},
  {id:"riverside-shelter", cat:"housing", scope:"sample", name:"Riverside Family Shelter",
   desc:"Sample listing: an intake line for family shelter beds in Harbor County. Not a real shelter.",
@@ -453,25 +517,25 @@ var LISTINGS = [
   notes:"Fictional. It shows the fields a real clinic listing should have: hours, languages, wheelchair access, and cost. Do not seek care at this address.",
   web:null},
  {id:"marketplace", cat:"health", scope:"national", name:"Health Insurance Marketplace",
-  desc:"Official place to compare health plans and see if you qualify for savings.",
+  desc:{en:"Official place to compare health plans and see if you qualify for savings.", es:"Lugar oficial para comparar planes de salud y ver si calificas para ahorros.", ht:"Kote ofisyèl pou konpare plan sante epi wè si w kalifye pou ekonomi.", pt:"Lugar oficial para comparar planos de saúde e ver se você se qualifica para descontos."},
   phone:"1-800-318-2596", tel:"+18003182596", tty:"1-855-889-4325",
-  hours:"The call center posts seasonal hours on HealthCare.gov. TTY 1-855-889-4325.", who:"People shopping for individual or family coverage.",
-  cost:"Calling is free. Plan premiums vary.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Call 1-800-318-2596 or use HealthCare.gov. This is enrollment help, not a clinic and not emergency care. Local enrollment assisters can be added by a steward.",
+  hours:{en:"The call center posts seasonal hours on HealthCare.gov. TTY 1-855-889-4325.", es:"El centro de llamadas publica los horarios de temporada en HealthCare.gov. TTY 1-855-889-4325.", ht:"Sant apèl la pibliye orè sezon yo sou HealthCare.gov. TTY 1-855-889-4325.", pt:"A central publica os horários de temporada no HealthCare.gov. TTY 1-855-889-4325."}, who:{en:"People shopping for individual or family coverage.", es:"Personas que buscan cobertura individual o familiar.", ht:"Moun k ap chèche kouvèti endividyèl oswa familyal.", pt:"Pessoas que procuram cobertura individual ou familiar."},
+  cost:{en:"Calling is free. Plan premiums vary.", es:"Llamar es gratis. Las primas de los planes varían.", ht:"Rele se gratis. Pri plan yo varye.", pt:"Ligar é gratuito. Os preços dos planos variam."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Call 1-800-318-2596 or use HealthCare.gov. This is enrollment help, not a clinic and not emergency care. Local enrollment assisters can be added by a steward.", es:"Llama al 1-800-318-2596 o usa HealthCare.gov. Es ayuda para inscribirte, no una clínica ni atención de emergencia.", ht:"Rele 1-800-318-2596 oswa itilize HealthCare.gov. Sa a se èd pou enskripsyon, pa yon klinik ni swen ijans.", pt:"Ligue para 1-800-318-2596 ou use o HealthCare.gov. É ajuda para inscrição, não uma clínica nem atendimento de emergência."},
   web:"www.healthcare.gov"},
  {id:"maternal-mental", cat:"mental", scope:"national", name:"National Maternal Mental Health Hotline",
-  desc:"Free, confidential counselors for pregnant people and new parents who feel overwhelmed, anxious, or sad.",
+  desc:{en:"Free, confidential counselors for pregnant people and new parents who feel overwhelmed, anxious, or sad.", es:"Consejeros gratuitos y confidenciales para personas embarazadas y padres recientes que se sienten abrumados, ansiosos o tristes.", ht:"Konseye gratis epi konfidansyèl pou moun ansent ak nouvo paran ki santi yo debòde, anksye oswa tris.", pt:"Conselheiros gratuitos e confidenciais para gestantes e novos pais que se sentem sobrecarregados, ansiosos ou tristes."},
   phone:"1-833-852-6262", tel:"+18338526262", text:"1-833-852-6262", textNum:"18338526262",
-  hours:"24 hours. Call or text.", who:"Pregnant people, postpartum people, and their supporters.",
-  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"Call or text 1-833-852-6262 (1-833-TLC-MAMA). Counselors offer support and referrals. They do not replace emergency care. Operated for HRSA.",
+  hours:{en:"24 hours. Call or text.", es:"24 horas. Llama o envía un mensaje.", ht:"24 sou 24. Rele oswa tèks.", pt:"24 horas. Ligue ou envie mensagem."}, who:{en:"Pregnant people, postpartum people, and their supporters.", es:"Personas embarazadas, personas en posparto y quienes las apoyan.", ht:"Moun ansent, moun ki fèk akouche, ak moun k ap sipòte yo.", pt:"Gestantes, pessoas no pós-parto e quem as apoia."},
+  cost:{en:"Free.", es:"Gratis.", ht:"Gratis.", pt:"Gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"Call or text 1-833-852-6262 (1-833-TLC-MAMA). Counselors offer support and referrals. They do not replace emergency care. Operated for HRSA.", es:"Llama o envía un mensaje al 1-833-852-6262 (1-833-TLC-MAMA). Los consejeros ofrecen apoyo y referencias. No reemplazan la atención de emergencia. Operado para HRSA.", ht:"Rele oswa tèks 1-833-852-6262 (1-833-TLC-MAMA). Konseye yo ofri sipò ak referans. Yo pa ranplase swen ijans. Opere pou HRSA.", pt:"Ligue ou envie mensagem para 1-833-852-6262 (1-833-TLC-MAMA). Os conselheiros oferecem apoio e indicações. Não substituem o atendimento de emergência. Operado para a HRSA."},
   web:"mchb.hrsa.gov"},
  {id:"samhsa", cat:"mental", scope:"national", name:"SAMHSA National Helpline",
-  desc:"Treatment referral and information for mental health and substance use, 24 hours a day.",
+  desc:{en:"Treatment referral and information for mental health and substance use, 24 hours a day.", es:"Referencias de tratamiento e información sobre salud mental y uso de sustancias, las 24 horas del día.", ht:"Referans tretman ak enfòmasyon pou sante mantal ak itilizasyon sibstans, 24 sou 24.", pt:"Indicação de tratamento e informações sobre saúde mental e uso de substâncias, 24 horas por dia."},
   phone:"1-800-662-4357", tel:"+18006624357",
-  hours:"24 hours, every day.", who:"People seeking help for mental health or substance use, and their families.",
-  cost:"Free referral service.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"The helpline refers callers to local treatment, support groups, and community organizations. It is not a counseling session and it is not emergency care. For suicidal crisis, use 988.",
+  hours:{en:"24 hours, every day.", es:"24 horas, todos los días.", ht:"24 sou 24, chak jou.", pt:"24 horas, todos os dias."}, who:{en:"People seeking help for mental health or substance use, and their families.", es:"Personas que buscan ayuda por salud mental o uso de sustancias, y sus familias.", ht:"Moun k ap chèche èd pou sante mantal oswa itilizasyon sibstans, ak fanmi yo.", pt:"Pessoas que procuram ajuda para saúde mental ou uso de substâncias, e suas famílias."},
+  cost:{en:"Free referral service.", es:"Servicio de referencia gratuito.", ht:"Sèvis referans gratis.", pt:"Serviço de indicação gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"The helpline refers callers to local treatment, support groups, and community organizations. It is not a counseling session and it is not emergency care. For suicidal crisis, use 988.", es:"La línea refiere a las personas a tratamiento local, grupos de apoyo y organizaciones comunitarias. No es una sesión de consejería ni atención de emergencia. Para una crisis suicida, usa el 988.", ht:"Liy la refere moun bay tretman lokal, gwoup sipò ak òganizasyon kominotè. Se pa yon sesyon konsèy ni swen ijans. Pou kriz swisid, itilize 988.", pt:"A linha indica tratamento local, grupos de apoio e organizações comunitárias. Não é uma sessão de aconselhamento nem atendimento de emergência. Para crise suicida, use o 988."},
   web:"www.samhsa.gov"},
  {id:"harborworks", cat:"jobs", scope:"sample", name:"HarborWorks Career Desk",
   desc:"Sample listing: resume help and job listings at a fictional career desk.",
@@ -509,11 +573,11 @@ var LISTINGS = [
   notes:"Fictional stand-in for a LIHEAP or charity utility fund. The application rules shown here are examples, not current law. Confirm any real program before you apply.",
   web:null},
  {id:"eldercare", cat:"seniors", scope:"national", name:"Eldercare Locator",
-  desc:"Connects older adults and caregivers with local aging services, meals, and support.",
+  desc:{en:"Connects older adults and caregivers with local aging services, meals, and support.", es:"Conecta a adultos mayores y cuidadores con servicios locales para personas mayores, comidas y apoyo.", ht:"Konekte granmoun ak moun k ap pran swen yo ak sèvis lokal pou granmoun, manje ak sipò.", pt:"Conecta idosos e cuidadores a serviços locais para idosos, refeições e apoio."},
   phone:"1-800-677-1116", tel:"+18006771116",
-  hours:"Monday to Friday, 9:00 a.m. to 8:00 p.m. Eastern.", who:"Older adults, families, and caregivers.",
-  cost:"Free.", langs:"English, Español", wheel:"Not listed", coverage:"United States",
-  notes:"A public service of the U.S. Administration for Community Living. Call 1-800-677-1116 on weekdays. Use it to find the Area Agency on Aging for a real city. The Harbor County senior lunch below is sample data.",
+  hours:{en:"Monday to Friday, 9:00 a.m. to 8:00 p.m. Eastern.", es:"De lunes a viernes, de 9:00 a. m. a 8:00 p. m., hora del Este.", ht:"Lendi rive vandredi, 9:00 AM rive 8:00 PM, lè Lès.", pt:"De segunda a sexta, das 9h às 20h, horário do Leste."}, who:{en:"Older adults, families, and caregivers.", es:"Adultos mayores, familias y cuidadores.", ht:"Granmoun, fanmi, ak moun k ap pran swen.", pt:"Idosos, famílias e cuidadores."},
+  cost:{en:"Free.", es:"Gratis.", ht:"Gratis.", pt:"Gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
+  notes:{en:"A public service of the U.S. Administration for Community Living. Call 1-800-677-1116 on weekdays. Use it to find the Area Agency on Aging for your area.", es:"Un servicio público de la Administración para la Vida Comunitaria de EE. UU. Llama al 1-800-677-1116 entre semana. Úsalo para encontrar la Agencia de Área sobre Envejecimiento de tu zona.", ht:"Yon sèvis piblik Administrasyon pou Lavi Kominotè Etazini an. Rele 1-800-677-1116 nan jou semèn. Itilize l pou jwenn Ajans Zòn sou Vyeyès (Area Agency on Aging) pou zòn ou an.", pt:"Um serviço público da Administração para a Vida Comunitária dos EUA. Ligue para 1-800-677-1116 em dias úteis. Use-o para encontrar a Agência de Área sobre Envelhecimento da sua região."},
   web:"eldercare.acl.gov"},
  {id:"senior-lunch", cat:"seniors", scope:"sample", name:"Harbor Library Senior Lunch",
   desc:"Sample listing: a weekday lunch for older adults at the library.",
@@ -530,7 +594,7 @@ var LISTINGS = [
   notes:"Fictional campus program. Replace with the real adult school, library, or community college ESL schedule. Classes in this record do not enroll students.",
   web:null}
 ];
-var FEATURED = ["988","ndvh","dial-211","bridge-clinic"];
+var FEATURED = ["988","ndvh","dial-211","hunger-hotline"];
 
 /* ============ VERIFIED LOCAL LISTINGS — Indian River County, FL ============
    Verified 2026-10-23 from authoritative sources (organizations' own pages,
@@ -551,7 +615,7 @@ var LOCAL_LISTINGS = [
   whatEs:"Distribución gratuita de alimentos para familias. No necesitas registrarte.",
   noteEn:"Status note: the organization's own posts announced distributions at 10:00 AM on 1st & 3rd Saturdays in early 2026, but one directory listing flags this site as temporarily closed — please call before going to confirm the next distribution.",
   noteEs:"Nota sobre el estado: las publicaciones de la propia organización anunciaron distribuciones a las 10:00 AM el primer y tercer sábado a principios de 2026, pero un directorio marca este sitio como cerrado temporalmente — llama antes de ir para confirmar la próxima distribución, por favor.",
-  sourceName:"Operation Hope (operationhopefl.org)", sourceUrl:"https://operationhopefl.org/", web:"https://operationhopefl.org/"},
+  sourceName:"Operation Hope (operationhopefl.org)", sourceUrl:"https://operationhopefl.org/", web:"https://operationhopefl.org/", lat:27.76622, lon:-80.57778, hoursHt:"Distribisyon manje premye ak twazyèm samdi chak mwa — rele pou konfime lè a.", hoursPt:"Distribuição de alimentos no 1º e 3º sábado de cada mês — ligue para confirmar o horário.", whatHt:"Distribisyon manje gratis pou fanmi. Ou pa bezwen enskri.", whatPt:"Distribuição gratuita de alimentos para famílias. Não é preciso se cadastrar.", noteHt:"Nòt sou estati: piblikasyon òganizasyon an te anonse distribisyon a 10:00 AM premye ak twazyèm samdi nan kòmansman 2026, men yon anyè make kote sa a kòm fèmen pou yon ti tan — tanpri rele anvan w ale pou konfime pwochen distribisyon an.", notePt:"Nota de status: as publicações da própria organização anunciaram distribuições às 10h no 1º e 3º sábado no início de 2026, mas um diretório marca este local como temporariamente fechado — ligue antes de ir para confirmar a próxima distribuição."},
  {id:"fellsmere-enrichment", cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
   name:"Fellsmere Community Enrichment Program",
   address:"10074 Esperanza Circle, Fellsmere, FL 32948",
@@ -560,7 +624,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM–3:30 PM. Almuerzo gratuito (comedor comunitario): lunes a viernes, 11:00 AM–12:00 PM.",
   whatEn:"Food pantry, a free weekday lunch, and baby-item distributions.",
   whatEs:"Despensa de alimentos, almuerzo gratuito entre semana y distribución de artículos para bebés.",
-  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null},
+  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null, lat:27.77836, lon:-80.59027, hoursHt:"Bank manje: lendi rive vandredi, 9:00 AM–3:30 PM. Dejene gratis nan kantin kominotè: lendi rive vandredi, 11:00 AM–12:00 PM.", hoursPt:"Banco de alimentos: segunda a sexta, 9h–15h30. Almoço gratuito (cozinha comunitária): segunda a sexta, 11h–12h.", whatHt:"Bank manje, yon dejene gratis nan semèn, ak distribisyon atik pou bebe.", whatPt:"Banco de alimentos, um almoço gratuito durante a semana e distribuição de itens para bebês."},
  {id:"roseland-pantry", cat:"food", tier:1, distMi:9, townEn:"Sebastian (Roseland)", townEs:"Sebastian (Roseland)",
   name:"Roseland Ecumenical Food Pantry",
   address:"12962 Roseland Road, Sebastian, FL 32958",
@@ -569,7 +633,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Lunes, miércoles y viernes, 9:00 AM–12:00 PM.",
   whatEn:"Food pantry at Roseland United Methodist Church. Serves Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay and nearby areas — food once a month per household with a simple income form. No ID required.",
   whatEs:"Despensa de alimentos en la iglesia Roseland United Methodist. Atiende a Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay y áreas cercanas — alimentos una vez al mes por hogar con un formulario sencillo de ingresos. No se requiere identificación.",
-  sourceName:"Roseland United Methodist Church", sourceUrl:"https://eridan.websrvcs.com/templates/System/details.asp?id=42377&PID=1055143", web:null},
+  sourceName:"Roseland United Methodist Church", sourceUrl:"https://eridan.websrvcs.com/templates/System/details.asp?id=42377&PID=1055143", web:null, lat:27.83402, lon:-80.4948, hoursHt:"Lendi, mèkredi ak vandredi, 9:00 AM–12:00 PM.", hoursPt:"Segunda, quarta e sexta, 9h–12h.", whatHt:"Bank manje nan legliz Roseland United Methodist. Li sèvi Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay ak zòn ki pre yo — manje yon fwa pa mwa pou chak kay ak yon fòm revni senp. Ou pa bezwen idantifikasyon.", whatPt:"Banco de alimentos na igreja Roseland United Methodist. Atende Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay e áreas próximas — alimentos uma vez por mês por família com um formulário simples de renda. Não é preciso documento."},
  {id:"svdp-wabasso", cat:"food", tier:1, distMi:13, townEn:"Wabasso", townEs:"Wabasso",
   name:"St. Vincent de Paul — Sebastian / Wabasso",
   address:"5480 85th Street, Wabasso, FL 32967",
@@ -578,7 +642,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Entrega de comestibles los martes y jueves — llama para confirmar el horario.",
   whatEn:"Free groceries from the Society of St. Vincent de Paul. Help with utility bills may also be available — ask when you call.",
   whatEs:"Comestibles gratuitos de la Sociedad de San Vicente de Paúl. También puede haber ayuda con las facturas de servicios — pregunta cuando llames.",
-  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null},
+  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null, lat:27.74869, lon:-80.44097, hoursHt:"Pwovizyon madi ak jedi — rele pou konfime lè yo.", hoursPt:"Mantimentos às terças e quintas — ligue para confirmar os horários.", whatHt:"Pwovizyon gratis nan Sosyete St. Vincent de Paul. Èd ak bòdwo sèvis yo ka disponib tou — mande lè w rele.", whatPt:"Mantimentos gratuitos da Sociedade de São Vicente de Paulo. Ajuda com contas de serviços também pode estar disponível — pergunte quando ligar."},
  {id:"food-pantry-irc", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
   name:"Food Pantry of Indian River County",
   address:"2206 16th Avenue, Vero Beach, FL 32960",
@@ -587,7 +651,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Lunes, miércoles y viernes, 9:00 AM–12:30 PM; martes y jueves, 2:00–5:00 PM.",
   whatEn:"Emergency food (usually 3–4 days of staples). Indian River County residents may visit up to twice a month.",
   whatEs:"Alimentos de emergencia (normalmente para 3–4 días). Los residentes del condado de Indian River pueden venir hasta dos veces al mes.",
-  sourceName:"Food Pantry of Indian River County (foodpantryirc.org)", sourceUrl:"https://www.foodpantryirc.org/", web:"https://www.foodpantryirc.org/"},
+  sourceName:"Food Pantry of Indian River County (foodpantryirc.org)", sourceUrl:"https://www.foodpantryirc.org/", web:"https://www.foodpantryirc.org/", lat:27.64122, lon:-80.40091, hoursHt:"Lendi, mèkredi ak vandredi, 9:00 AM–12:30 PM; madi ak jedi, 2:00–5:00 PM.", hoursPt:"Segunda, quarta e sexta, 9h–12h30; terça e quinta, 14h–17h.", whatHt:"Manje ijans (anjeneral pwovizyon pou 3–4 jou). Rezidan Indian River County ka vini jiska de fwa pa mwa.", whatPt:"Alimentos de emergência (geralmente mantimentos para 3–4 dias). Moradores de Indian River County podem vir até duas vezes por mês."},
  {id:"the-source", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
   name:"The Source",
   address:"1015 Commerce Avenue, Vero Beach, FL 32960",
@@ -596,7 +660,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Llama para confirmar el horario — abierto seis días a la semana.",
   whatEn:"Hot meals, emergency food boxes, clothing, showers and laundry for people in need.",
   whatEs:"Comidas calientes, cajas de alimentos de emergencia, ropa, duchas y lavandería para personas necesitadas.",
-  sourceName:"The Source (iamthesource.org)", sourceUrl:"https://www.iamthesource.org/", web:"https://www.iamthesource.org/"},
+  sourceName:"The Source (iamthesource.org)", sourceUrl:"https://www.iamthesource.org/", web:"https://www.iamthesource.org/", lat:27.61995, lon:-80.38995, hoursHt:"Rele pou konfime lè yo — ouvè sis jou pa semèn.", hoursPt:"Ligue para confirmar os horários — aberto seis dias por semana.", whatHt:"Manje cho, bwat manje ijans, rad, douch ak lesiv pou moun ki nan bezwen.", whatPt:"Refeições quentes, caixas de alimentos de emergência, roupas, chuveiros e lavanderia para pessoas em necessidade."},
  {id:"salvation-army-vero", cat:"food", tier:2, distMi:15, townEn:"Vero Beach", townEs:"Vero Beach",
   name:"The Salvation Army — Vero Beach",
   address:"2655 5th Street SW, Vero Beach, FL 32962",
@@ -605,7 +669,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM–12:00 PM y 1:00 PM–4:00 PM.",
   whatEn:"Food pantry and social services.",
   whatEs:"Despensa de alimentos y servicios sociales.",
-  sourceName:"The Salvation Army — Indian River County Corps", sourceUrl:"http://www.salvationarmyflorida.org/verobeach/", web:"http://www.salvationarmyflorida.org/verobeach/"},
+  sourceName:"The Salvation Army — Indian River County Corps", sourceUrl:"http://www.salvationarmyflorida.org/verobeach/", web:"http://www.salvationarmyflorida.org/verobeach/", lat:27.59336, lon:-80.41294, hoursHt:"Bank manje: lendi rive vandredi, 9:00 AM–12:00 PM ak 1:00 PM–4:00 PM.", hoursPt:"Banco de alimentos: segunda a sexta, 9h–12h e 13h–16h.", whatHt:"Bank manje ak sèvis sosyal.", whatPt:"Banco de alimentos e serviços sociais."},
  {id:"st-helen-svdp", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
   name:"St. Helen Catholic Church — St. Vincent de Paul Pantry",
   address:"1031 18th Street, Suites F & G, Vero Beach, FL 32960",
@@ -614,7 +678,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Llama para confirmar el horario.",
   whatEn:"Parish food pantry run by the Society of St. Vincent de Paul.",
   whatEs:"Despensa parroquial de alimentos de la Sociedad de San Vicente de Paúl.",
-  sourceName:"St. Helen Catholic Church (sthelenvero.org)", sourceUrl:"https://www.sthelenvero.org/", web:null},
+  sourceName:"St. Helen Catholic Church (sthelenvero.org)", sourceUrl:"https://www.sthelenvero.org/", web:null, lat:27.63399, lon:-80.39405, hoursHt:"Rele pou konfime lè yo.", hoursPt:"Ligue para confirmar os horários.", whatHt:"Bank manje pawasyal Sosyete St. Vincent de Paul jere.", whatPt:"Banco de alimentos paroquial administrado pela Sociedade de São Vicente de Paulo."},
  {id:"our-fathers-table", cat:"food", tier:2, distMi:15, townEn:"Vero Beach (Gifford)", townEs:"Vero Beach (Gifford)",
   name:"Our Father's Table Soup Kitchen",
   address:"4221 28th Avenue, Vero Beach, FL 32967",
@@ -623,7 +687,7 @@ var LOCAL_LISTINGS = [
   hoursEs:"Almuerzo gratuito de lunes a viernes, 12:00–1:00 PM.",
   whatEn:"Soup kitchen serving a free midday meal on weekdays.",
   whatEs:"Comedor comunitario que sirve un almuerzo gratuito entre semana.",
-  sourceName:"Our Father's Table Soup Kitchen", sourceUrl:"https://ourfatherstablesoupkitchen.org/", web:"https://ourfatherstablesoupkitchen.org/"}
+  sourceName:"Our Father's Table Soup Kitchen", sourceUrl:"https://ourfatherstablesoupkitchen.org/", web:"https://ourfatherstablesoupkitchen.org/", lat:27.66996, lon:-80.41381, hoursHt:"Dejene gratis lendi rive vandredi, 12:00–1:00 PM.", hoursPt:"Almoço gratuito de segunda a sexta, 12h–13h.", whatHt:"Kantin kominotè k ap sèvi yon dejene gratis nan mitan jounen an nan jou semèn.", whatPt:"Cozinha comunitária que serve um almoço gratuito ao meio-dia nos dias de semana."}
 ];
 
 /* Covered places, nearest-first expansion tiers: 0 Fellsmere, 1 Sebastian area, 2 Vero Beach area */
@@ -669,16 +733,7 @@ function localsFor(tier, cat){
   });
 }
 function mapsUrl(l){ return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(l.address); }
-function nearestPlace(lat, lon){
-  var best = null, bd = 1e9;
-  PLACES.forEach(function(p){
-    var dLat = (lat - p.lat) * Math.PI / 180, dLon = (lon - p.lon) * Math.PI / 180;
-    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat * Math.PI / 180) * Math.cos(p.lat * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
-    var d = 3959 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    if (d < bd){ bd = d; best = p; }
-  });
-  return best;
-}
+function nearestPlace(lat, lon){ return nearestDist(lat, lon).place; }
 
 /* ============ KEYWORD ROUTING (EN + ES) ============ */
 var KEYWORDS = {
@@ -706,11 +761,12 @@ function routeCategory(q){
   }
   return bestScore > 0 ? best : null;
 }
-function listingText(l){ return norm(l.name + " " + l.desc + " " + l.notes + " " + l.coverage + " " + l.cat); }
+function listingText(l){ return norm(l.name + " " + flatV(l.desc) + " " + flatV(l.notes) + " " + flatV(l.coverage) + " " + l.cat); }
 function searchListings(q){
   var n = norm(q).trim(); if (!n) return [];
   var terms = n.split(/\s+/);
   var listingMatches = LISTINGS.filter(function(l){
+    if (l.scope === "sample") return false;
     var t = listingText(l);
     return terms.every(function(w){ return t.indexOf(w) !== -1; });
   });
@@ -722,15 +778,47 @@ function searchListings(q){
 }
 
 /* ============ STATE + RENDERING ============ */
-var state = { lang:"en", view:"home", category:null, results:null, titleMode:null, query:"", openDetails:{} };
+var state = { lang:"en", view:"home", category:null, results:null, titleMode:null, query:"", openDetails:{}, userPos:null, distRef:null };
 function t(k){ return I18N[state.lang][k]; }
-function catName(c){ return state.lang === "es" ? c.es : c.en; }
-function catDesc(c){ return state.lang === "es" ? c.des : c.den; }
+function catName(c){ return c[state.lang] || c.en; }
+function catDesc(c){ return ({en:c.den, es:c.des, ht:c.dht, pt:c.dpt})[state.lang] || c.den; }
 function catBySlug(slug){ for (var i=0;i<CATEGORIES.length;i++) if (CATEGORIES[i].slug===slug) return CATEGORIES[i]; return null; }
 function byId(id){ for (var i=0;i<LISTINGS.length;i++) if (LISTINGS[i].id===id) return LISTINGS[i]; return null; }
+
+var COVERAGE_MI = 30;
+function havMi(lat1, lon1, lat2, lon2){
+  var dLat = (lat2 - lat1) * Math.PI / 180, dLon = (lon2 - lon1) * Math.PI / 180;
+  var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+  return 3959 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+function nearestDist(lat, lon){
+  var best = null, bd = 1e9;
+  PLACES.forEach(function(p){ var d = havMi(lat, lon, p.lat, p.lon); if (d < bd){ bd = d; best = p; } });
+  return {place: best, d: bd};
+}
+function LF(l, f){ var v = l[f]; if (v == null) return ""; return typeof v === "string" ? v : (v[state.lang] || v.en || ""); }
+function LP(l, base){ var cap = state.lang.charAt(0).toUpperCase() + state.lang.slice(1); return l[base + cap] || l[base + "En"]; }
+function flatV(v){ return typeof v === "string" ? v : Object.keys(v).map(function(k){ return v[k]; }).join(" "); }
+function pubListings(slug){ return LISTINGS.filter(function(l){ return l.cat === slug && l.scope !== "sample"; }); }
+function catItems(slug){
+  var items = pubListings(slug);
+  if (!items.length) return [noteItem(t("notCoveredCat").replace(/\{category\}/g, catName(catBySlug(slug)).toLowerCase())), byId("dial-211")];
+  return items;
+}
+function showOutsideCoverage(slug){
+  state.distRef = null;
+  var items = [noteItem(t("geoOutside"))];
+  if (slug && slug !== "food") items = items.concat(catItems(slug));
+  else { items.push(byId("dial-211")); items.push(byId("hunger-hotline")); }
+  state.view = "results"; state.category = slug || null;
+  state.results = items; state.titleMode = "ask";
+  render(); window.scrollTo(0,0);
+}
+
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
 
 function listingCard(l){
+  if (l.scope === "sample") return "";
   var cat = catBySlug(l.cat);
   var scopeLabel = l.scope === "sample" ? t("sampleScope") : t("national");
   var h = '<article class="card" data-listing="' + l.id + '">';
@@ -738,7 +826,7 @@ function listingCard(l){
   if (l.scope === "sample") h += '<span class="chip-sample">' + esc(t("sampleListing")) + "</span>";
   h += "</div>";
   h += '<div class="lname">' + esc(l.name) + "</div>";
-  h += '<p class="ldesc">' + esc(l.desc) + "</p>";
+  h += '<p class="ldesc">' + esc(LF(l, "desc")) + "</p>";
   if (l.scope === "sample") h += '<div class="fictional">' + esc(SAMPLE_NOTE) + "</div>";
   h += '<div class="actions">';
   h += '<a class="callbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
@@ -752,13 +840,13 @@ function listingCard(l){
   if (open) {
     var wheel = l.wheel === "Yes" ? t("yes") : t("notListed");
     h += '<div class="fields">';
-    h += "<h3>" + esc(t("hours")) + "</h3><p>" + esc(l.hours) + "</p>";
-    h += "<h3>" + esc(t("who")) + "</h3><p>" + esc(l.who) + "</p>";
-    h += "<h3>" + esc(t("cost")) + "</h3><p>" + esc(l.cost) + "</p>";
-    h += "<h3>" + esc(t("languages")) + "</h3><p>" + esc(l.langs) + "</p>";
+    h += "<h3>" + esc(t("hours")) + "</h3><p>" + esc(LF(l, "hours")) + "</p>";
+    h += "<h3>" + esc(t("who")) + "</h3><p>" + esc(LF(l, "who")) + "</p>";
+    h += "<h3>" + esc(t("cost")) + "</h3><p>" + esc(LF(l, "cost")) + "</p>";
+    h += "<h3>" + esc(t("languages")) + "</h3><p>" + esc(LF(l, "langs")) + "</p>";
     h += "<h3>" + esc(t("wheelchair")) + "</h3><p>" + esc(wheel) + "</p>";
-    h += "<h3>" + esc(t("coverage")) + "</h3><p>" + esc(l.coverage) + "</p>";
-    h += "<p style='margin-top:10px'>" + esc(l.notes) + "</p>";
+    h += "<h3>" + esc(t("coverage")) + "</h3><p>" + esc(LF(l, "coverage")) + "</p>";
+    h += "<p style='margin-top:10px'>" + esc(LF(l, "notes")) + "</p>";
     if (l.web) h += "<h3>" + esc(t("website")) + "</h3><p>" + esc(l.web) + "</p>";
     h += "</div>";
   }
@@ -769,15 +857,20 @@ function listingCard(l){
 function localCard(l){
   var cat = catBySlug(l.cat);
   var town = state.lang === "es" ? l.townEs : l.townEn;
-  var dist = l.distMi === 0 ? t("inTown") : "approx. " + l.distMi + " mi " + t("fromFellsmere");
+  var ref = state.distRef, refLat, refLon, refLabel;
+  if (ref && ref.kind === "you"){ refLat = ref.lat; refLon = ref.lon; refLabel = t("distFromYou"); }
+  else if (ref && ref.kind === "place"){ refLat = ref.place.lat; refLon = ref.place.lon; refLabel = t("distFrom") + " " + (state.lang === "es" ? ref.place.es : ref.place.en); }
+  else { var tp = PLACES[l.tier]; refLat = tp.lat; refLon = tp.lon; refLabel = t("distFrom") + " " + (state.lang === "es" ? tp.es : tp.en); }
+  var dmi = (typeof l.lat === "number") ? havMi(refLat, refLon, l.lat, l.lon) : l.distMi;
+  var dist = dmi < 0.5 ? t("inTown") : "≈ " + (Math.round(dmi * 10) / 10) + " mi " + refLabel;
   var h = '<article class="card localcard" data-local="' + l.id + '">';
   h += '<div class="scope">' + esc(catName(cat)) + " · " + esc(town) + ", FL · " + esc(dist);
   h += '<span class="chip-verified">✓ ' + esc(t("verifiedLocal")) + " " + LOCAL_VERIFIED_DATE + "</span></div>";
   h += '<div class="lname">' + esc(l.name) + "</div>";
-  h += '<p class="ldesc">' + esc(state.lang === "es" ? l.whatEs : l.whatEn) + "</p>";
+  h += '<p class="ldesc">' + esc(LP(l, "what")) + "</p>";
   h += '<p class="laddr">📍 ' + esc(l.address) + "</p>";
-  h += '<p class="lhours">🕒 ' + esc(state.lang === "es" ? l.hoursEs : l.hoursEn) + "</p>";
-  if (l.noteEn) h += '<p class="lstatus">⚠️ ' + esc(state.lang === "es" ? l.noteEs : l.noteEn) + "</p>";
+  h += '<p class="lhours">🕒 ' + esc(LP(l, "hours")) + "</p>";
+  if (l.noteEn) h += '<p class="lstatus">⚠️ ' + esc(LP(l, "note")) + "</p>";
   h += '<div class="actions">';
   h += '<a class="callbtn bigbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
   h += '<a class="dirbtn bigbtn" href="' + mapsUrl(l) + '" target="_blank" rel="noopener">🗺️ ' + esc(t("directions")) + "</a>";
@@ -815,6 +908,7 @@ function renderChrome(){
       pg.src = want;
       pg.addEventListener("loadedmetadata", function h(){ pg.removeEventListener("loadedmetadata", h); try { pg.currentTime = Math.min(at, pg.duration || at); } catch(e){} if (wasPlaying) pg.play().catch(function(){}); });
     }
+    if (pg.textTracks){ for (var ti = 0; ti < pg.textTracks.length; ti++){ try { pg.textTracks[ti].mode = pg.textTracks[ti].language === state.lang ? "showing" : "disabled"; } catch(e){} } }
   }
 }
 function renderHome(){
@@ -856,12 +950,15 @@ function render(){
   renderChrome();
   var home = document.getElementById("homeView");
   var res = document.getElementById("resultsView");
-  if (state.view === "home"){ home.className = ""; res.className = "hidden"; renderHome(); }
-  else { home.className = "hidden"; res.className = ""; renderResults(); }
+  var priv = document.getElementById("privacyView");
+  if (state.view === "home"){ home.className = ""; res.className = "hidden"; priv.className = "hidden"; renderHome(); }
+  else if (state.view === "privacy"){ home.className = "hidden"; res.className = "hidden"; priv.className = ""; }
+  else { home.className = "hidden"; res.className = ""; priv.className = "hidden"; renderResults(); }
 }
 function openCategory(slug){
+  state.distRef = null;
   state.view = "results"; state.category = slug;
-  var listings = LISTINGS.filter(function(l){ return l.cat === slug; });
+  var listings = catItems(slug);
   if (slug === "food"){
     var items = [noteItem(t("localSection") + " — " + t("localFoodNote"))];
     localsFor(0, "food").forEach(function(l){ items.push({kind:"local", ref:l}); });
@@ -875,8 +972,11 @@ function openCategory(slug){
   window.scrollTo(0,0);
 }
 function goHome(){ state.view = "home"; state.category = null; state.results = null; render(); window.scrollTo(0,0); }
+function openPrivacy(){ state.view = "privacy"; render(); window.scrollTo(0,0); }
 
 function showLocalFood(place, viaGeo){
+  if (viaGeo && state.userPos) state.distRef = {kind:"you", lat: state.userPos.lat, lon: state.userPos.lon};
+  else state.distRef = {kind:"place", place: place};
   var placeName = state.lang === "es" ? place.es : place.en;
   var head = viaGeo
     ? t("geoNear").replace("{place}", placeName) + " " + t("localFoodNote")
@@ -886,6 +986,12 @@ function showLocalFood(place, viaGeo){
   items.push(noteItem(t("supplement")));
   items.push(byId("dial-211"));
   items.push(byId("hunger-hotline"));
+  if (state.distRef && state.distRef.kind === "you"){
+    var slots = [];
+    items.forEach(function(it, ix){ if (it.kind === "local") slots.push(ix); });
+    var sorted = slots.map(function(ix){ return items[ix]; }).sort(function(a, b){ return havMi(state.userPos.lat, state.userPos.lon, a.ref.lat, a.ref.lon) - havMi(state.userPos.lat, state.userPos.lon, b.ref.lat, b.ref.lon); });
+    slots.forEach(function(ix, k){ items[ix] = sorted[k]; });
+  }
   state.view = "results"; state.category = "food";
   state.results = items; state.titleMode = "ask";
   render();
@@ -906,18 +1012,21 @@ function locateAndAsk(slug){
   status.className = "micstatus";
   navigator.geolocation.getCurrentPosition(function(pos){
     status.textContent = ""; status.className = "micstatus hidden";
-    var place = nearestPlace(pos.coords.latitude, pos.coords.longitude);
+    var nd = nearestDist(pos.coords.latitude, pos.coords.longitude);
+    if (nd.d > COVERAGE_MI){ showOutsideCoverage(slug); return; }
+    state.userPos = {lat: pos.coords.latitude, lon: pos.coords.longitude};
     if (slug && slug !== "food"){
       var items = [noteItem(t("nonFoodLocal"))];
       state.view = "results"; state.category = slug;
-      state.results = items.concat(LISTINGS.filter(function(l){ return l.cat === slug; }));
+      state.results = items.concat(catItems(slug));
       state.titleMode = "ask"; render(); window.scrollTo(0,0);
       return;
     }
-    showLocalFood(place, true);
+    showLocalFood(nd.place, true);
   }, function(){ status.textContent = ""; status.className = "micstatus hidden"; showGeoFallback(slug); }, {timeout:10000});
 }
 function doAsk(){
+  state.distRef = null;
   var q = document.getElementById("askInput").value;
   if (!q || !q.trim()) return;
   var slug = routeCategory(q);
@@ -935,7 +1044,7 @@ function doAsk(){
   }
   if (slug){
     state.view = "results"; state.category = slug;
-    var items = LISTINGS.filter(function(l){ return l.cat === slug; });
+    var items = catItems(slug);
     if (slug === "food"){
       var foodItems = [noteItem(t("foodNoPlace"))];
       items = foodItems.concat(items);
@@ -970,6 +1079,8 @@ document.getElementById("btn-es").addEventListener("click", function(){ state.la
 document.getElementById("btn-ht").addEventListener("click", function(){ state.lang = "ht"; render(); });
 document.getElementById("btn-pt").addEventListener("click", function(){ state.lang = "pt"; render(); });
 document.getElementById("backBtn").addEventListener("click", goHome);
+document.getElementById("privacyBtn").addEventListener("click", openPrivacy);
+document.getElementById("privacyBackBtn").addEventListener("click", goHome);
 document.getElementById("askBtn").addEventListener("click", doAsk);
 document.getElementById("locBtn").addEventListener("click", function(){ locateAndAsk("food"); });
 document.getElementById("askInput").addEventListener("keydown", function(e){ if (e.key === "Enter") doAsk(); });
