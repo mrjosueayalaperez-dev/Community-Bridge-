@@ -84,6 +84,14 @@
 
   <h1 data-i18n="headline">Find help nearby. Ask in English, Spanish, Haitian Creole, or Portuguese.</h1>
 
+  <section class="card greet-card" aria-label="Welcome">
+    <video id="profGreeting" src="professor-greeting-cb-EN.mp4" poster="cb-professor.jpg" controls playsinline preload="metadata" style="width:100%;border-radius:12px;display:block;background:#000"></video>
+    <div style="display:flex;gap:12px;align-items:center;margin-top:10px">
+      <img src="cb-professor.jpg" alt="Moose, your Community Bridge guide" style="width:58px;height:58px;object-fit:cover;object-position:top;border-radius:50%;flex:0 0 58px">
+      <p data-i18n="greetCap" style="margin:0">Moose, your Community Bridge guide, welcomes you. Everything here is free.</p>
+    </div>
+  </section>
+
   <section class="card" aria-label="Ask">
     <h2 style="margin-top:0" data-i18n="askLoud">Ask out loud</h2>
     <p data-i18n="askHint">Hold the microphone, ask for food, shelter, a clinic, or a crisis line. You can also type.</p>
@@ -126,6 +134,7 @@
 var I18N = {
   en: {
     tagline: "Find help nearby",
+    greetCap: "Moose, your Community Bridge guide, welcomes you. Everything here is free.",
     crisisBanner: "If someone is in immediate danger, call 911. For emotional crisis, call or text 988.",
     noAccount: "No account needed",
     headline: "Find help nearby. Ask in English, Spanish, Haitian Creole, or Portuguese.",
@@ -184,6 +193,7 @@ var I18N = {
   },
   es: {
     tagline: "Encuentra ayuda cerca de ti",
+    greetCap: "Moose, su guía de Community Bridge, le da la bienvenida. Todo aquí es gratuito.",
     crisisBanner: "Si alguien está en peligro inmediato, llama al 911. Para una crisis emocional, llama o envía un mensaje de texto al 988.",
     noAccount: "No necesitas una cuenta",
     headline: "Encuentra ayuda cerca de ti. Pregunta en inglés, español, criollo haitiano o portugués.",
@@ -242,6 +252,7 @@ var I18N = {
   },
   ht: {
     tagline: "Jwenn èd tou pre w",
+    greetCap: "Moose, gid Community Bridge ou a, swete w byenveni. Tout bagay isit la gratis.",
     crisisBanner: "Si yon moun an danje imedya, rele 911. Pou yon kriz emosyonèl, rele oswa voye yon mesaj tèks nan 988.",
     noAccount: "Ou pa bezwen kont",
     headline: "Jwenn èd tou pre w. Mande an Anglè, Panyòl, Kreyòl oswa Pòtigè.",
@@ -300,6 +311,7 @@ var I18N = {
   },
   pt: {
     tagline: "Encontre ajuda perto de você",
+    greetCap: "Moose, seu guia do Community Bridge, dá as boas-vindas. Tudo aqui é gratuito.",
     crisisBanner: "Se alguém estiver em perigo imediato, ligue 911. Para uma crise emocional, ligue ou envie uma mensagem de texto para 988.",
     noAccount: "Não precisa de conta",
     headline: "Encontre ajuda perto de você. Pergunte em inglês, espanhol, crioulo haitiano ou português.",
@@ -794,6 +806,16 @@ function renderChrome(){
   document.getElementById("btn-es").className = state.lang === "es" ? "on" : "";
   document.getElementById("btn-ht").className = state.lang === "ht" ? "on" : "";
   document.getElementById("btn-pt").className = state.lang === "pt" ? "on" : "";
+  var pg = document.getElementById("profGreeting");
+  if (pg){
+    var want = {en:"professor-greeting-cb-EN.mp4",es:"professor-greeting-cb-ES.mp4",ht:"professor-greeting-cb-HT.mp4",pt:"professor-greeting-cb-PT.mp4"}[state.lang];
+    if (want && pg.getAttribute("src") !== want){
+      var wasPlaying = !pg.paused && !pg.ended;
+      var at = 0; try { at = pg.currentTime || 0; } catch(e){}
+      pg.src = want;
+      pg.addEventListener("loadedmetadata", function h(){ pg.removeEventListener("loadedmetadata", h); try { pg.currentTime = Math.min(at, pg.duration || at); } catch(e){} if (wasPlaying) pg.play().catch(function(){}); });
+    }
+  }
 }
 function renderHome(){
   var grid = document.getElementById("catGrid");
