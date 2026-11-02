@@ -208,6 +208,7 @@ var I18N = {
     distFrom: "from",
     greetText: "Hello, and welcome to Community Bridge. I'm Moose. Food, housing, or help nearby — everything here is free, no account needed. Let's find what you need.",
     greetRecorded: "A recorded welcome from Moose, your guide — not a live chat.",
+    smsTo: "to",
     privacyBtn: "Privacy",
     privacyBack: "Back",
     privacyTitle: "Privacy at Community Bridge",
@@ -280,6 +281,7 @@ var I18N = {
     distFrom: "desde",
     greetText: "Hola, y bienvenidos a Community Bridge. Soy Moose, su guía. Comida, vivienda o ayuda cercana — todo es gratuito, y no necesita cuenta. Encontremos lo que necesita.",
     greetRecorded: "Una bienvenida grabada de Moose, su guía — no es un chat en vivo.",
+    smsTo: "al",
     privacyBtn: "Privacidad",
     privacyBack: "Volver",
     privacyTitle: "Privacidad en Community Bridge",
@@ -352,6 +354,7 @@ var I18N = {
     distFrom: "apati",
     greetText: "Bonjou, byenveni nan Community Bridge. Mwen se Moose. Manje, lojman, oswa èd — tout gratis, san kont. Ann jwenn sa w bezwen.",
     greetRecorded: "Yon byenveni anrejistre nan men Moose, gid ou — se pa yon chat an dirèk.",
+    smsTo: "nan",
     privacyBtn: "Konfidansyalite",
     privacyBack: "Retounen",
     privacyTitle: "Konfidansyalite nan Community Bridge",
@@ -424,6 +427,7 @@ var I18N = {
     distFrom: "de",
     greetText: "Olá, e bem-vindo ao Community Bridge. Sou Moose. Comida, moradia ou ajuda perto de você — tudo é gratuito, sem conta. Vamos encontrar o que você precisa.",
     greetRecorded: "Boas-vindas gravadas de Moose, seu guia — não é um chat ao vivo.",
+    smsTo: "para",
     privacyBtn: "Privacidade",
     privacyBack: "Voltar",
     privacyTitle: "Privacidade no Community Bridge",
@@ -832,7 +836,7 @@ function listingCard(l){
   h += '<a class="callbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
   if (l.textNum) {
     var smsHref = "sms:" + l.textNum + (l.textBody ? "?&body=" + encodeURIComponent(l.textBody) : "");
-    h += '<a class="textbtn" href="' + smsHref + '">💬 ' + esc(t("text")) + " " + esc(l.text) + "</a>";
+    h += '<a class="textbtn" href="' + smsHref + '">💬 ' + esc(t("text")) + " " + (l.textBody ? esc(l.textBody) + " " + esc(t("smsTo")) + " " + esc(l.textNum) : esc(l.text)) + "</a>";
   }
   h += "</div>";
   var open = !!state.openDetails[l.id];
