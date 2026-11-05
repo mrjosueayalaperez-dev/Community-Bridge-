@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- COMMUNITY BRIDGE — LIVE. Deployed 2026-11-05 on the founder's explicit go-live order for the 90-day pilot push. Built from the P1 candidate (commit ed6ebd8c) + Section 8 candidate (commit 8da3e4a6) + Nov 5, 2026 corrections; fictional Harbor County sample records removed from source. Founder phone test WAIVED pre-publish by founder order (recorded as waived, not met); founder tests the live page as we go. No partner approval exists or is implied. Rollback: previous live build, git blob 9ff7ed758637b953f4f11461407cc38c1102e409. -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,6 +21,7 @@
   .langtoggle button{border:0;background:#fff;padding:8px 14px;font-size:15px;font-weight:700;color:var(--teal);cursor:pointer}
   .langtoggle button.on{background:var(--teal);color:#fff}
   .crisis{background:var(--red);color:#fff;border-radius:12px;padding:12px 14px;font-weight:700;font-size:16px;margin:10px 0}
+  .pilotbanner{background:#fdf0d5;color:#7a5200;font-weight:700;text-align:center;padding:8px 10px;font-size:14px}
   .crisis a{color:#fff;text-decoration:underline}
   .noacct{display:inline-block;background:var(--chip);color:var(--teal-dark);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:6px}
   h1{font-size:24px;margin:8px 0 4px}
@@ -45,6 +47,8 @@
   .callbtn{display:inline-block;background:var(--teal);color:#fff;font-weight:800;font-size:16px;padding:11px 16px;border-radius:10px;text-decoration:none}
   .textbtn{display:inline-block;background:#fff;color:var(--teal);border:2px solid var(--teal);font-weight:800;font-size:16px;padding:9px 14px;border-radius:10px;text-decoration:none}
   .detailsbtn{background:none;border:0;color:var(--teal);font-weight:700;font-size:15px;cursor:pointer;padding:6px 0;text-decoration:underline}
+  .listenbtn{display:inline-block;background:#fff;color:var(--teal);border:2px solid var(--teal);font-weight:800;font-size:16px;padding:9px 14px;border-radius:10px;cursor:pointer;font-family:inherit}
+  .listenstatus{font-size:14px;color:var(--muted);align-self:center}
   .fields{border-top:1px dashed var(--line);margin-top:8px;padding-top:8px;font-size:15px}
   .fields h3{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:12px 0 2px}
   .fields p{margin:0}
@@ -54,6 +58,7 @@
   footer{margin-top:28px;font-size:13px;color:var(--muted)}
   .noresults{font-size:16px;color:var(--muted);padding:10px 0}
   .chip-verified{display:inline-block;background:#e3f2e8;color:#14532d;font-weight:800;font-size:12px;padding:2px 8px;border-radius:999px;margin-left:6px;text-transform:uppercase;letter-spacing:.4px}
+  .chip-unverified{display:inline-block;background:#fdeeda;color:#8a5a00;font-weight:800;font-size:12px;padding:2px 8px;border-radius:999px;margin-left:6px;text-transform:uppercase;letter-spacing:.4px}
   .localcard{border-left:6px solid var(--teal)}
   .laddr{font-size:16.5px;font-weight:700;margin:6px 0 2px}
   .lhours{font-size:15.5px;margin:2px 0 6px}
@@ -135,6 +140,7 @@
     <p data-i18n="privacyFree">Find community resources without an account or payment.</p>
     <p data-i18n="privacyMain">Typed searches are processed in your browser and are not sent to Community Bridge. If you use voice search, your browser's speech-recognition provider may process your audio. If you enable location access, your browser or device location service may process your location. Community Bridge does not store these inputs or transmit them to its own servers.</p>
     <p data-i18n="privacyHost">Hosting note: this site is hosted on GitHub Pages. Like any web host, GitHub may keep standard security logs of visits, such as IP addresses. Those logs belong to GitHub — Community Bridge does not receive or use them.</p>
+    <p data-i18n="privacyAnalytics">Analytics note: this app does not collect or report visitor counts, search counts, or referral counts. There is no in-app analytics, and no usage numbers are promised to anyone.</p>
   </main>
 
   <div style="text-align:center;margin:12px 0 2px"><button class="backbtn" id="privacyBtn" type="button">🔒 <span data-i18n="privacyBtn">Privacy</span></button></div>
@@ -182,6 +188,8 @@ var I18N = {
     showingFor: "Showing help for:",
     localHeading: "Verified local food help",
     verifiedLocal: "Verified local",
+    recheckedLocal: "Rechecked local",
+    unverifiedLocal: "Not verified — call to confirm",
     source: "Source",
     directions: "Directions",
     websiteBtn: "Website",
@@ -189,7 +197,7 @@ var I18N = {
     fromFellsmere: "from Fellsmere",
     supplement: "More help — national lines",
     localSection: "Verified local help — Indian River County, Florida",
-    localFoodNote: "These places were checked on 2026-10-23. Distances are measured from your location when you share it; otherwise from the town shown.",
+    localFoodNote: "Each place shows its own last-checked date below, and places whose details could not be verified ask you to call to confirm instead. Distances are measured from your location when you share it; otherwise from the town shown.",
     foodNoPlace: "Tip: add your city or ZIP code to see verified local places first. We currently cover Fellsmere, Sebastian, and Vero Beach, Florida.",
     notCovered: "We don't have verified listings for {place} yet. The nearest towns we cover are Fellsmere, Sebastian, and Vero Beach, Florida. You can also call 211 for local help anywhere.",
     nonFoodLocal: "Our verified local listings for this area currently cover food only. For other needs, the national lines below can help — or call 211.",
@@ -202,6 +210,11 @@ var I18N = {
     micNoSpeech: "We didn't hear anything. Tap the microphone and try again, or type your question.",
     micError: "Voice didn't work this time. Please type your question instead.",
     footerNote: "Community Bridge is a free community directory — no account, no cost. For local help anywhere, call 211.",
+    pilotBanner: "PILOT PREVIEW \u2014 a review copy of Community Bridge being prepared for a possible pilot. Not the live directory.",
+    privacyAnalytics: "Analytics note: this app does not collect or report visitor counts, search counts, or referral counts. There is no in-app analytics, and no usage numbers are promised to anyone.",
+    tcfbTitle: "Treasure Coast Food Bank \u2014 Food Finder",
+    tcfbText: "Community Bridge's food listings focus on Fellsmere, Sebastian and Vero Beach. For food help across the wider Treasure Coast, the Treasure Coast Food Bank's own Food Finder lists its partner pantries and mobile distributions.",
+    tcfbBtn: "Open the TCFB Food Finder",
     geoOutside: "You're outside the area Community Bridge covers with verified local listings (Fellsmere, Sebastian, and Vero Beach, Florida). These national lines work anywhere:",
     notCoveredCat: "We don't have a verified local listing for {category} in our coverage area yet. Call 211 — free, 24/7 in most areas — for local help with {category} anywhere.",
     distFromYou: "from you",
@@ -209,6 +222,8 @@ var I18N = {
     greetText: "Hello, and welcome to Community Bridge. I'm Moose. Food, housing, or help nearby — everything here is free, no account needed. Let's find what you need.",
     greetRecorded: "A recorded welcome from Moose, your guide — not a live chat.",
     smsTo: "to",
+    listen: "Listen",
+    listenUnsupported: "Listening is not available in this browser \u2014 the same information is written on this card.",
     privacyBtn: "Privacy",
     privacyBack: "Back",
     privacyTitle: "Privacy at Community Bridge",
@@ -255,6 +270,8 @@ var I18N = {
     showingFor: "Mostrando ayuda para:",
     localHeading: "Ayuda local de comida verificada",
     verifiedLocal: "Local verificado",
+    recheckedLocal: "Local reverificado",
+    unverifiedLocal: "Sin verificar — llama para confirmar",
     source: "Fuente",
     directions: "Cómo llegar",
     websiteBtn: "Sitio web",
@@ -262,7 +279,7 @@ var I18N = {
     fromFellsmere: "de Fellsmere",
     supplement: "Más ayuda — líneas nacionales",
     localSection: "Ayuda local verificada — Condado de Indian River, Florida",
-    localFoodNote: "Estos lugares se verificaron el 2026-10-23. Las distancias se miden desde tu ubicación cuando la compartes; si no, desde la ciudad que se muestra.",
+    localFoodNote: "Cada lugar muestra abajo su propia fecha de última verificación, y los lugares cuyos detalles no pudieron verificarse piden que llames para confirmar. Las distancias se miden desde tu ubicación cuando la compartes; si no, desde la ciudad que se muestra.",
     foodNoPlace: "Consejo: agrega tu ciudad o código postal para ver primero los lugares locales verificados. Por ahora cubrimos Fellsmere, Sebastian y Vero Beach, Florida.",
     notCovered: "Todavía no tenemos listados verificados para {place}. Las ciudades cercanas que sí cubrimos son Fellsmere, Sebastian y Vero Beach, Florida. También puedes llamar al 211 para ayuda local en cualquier lugar.",
     nonFoodLocal: "Nuestros listados locales verificados para esta área por ahora solo cubren comida. Para otras necesidades, las líneas nacionales de abajo pueden ayudar — o llama al 211.",
@@ -275,6 +292,11 @@ var I18N = {
     micNoSpeech: "No escuchamos nada. Toca el micrófono e inténtalo de nuevo, o escribe tu pregunta.",
     micError: "La voz no funcionó esta vez. Por favor escribe tu pregunta.",
     footerNote: "Community Bridge es un directorio comunitario gratuito — sin cuenta, sin costo. Para ayuda local en cualquier lugar, llama al 211.",
+    pilotBanner: "VISTA PREVIA DEL PILOTO \u2014 una copia de revisi\u00f3n de Community Bridge en preparaci\u00f3n para un posible piloto. No es el directorio en vivo.",
+    privacyAnalytics: "Nota sobre anal\u00edticas: esta aplicaci\u00f3n no recoge ni reporta conteos de visitantes, b\u00fasquedas o referidos. No hay anal\u00edticas dentro de la aplicaci\u00f3n y no se prometen cifras de uso a nadie.",
+    tcfbTitle: "Treasure Coast Food Bank \u2014 Food Finder",
+    tcfbText: "Las listas de alimentos de Community Bridge se concentran en Fellsmere, Sebastian y Vero Beach. Para ayuda alimentaria en toda la Treasure Coast, el Food Finder del Treasure Coast Food Bank muestra sus despensas asociadas y distribuciones m\u00f3viles.",
+    tcfbBtn: "Abrir el Food Finder de TCFB",
     geoOutside: "Estás fuera del área donde Community Bridge tiene listados locales verificados (Fellsmere, Sebastian y Vero Beach, Florida). Estas líneas nacionales funcionan en cualquier lugar:",
     notCoveredCat: "Todavía no tenemos un listado local verificado para {category} en nuestra área de cobertura. Llama al 211 — gratis, 24/7 en la mayoría de las áreas — para ayuda local con {category} en cualquier lugar.",
     distFromYou: "desde tu ubicación",
@@ -282,6 +304,8 @@ var I18N = {
     greetText: "Hola, y bienvenidos a Community Bridge. Soy Moose, su guía. Comida, vivienda o ayuda cercana — todo es gratuito, y no necesita cuenta. Encontremos lo que necesita.",
     greetRecorded: "Una bienvenida grabada de Moose, su guía — no es un chat en vivo.",
     smsTo: "al",
+    listen: "Escuchar",
+    listenUnsupported: "Escuchar no est\u00e1 disponible en este navegador \u2014 la misma informaci\u00f3n est\u00e1 escrita en esta tarjeta.",
     privacyBtn: "Privacidad",
     privacyBack: "Volver",
     privacyTitle: "Privacidad en Community Bridge",
@@ -328,6 +352,8 @@ var I18N = {
     showingFor: "Èd pou:",
     localHeading: "Èd lokal verifye pou manje",
     verifiedLocal: "Lokal verifye",
+    recheckedLocal: "Lokal re-verifye",
+    unverifiedLocal: "Poko verifye — rele pou konfime",
     source: "Sous",
     directions: "Direksyon",
     websiteBtn: "Sit entènèt",
@@ -335,7 +361,7 @@ var I18N = {
     fromFellsmere: "aparti Fellsmere",
     supplement: "Plis èd — liy nasyonal yo",
     localSection: "Èd lokal verifye — Konte Indian River, Florid",
-    localFoodNote: "Yo te verifye kote sa yo nan dat 2026-10-23. Distans yo mezire apati kote w ye lè w pataje l; sinon, apati vil yo montre a.",
+    localFoodNote: "Chak kote montre anba a pwòp dat yo te verifye l dènye fwa, epi kote yo pa t ka verifye detay yo mande w rele pou konfime. Distans yo mezire apati kote w ye lè w pataje l; sinon, apati vil yo montre a.",
     foodNoPlace: "Konsèy: ajoute vil ou oswa kòd postal ou pou w wè kote lokal verifye yo anvan. Kounye a nou kouvri Fellsmere, Sebastian ak Vero Beach, Florid.",
     notCovered: "Nou poko gen lis verifye pou {place}. Vil ki pi pre nou kouvri yo se Fellsmere, Sebastian ak Vero Beach, Florid. Ou kapab rele 211 tou pou èd lokal nenpòt kote.",
     nonFoodLocal: "Lis lokal verifye nou yo pou zòn sa a kouvri manje sèlman pou kounye a. Pou lòt bezwen, liy nasyonal ki anba yo ka ede w — oswa rele 211.",
@@ -344,6 +370,11 @@ var I18N = {
     geoNear: "N ap montre èd verifye pou manje tou pre {place}, selon pozisyon w.",
     micListening: "N ap koute w… pale kounye a",
     footerNote: "Community Bridge se yon anyè kominotè gratis — san kont, san kòb. Pou èd lokal nenpòt kote, rele 211.",
+    pilotBanner: "AP\u00c8SI PILOT \u2014 yon kopi revizyon Community Bridge k ap prepare pou yon pilot posib. Se pa any\u00e8 an dir\u00e8k la.",
+    privacyAnalytics: "N\u00f2t sou estatistik: aplikasyon sa a pa kolekte ni rap\u00f2te kantite vizit\u00e8, rech\u00e8ch oswa referans. Pa gen estatistik anndan aplikasyon an, epi nou pa pwom\u00e8t okenn chif itilizasyon bay p\u00e8s\u00f2n.",
+    tcfbTitle: "Treasure Coast Food Bank \u2014 Food Finder",
+    tcfbText: "Lis manje Community Bridge yo konsantre sou Fellsmere, Sebastian ak Vero Beach. Pou \u00e8d manje nan tout Treasure Coast la, Food Finder Treasure Coast Food Bank la montre bank manje patn\u00e8 li yo ak distribisyon mobil li yo.",
+    tcfbBtn: "Ouvri Food Finder TCFB a",
     geoDenied: "Nou pa t ka jwenn kote w ye. Ekri vil ou oswa kòd postal ou pito — pa egzanp, «manje nan Fellsmere».",
     micDenied: "Mikwofòn nan bloke. Verifye paramèt sit la nan navigatè w la pou w pèmèt mikwofòn nan — oswa ekri kesyon ou an anba a.",
     micNoSpeech: "Nou pa t tande anyen. Peze mikwofòn nan epi eseye ankò, oswa ekri kesyon ou an.",
@@ -355,6 +386,8 @@ var I18N = {
     greetText: "Bonjou, byenveni nan Community Bridge. Mwen se Moose. Manje, lojman, oswa èd — tout gratis, san kont. Ann jwenn sa w bezwen.",
     greetRecorded: "Yon byenveni anrejistre nan men Moose, gid ou — se pa yon chat an dirèk.",
     smsTo: "nan",
+    listen: "Koute",
+    listenUnsupported: "Ekoute pa disponib nan navigat\u00e8 sa a \u2014 menm enf\u00f2masyon an ekri sou kat sa a.",
     privacyBtn: "Konfidansyalite",
     privacyBack: "Retounen",
     privacyTitle: "Konfidansyalite nan Community Bridge",
@@ -401,6 +434,8 @@ var I18N = {
     showingFor: "Mostrando ajuda para:",
     localHeading: "Ajuda local verificada com alimentos",
     verifiedLocal: "Local verificado",
+    recheckedLocal: "Local reverificado",
+    unverifiedLocal: "Não verificado — ligue para confirmar",
     source: "Fonte",
     directions: "Como chegar",
     websiteBtn: "Site",
@@ -408,7 +443,7 @@ var I18N = {
     fromFellsmere: "de Fellsmere",
     supplement: "Mais ajuda — linhas nacionais",
     localSection: "Ajuda local verificada — Condado de Indian River, Flórida",
-    localFoodNote: "Estes lugares foram verificados em 23/10/2026. As distâncias são medidas a partir da sua localização quando você a compartilha; caso contrário, a partir da cidade mostrada.",
+    localFoodNote: "Cada lugar mostra abaixo sua própria data da última verificação, e os lugares cujos detalhes não puderam ser verificados pedem que você ligue para confirmar. As distâncias são medidas a partir da sua localização quando você a compartilha; caso contrário, a partir da cidade mostrada.",
     foodNoPlace: "Dica: adicione sua cidade ou CEP para ver primeiro os lugares locais verificados. Atualmente cobrimos Fellsmere, Sebastian e Vero Beach, Flórida.",
     notCovered: "Ainda não temos listas verificadas para {place}. As cidades mais próximas que cobrimos são Fellsmere, Sebastian e Vero Beach, Flórida. Você também pode ligar para 211 para ajuda local em qualquer lugar.",
     nonFoodLocal: "Nossas listas locais verificadas para esta área cobrem apenas alimentos por enquanto. Para outras necessidades, as linhas nacionais abaixo podem ajudar — ou ligue para 211.",
@@ -417,6 +452,11 @@ var I18N = {
     geoNear: "Mostrando ajuda verificada com alimentos perto de {place}, com base na sua localização.",
     micListening: "Ouvindo… fale agora",
     footerNote: "O Community Bridge é um diretório comunitário gratuito — sem conta, sem custo. Para ajuda local em qualquer lugar, ligue para 211.",
+    pilotBanner: "PR\u00c9VIA DO PILOTO \u2014 uma c\u00f3pia de revis\u00e3o do Community Bridge em prepara\u00e7\u00e3o para um poss\u00edvel piloto. N\u00e3o \u00e9 o diret\u00f3rio ativo.",
+    privacyAnalytics: "Nota sobre an\u00e1lises: este aplicativo n\u00e3o coleta nem relata contagens de visitantes, pesquisas ou indica\u00e7\u00f5es. N\u00e3o h\u00e1 an\u00e1lises dentro do aplicativo e nenhum n\u00famero de uso \u00e9 prometido a ningu\u00e9m.",
+    tcfbTitle: "Treasure Coast Food Bank \u2014 Food Finder",
+    tcfbText: "As listas de alimentos do Community Bridge concentram-se em Fellsmere, Sebastian e Vero Beach. Para ajuda alimentar em toda a Treasure Coast, o Food Finder do Treasure Coast Food Bank lista seus bancos de alimentos parceiros e distribui\u00e7\u00f5es m\u00f3veis.",
+    tcfbBtn: "Abrir o Food Finder do TCFB",
     geoDenied: "Não conseguimos obter sua localização. Digite sua cidade ou CEP — por exemplo, “comida em Fellsmere”.",
     micDenied: "O microfone está bloqueado. Verifique as configurações do site no seu navegador para permitir o microfone — ou apenas digite sua pergunta abaixo.",
     micNoSpeech: "Não ouvimos nada. Toque no microfone e tente de novo, ou digite sua pergunta.",
@@ -428,6 +468,8 @@ var I18N = {
     greetText: "Olá, e bem-vindo ao Community Bridge. Sou Moose. Comida, moradia ou ajuda perto de você — tudo é gratuito, sem conta. Vamos encontrar o que você precisa.",
     greetRecorded: "Boas-vindas gravadas de Moose, seu guia — não é um chat ao vivo.",
     smsTo: "para",
+    listen: "Ouvir",
+    listenUnsupported: "Ouvir n\u00e3o est\u00e1 dispon\u00edvel neste navegador \u2014 as mesmas informa\u00e7\u00f5es est\u00e3o escritas neste cart\u00e3o.",
     privacyBtn: "Privacidade",
     privacyBack: "Voltar",
     privacyTitle: "Privacidade no Community Bridge",
@@ -492,13 +534,7 @@ var LISTINGS = [
   cost:{en:"Free call in most areas.", es:"Llamada gratuita en la mayoría de las áreas.", ht:"Apèl gratis nan pifò zòn.", pt:"Ligação gratuita na maioria das áreas."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
   notes:{en:"211 is staffed by local centers, so hours and languages vary. Many answer around the clock. Ask for the specific need and your city.", es:"El 211 lo atiende personal de centros locales, así que los horarios y los idiomas varían. Muchos responden a toda hora. Pide la necesidad específica y tu ciudad.", ht:"Sant lokal yo jere 211, kidonk orè ak lang yo varye. Anpil reponn tout lajounen kou lannwit. Mande bezwen presi ou a ak vil ou.", pt:"O 211 é atendido por centrais locais, então os horários e idiomas variam. Muitas atendem a qualquer hora. Peça pela necessidade específica e pela sua cidade."},
   web:"www.211.org"},
- {id:"harbor-harvest", cat:"food", scope:"sample", name:"Harbor Harvest Food Pantry",
-  desc:"Sample listing: a weekday grocery pantry for Harbor County residents. Replace it with a real local pantry.",
-  phone:"555-014-2100", tel:"+15550142100",
-  hours:"Monday to Friday, 10:00 a.m. to 4:00 p.m. Sample hours only.", who:"Sample rule: one visit per week with a photo ID.",
-  cost:"Free. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"100 Wharf Street, Harbor City, Harbor County",
-  notes:"This organization is fictional demonstration data so the directory is usable before a steward adds real providers. Do not send people here. The phone number is reserved (555) and does not connect.",
-  web:null},
+ 
  {id:"hunger-hotline", cat:"food", scope:"national", name:"USDA National Hunger Hotline",
   desc:{en:"Help finding food pantries, meal sites, and nutrition programs anywhere in the United States.", es:"Ayuda para encontrar despensas de alimentos, comedores y programas de nutrición en cualquier lugar de los Estados Unidos.", ht:"Èd pou jwenn bank manje, kote yo bay manje, ak pwogram nitrisyon nenpòt kote Ozetazini.", pt:"Ajuda para encontrar bancos de alimentos, locais de refeições e programas de nutrição em qualquer lugar dos Estados Unidos."},
   phone:"1-866-348-6479", tel:"+18663486479",
@@ -506,20 +542,8 @@ var LISTINGS = [
   cost:{en:"Free referral.", es:"Referencia gratuita.", ht:"Referans gratis.", pt:"Indicação gratuita."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
   notes:{en:"Operated by Hunger Free America with USDA support. Call 1-866-348-6479. Spanish-speaking assistance is available. This is a referral line, not a food delivery service.", es:"Operado por Hunger Free America con apoyo del USDA. Llama al 1-866-348-6479. Hay asistencia en español. Es una línea de referencias, no un servicio de entrega de alimentos.", ht:"Hunger Free America opere l ak sipò USDA. Rele 1-866-348-6479. Gen èd an Panyòl. Sa a se yon liy referans, pa yon sèvis livrezon manje.", pt:"Operado pela Hunger Free America com apoio do USDA. Ligue para 1-866-348-6479. Há assistência em espanhol. É uma linha de indicações, não um serviço de entrega de comida."},
   web:"www.hungerfreeamerica.org"},
- {id:"riverside-shelter", cat:"housing", scope:"sample", name:"Riverside Family Shelter",
-  desc:"Sample listing: an intake line for family shelter beds in Harbor County. Not a real shelter.",
-  phone:"555-014-2200", tel:"+15550142200",
-  hours:"Sample intake line answers 24 hours. Beds depend on availability.", who:"Sample: families with children first. Adults referred onward.",
-  cost:"Free shelter stay. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"40 River Road, Harbor City, Harbor County",
-  notes:"Fictional demonstration record. Beds, rules, and the address are not real. For actual homelessness help, call 211 or a shelter you know is operating.",
-  web:null},
- {id:"bridge-clinic", cat:"health", scope:"sample", name:"Bridge Community Clinic",
-  desc:"Sample listing: a sliding-scale clinic for people without insurance in Harbor County.",
-  phone:"555-014-2300", tel:"+15550142300",
-  hours:"Monday to Friday, 8:00 a.m. to 6:00 p.m. Sample hours.", who:"Sample: uninsured and underinsured patients. Call before visiting.",
-  cost:"Sliding scale. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"220 Pine Avenue, Harbor City, Harbor County",
-  notes:"Fictional. It shows the fields a real clinic listing should have: hours, languages, wheelchair access, and cost. Do not seek care at this address.",
-  web:null},
+ 
+ 
  {id:"marketplace", cat:"health", scope:"national", name:"Health Insurance Marketplace",
   desc:{en:"Official place to compare health plans and see if you qualify for savings.", es:"Lugar oficial para comparar planes de salud y ver si calificas para ahorros.", ht:"Kote ofisyèl pou konpare plan sante epi wè si w kalifye pou ekonomi.", pt:"Lugar oficial para comparar planos de saúde e ver se você se qualifica para descontos."},
   phone:"1-800-318-2596", tel:"+18003182596", tty:"1-855-889-4325",
@@ -541,41 +565,11 @@ var LISTINGS = [
   cost:{en:"Free referral service.", es:"Servicio de referencia gratuito.", ht:"Sèvis referans gratis.", pt:"Serviço de indicação gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
   notes:{en:"The helpline refers callers to local treatment, support groups, and community organizations. It is not a counseling session and it is not emergency care. For suicidal crisis, use 988.", es:"La línea refiere a las personas a tratamiento local, grupos de apoyo y organizaciones comunitarias. No es una sesión de consejería ni atención de emergencia. Para una crisis suicida, usa el 988.", ht:"Liy la refere moun bay tretman lokal, gwoup sipò ak òganizasyon kominotè. Se pa yon sesyon konsèy ni swen ijans. Pou kriz swisid, itilize 988.", pt:"A linha indica tratamento local, grupos de apoio e organizações comunitárias. Não é uma sessão de aconselhamento nem atendimento de emergência. Para crise suicida, use o 988."},
   web:"www.samhsa.gov"},
- {id:"harborworks", cat:"jobs", scope:"sample", name:"HarborWorks Career Desk",
-  desc:"Sample listing: resume help and job listings at a fictional career desk.",
-  phone:"555-014-2400", tel:"+15550142400",
-  hours:"Monday to Friday, 9:00 a.m. to 5:00 p.m.", who:"Sample: open to job seekers 18 and older.",
-  cost:"Free. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"15 Market Street, Harbor City, Harbor County",
-  notes:"Use this record as a template. A steward should replace the name, phone, and address with the real American Job Center or library career desk.",
-  web:null},
- {id:"harbor-legal", cat:"legal", scope:"sample", name:"Harbor Legal Aid Desk",
-  desc:"Sample listing: brief legal advice for housing and benefits. Not a law firm.",
-  phone:"555-014-2500", tel:"+15550142500",
-  hours:"Monday, Wednesday, and Friday, 9:00 a.m. to 3:00 p.m.", who:"Sample: income limits apply. No criminal defense.",
-  cost:"Free if eligible. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"8 Courthouse Square, Harbor City, Harbor County",
-  notes:"Fictional. It does not create an attorney-client relationship. Real legal aid should be added by a steward, or callers can start with 211.",
-  web:null},
- {id:"ridelink", cat:"transit", scope:"sample", name:"RideLink",
-  desc:"Sample listing: ride vouchers to medical visits and job interviews.",
-  phone:"555-014-2600", tel:"+15550142600",
-  hours:"Monday to Friday, 8:00 a.m. to 5:00 p.m. Book a day ahead.", who:"Sample: county residents traveling to a covered appointment.",
-  cost:"Free voucher when eligible. Sample listing.", langs:"English", wheel:"Yes", coverage:"90 Depot Lane, Harbor City, Harbor County",
-  notes:"Fictional transportation program. Directions from this address are not meaningful. Replace with the real paratransit or medical ride program.",
-  web:null},
- {id:"dockside-childcare", cat:"childcare", scope:"sample", name:"Dockside Child Care Network",
-  desc:"Sample listing: referrals to licensed child care, not a child care center itself.",
-  phone:"555-014-2700", tel:"+15550142700",
-  hours:"Monday to Friday, 8:00 a.m. to 5:00 p.m.", who:"Sample: families seeking care for children under 13.",
-  cost:"Referral is free. Care fees vary. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"12 Harbor Walk, Harbor City, Harbor County",
-  notes:"Fictional referral desk. Do not drop off a child at this address. A steward should list real CCR&R (child care resource and referral) contacts.",
-  web:null},
- {id:"warm-homes", cat:"utilities", scope:"sample", name:"Warm Homes Utility Aid",
-  desc:"Sample listing: help applying for heat and electric assistance.",
-  phone:"555-014-2800", tel:"+15550142800",
-  hours:"Monday to Friday, 9:00 a.m. to 4:00 p.m.", who:"Sample: renters and owners with a shutoff notice get priority.",
-  cost:"Assistance amount varies. Sample listing.", langs:"English, Español", wheel:"Not listed", coverage:"50 Cedar Street, Harbor City, Harbor County",
-  notes:"Fictional stand-in for a LIHEAP or charity utility fund. The application rules shown here are examples, not current law. Confirm any real program before you apply.",
-  web:null},
+ 
+ 
+ 
+ 
+ 
  {id:"eldercare", cat:"seniors", scope:"national", name:"Eldercare Locator",
   desc:{en:"Connects older adults and caregivers with local aging services, meals, and support.", es:"Conecta a adultos mayores y cuidadores con servicios locales para personas mayores, comidas y apoyo.", ht:"Konekte granmoun ak moun k ap pran swen yo ak sèvis lokal pou granmoun, manje ak sipò.", pt:"Conecta idosos e cuidadores a serviços locais para idosos, refeições e apoio."},
   phone:"1-800-677-1116", tel:"+18006771116",
@@ -583,33 +577,26 @@ var LISTINGS = [
   cost:{en:"Free.", es:"Gratis.", ht:"Gratis.", pt:"Gratuito."}, langs:{en:"English, Español", es:"Inglés, Español", ht:"Anglè, Panyòl", pt:"Inglês, Espanhol"}, wheel:"Not listed", coverage:{en:"United States", es:"Estados Unidos", ht:"Etazini", pt:"Estados Unidos"},
   notes:{en:"A public service of the U.S. Administration for Community Living. Call 1-800-677-1116 on weekdays. Use it to find the Area Agency on Aging for your area.", es:"Un servicio público de la Administración para la Vida Comunitaria de EE. UU. Llama al 1-800-677-1116 entre semana. Úsalo para encontrar la Agencia de Área sobre Envejecimiento de tu zona.", ht:"Yon sèvis piblik Administrasyon pou Lavi Kominotè Etazini an. Rele 1-800-677-1116 nan jou semèn. Itilize l pou jwenn Ajans Zòn sou Vyeyès (Area Agency on Aging) pou zòn ou an.", pt:"Um serviço público da Administração para a Vida Comunitária dos EUA. Ligue para 1-800-677-1116 em dias úteis. Use-o para encontrar a Agência de Área sobre Envelhecimento da sua região."},
   web:"eldercare.acl.gov"},
- {id:"senior-lunch", cat:"seniors", scope:"sample", name:"Harbor Library Senior Lunch",
-  desc:"Sample listing: a weekday lunch for older adults at the library.",
-  phone:"555-014-2900", tel:"+15550142900",
-  hours:"Monday, Wednesday, Friday, 11:30 a.m. to 1:00 p.m.", who:"Sample: adults 60 and older. Suggested donation, not required.",
-  cost:"Suggested donation. Sample listing.", langs:"English", wheel:"Yes", coverage:"1 Library Plaza, Harbor City, Harbor County",
-  notes:"Fictional meal site. For a real meal program, start with the Eldercare Locator at 1-800-677-1116 and ask for home-delivered or congregate meals.",
-  web:null},
- {id:"harbor-esl", cat:"education", scope:"sample", name:"Harbor College ESL & Adult Learning",
-  desc:"Sample listing: evening English classes and GED information.",
-  phone:"555-014-3000", tel:"+15550143000",
-  hours:"Tuesday and Thursday, 6:00 p.m. to 8:30 p.m.", who:"Sample: adults 18 and older. No immigration status asked at the front desk.",
-  cost:"Free classes. Sample listing.", langs:"English, Español", wheel:"Yes", coverage:"400 College Way, Harbor City, Harbor County",
-  notes:"Fictional campus program. Replace with the real adult school, library, or community college ESL schedule. Classes in this record do not enroll students.",
-  web:null}
+ 
+ 
 ];
 var FEATURED = ["988","ndvh","dial-211","hunger-hotline"];
 
 /* ============ VERIFIED LOCAL LISTINGS — Indian River County, FL ============
-   Verified 2026-10-23 from authoritative sources (organizations' own pages,
-   211 Palm Beach & Treasure Coast Food Reference Guide, School District of
-   Indian River County). Full provenance: local-data.md in the project folder.
+   Baseline check 2026-10-23 from authoritative sources (organizations' own
+   pages, 211 Palm Beach & Treasure Coast Food Reference Guide, School District
+   of Indian River County); re-examined listing by listing in the Nov 2, 2026
+   fact-check. Each listing carries its OWN "verified" field: the date its
+   facts were last confirmed from an authoritative source, or null when no
+   first-party confirmation exists (card then shows an unverified /
+   call-to-confirm line instead of a date). A date represents evidence, not
+   the date the code was edited. Full provenance: local-data.md in the
+   project folder + CB-FACTCHECK-FINAL-2026-11-02.md.
    This is a separate dataset from LISTINGS above — never blended with the
    fictional Harbor County samples. Hours are shown only where a source states
    them; contested hours read "call to confirm." */
-var LOCAL_VERIFIED_DATE = "2026-10-23";
 var LOCAL_LISTINGS = [
- {id:"operation-hope", cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
+ {id:"operation-hope", verified:"2026-11-02", cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
   name:"Operation Hope of Fellsmere",
   address:"12285 County Road 512, Fellsmere, FL 32948",
   phone:"(321) 403-2604", tel:"+13214032604",
@@ -620,70 +607,70 @@ var LOCAL_LISTINGS = [
   noteEn:"Status note: the organization's own posts announced distributions at 10:00 AM on 1st & 3rd Saturdays in early 2026, but one directory listing flags this site as temporarily closed — please call before going to confirm the next distribution.",
   noteEs:"Nota sobre el estado: las publicaciones de la propia organización anunciaron distribuciones a las 10:00 AM el primer y tercer sábado a principios de 2026, pero un directorio marca este sitio como cerrado temporalmente — llama antes de ir para confirmar la próxima distribución, por favor.",
   sourceName:"Operation Hope (operationhopefl.org)", sourceUrl:"https://operationhopefl.org/", web:"https://operationhopefl.org/", lat:27.76622, lon:-80.57778, hoursHt:"Distribisyon manje premye ak twazyèm samdi chak mwa — rele pou konfime lè a.", hoursPt:"Distribuição de alimentos no 1º e 3º sábado de cada mês — ligue para confirmar o horário.", whatHt:"Distribisyon manje gratis pou fanmi. Ou pa bezwen enskri.", whatPt:"Distribuição gratuita de alimentos para famílias. Não é preciso se cadastrar.", noteHt:"Nòt sou estati: piblikasyon òganizasyon an te anonse distribisyon a 10:00 AM premye ak twazyèm samdi nan kòmansman 2026, men yon anyè make kote sa a kòm fèmen pou yon ti tan — tanpri rele anvan w ale pou konfime pwochen distribisyon an.", notePt:"Nota de status: as publicações da própria organização anunciaram distribuições às 10h no 1º e 3º sábado no início de 2026, mas um diretório marca este local como temporariamente fechado — ligue antes de ir para confirmar a próxima distribuição."},
- {id:"fellsmere-enrichment", cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
+ {id:"fellsmere-enrichment", verified:null, cat:"food", tier:0, distMi:0, townEn:"Fellsmere", townEs:"Fellsmere",
   name:"Fellsmere Community Enrichment Program",
   address:"10074 Esperanza Circle, Fellsmere, FL 32948",
   phone:"(772) 571-0031", tel:"+17725710031",
-  hoursEn:"Food pantry: Monday–Friday, 9:00 AM–3:30 PM. Free soup-kitchen lunch: Monday–Friday, 11:00 AM–12:00 PM.",
-  hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM–3:30 PM. Almuerzo gratuito (comedor comunitario): lunes a viernes, 11:00 AM–12:00 PM.",
+  hoursEn:"Food pantry: Monday\u2013Friday, 9:00 AM\u20133:30 PM. Free soup-kitchen lunch: Monday\u2013Friday, 11:00 AM\u201312:00 PM. Please call to confirm before going.",
+  hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM\u20133:30 PM. Almuerzo gratuito (comedor comunitario): lunes a viernes, 11:00 AM\u201312:00 PM. Llama para confirmar antes de ir.",
   whatEn:"Food pantry, a free weekday lunch, and baby-item distributions.",
   whatEs:"Despensa de alimentos, almuerzo gratuito entre semana y distribución de artículos para bebés.",
-  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null, lat:27.77836, lon:-80.59027, hoursHt:"Bank manje: lendi rive vandredi, 9:00 AM–3:30 PM. Dejene gratis nan kantin kominotè: lendi rive vandredi, 11:00 AM–12:00 PM.", hoursPt:"Banco de alimentos: segunda a sexta, 9h–15h30. Almoço gratuito (cozinha comunitária): segunda a sexta, 11h–12h.", whatHt:"Bank manje, yon dejene gratis nan semèn, ak distribisyon atik pou bebe.", whatPt:"Banco de alimentos, um almoço gratuito durante a semana e distribuição de itens para bebês."},
- {id:"roseland-pantry", cat:"food", tier:1, distMi:9, townEn:"Sebastian (Roseland)", townEs:"Sebastian (Roseland)",
+  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null, lat:27.77836, lon:-80.59027, hoursHt:"Bank manje: lendi rive vandredi, 9:00 AM\u20133:30 PM. Dejene gratis nan kantin kominot\u00e8: lendi rive vandredi, 11:00 AM\u201312:00 PM. Tanpri rele pou konfime anvan w ale.", hoursPt:"Banco de alimentos: segunda a sexta, 9h\u201315h30. Almo\u00e7o gratuito (cozinha comunit\u00e1ria): segunda a sexta, 11h\u201312h. Ligue para confirmar antes de ir.", whatHt:"Bank manje, yon dejene gratis nan semèn, ak distribisyon atik pou bebe.", whatPt:"Banco de alimentos, um almo\u00e7o gratuito durante a semana e distribui\u00e7\u00e3o de itens para beb\u00eas.", noteEn:"Note: this program has no official website we could check \u2014 these hours come from community directories, so calling ahead matters.", noteEs:"Nota: este programa no tiene un sitio web oficial que pudi\u00e9ramos verificar \u2014 estos horarios vienen de directorios comunitarios, por lo que es importante llamar antes.", noteHt:"N\u00f2t: pwogram sa a pa gen yon sit ofisy\u00e8l nou te ka verifye \u2014 or\u00e8 sa yo soti nan any\u00e8 kominot\u00e8, kidonk li enp\u00f2tan pou w rele anvan w ale.", notePt:"Nota: este programa n\u00e3o tem um site oficial que pud\u00e9ssemos verificar \u2014 estes hor\u00e1rios v\u00eam de diret\u00f3rios comunit\u00e1rios, por isso \u00e9 importante ligar antes."},
+ {id:"roseland-pantry", verified:"2026-11-02", cat:"food", tier:1, distMi:9, townEn:"Sebastian (Roseland)", townEs:"Sebastian (Roseland)",
   name:"Roseland Ecumenical Food Pantry",
   address:"12962 Roseland Road, Sebastian, FL 32958",
-  phone:"(772) 589-3035", tel:"+17725893035",
-  hoursEn:"Monday, Wednesday & Friday, 9:00 AM–12:00 PM.",
-  hoursEs:"Lunes, miércoles y viernes, 9:00 AM–12:00 PM.",
-  whatEn:"Food pantry at Roseland United Methodist Church. Serves Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay and nearby areas — food once a month per household with a simple income form. No ID required.",
-  whatEs:"Despensa de alimentos en la iglesia Roseland United Methodist. Atiende a Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay y áreas cercanas — alimentos una vez al mes por hogar con un formulario sencillo de ingresos. No se requiere identificación.",
-  sourceName:"Roseland United Methodist Church", sourceUrl:"https://eridan.websrvcs.com/templates/System/details.asp?id=42377&PID=1055143", web:null, lat:27.83402, lon:-80.4948, hoursHt:"Lendi, mèkredi ak vandredi, 9:00 AM–12:00 PM.", hoursPt:"Segunda, quarta e sexta, 9h–12h.", whatHt:"Bank manje nan legliz Roseland United Methodist. Li sèvi Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay ak zòn ki pre yo — manje yon fwa pa mwa pou chak kay ak yon fòm revni senp. Ou pa bezwen idantifikasyon.", whatPt:"Banco de alimentos na igreja Roseland United Methodist. Atende Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay e áreas próximas — alimentos uma vez por mês por família com um formulário simples de renda. Não é preciso documento."},
- {id:"svdp-wabasso", cat:"food", tier:1, distMi:13, townEn:"Wabasso", townEs:"Wabasso",
+  phone:"(772) 589-3035 ext. 215", tel:"+17725893035;ext=215",
+  hoursEn:"Monday, Wednesday & Friday, 9:00 AM\u201312:00 PM. Call ahead to confirm \u2014 some directories still show different hours.",
+  hoursEs:"Lunes, mi\u00e9rcoles y viernes, 9:00 AM\u201312:00 PM. Llama antes para confirmar \u2014 algunos directorios todav\u00eda muestran horarios diferentes.",
+  whatEn:"Food pantry at Roseland United Methodist Church. Serves Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay, Vero Lake Estates, Gifford, Grant/Valkaria and nearby areas — food once a month per household with a simple income form. No ID required.",
+  whatEs:"Despensa de alimentos en la iglesia Roseland United Methodist. Atiende a Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay, Vero Lake Estates, Gifford, Grant/Valkaria y \u00e1reas cercanas — alimentos una vez al mes por hogar con un formulario sencillo de ingresos. No se requiere identificación.",
+  sourceName:"Roseland United Methodist Church", sourceUrl:"https://eridan.websrvcs.com/templates/System/details.asp?id=42377&PID=1055143", web:null, lat:27.83402, lon:-80.4948, hoursHt:"Lendi, m\u00e8kredi ak vandredi, 9:00 AM\u201312:00 PM. Rele anvan pou konfime \u2014 k\u00e8k any\u00e8 toujou montre l\u00f2t or\u00e8.", hoursPt:"Segunda, quarta e sexta, 9h\u201312h. Ligue antes para confirmar \u2014 alguns diret\u00f3rios ainda mostram hor\u00e1rios diferentes.", whatHt:"Bank manje nan legliz Roseland United Methodist. Li s\u00e8vi Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay, Vero Lake Estates, Gifford, Grant/Valkaria ak z\u00f2n ki pre yo — manje yon fwa pa mwa pou chak kay ak yon fòm revni senp. Ou pa bezwen idantifikasyon.", whatPt:"Banco de alimentos na igreja Roseland United Methodist. Atende Fellsmere, Sebastian, Roseland, Micco, Barefoot Bay, Vero Lake Estates, Gifford, Grant/Valkaria e \u00e1reas pr\u00f3ximas — alimentos uma vez por mês por família com um formulário simples de renda. Não é preciso documento."},
+ {id:"svdp-wabasso", verified:"2026-11-02", cat:"food", tier:1, distMi:13, townEn:"Wabasso", townEs:"Wabasso",
   name:"St. Vincent de Paul — Sebastian / Wabasso",
   address:"5480 85th Street, Wabasso, FL 32967",
   phone:"(772) 589-3312", tel:"+17725893312",
-  hoursEn:"Groceries on Tuesdays and Thursdays — call to confirm hours.",
-  hoursEs:"Entrega de comestibles los martes y jueves — llama para confirmar el horario.",
+  hoursEn:"Food pantry: Tuesdays and Thursdays, 10:00 AM\u20132:00 PM \u2014 call to confirm before going.",
+  hoursEs:"Despensa de alimentos: martes y jueves, 10:00 AM\u20132:00 PM \u2014 llama para confirmar antes de ir.",
   whatEn:"Free groceries from the Society of St. Vincent de Paul. Help with utility bills may also be available — ask when you call.",
   whatEs:"Comestibles gratuitos de la Sociedad de San Vicente de Paúl. También puede haber ayuda con las facturas de servicios — pregunta cuando llames.",
-  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null, lat:27.74869, lon:-80.44097, hoursHt:"Pwovizyon madi ak jedi — rele pou konfime lè yo.", hoursPt:"Mantimentos às terças e quintas — ligue para confirmar os horários.", whatHt:"Pwovizyon gratis nan Sosyete St. Vincent de Paul. Èd ak bòdwo sèvis yo ka disponib tou — mande lè w rele.", whatPt:"Mantimentos gratuitos da Sociedade de São Vicente de Paulo. Ajuda com contas de serviços também pode estar disponível — pergunte quando ligar."},
- {id:"food-pantry-irc", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
+  sourceName:"211 Palm Beach & Treasure Coast — Food Reference Guide", sourceUrl:"https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf", web:null, lat:27.74869, lon:-80.44097, hoursHt:"Bank manje: madi ak jedi, 10:00 AM\u20132:00 PM \u2014 rele pou konfime anvan w ale.", hoursPt:"Banco de alimentos: ter\u00e7as e quintas, 10h\u201314h \u2014 ligue para confirmar antes de ir.", whatHt:"Pwovizyon gratis nan Sosyete St. Vincent de Paul. Èd ak bòdwo sèvis yo ka disponib tou — mande lè w rele.", whatPt:"Mantimentos gratuitos da Sociedade de São Vicente de Paulo. Ajuda com contas de serviços também pode estar disponível — pergunte quando ligar."},
+ {id:"food-pantry-irc", verified:"2026-11-02", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
   name:"Food Pantry of Indian River County",
   address:"2206 16th Avenue, Vero Beach, FL 32960",
   phone:"(772) 770-2068", tel:"+17727702068",
-  hoursEn:"Monday, Wednesday & Friday, 9:00 AM–12:30 PM; Tuesday & Thursday, 2:00–5:00 PM.",
-  hoursEs:"Lunes, miércoles y viernes, 9:00 AM–12:30 PM; martes y jueves, 2:00–5:00 PM.",
-  whatEn:"Emergency food (usually 3–4 days of staples). Indian River County residents may visit up to twice a month.",
-  whatEs:"Alimentos de emergencia (normalmente para 3–4 días). Los residentes del condado de Indian River pueden venir hasta dos veces al mes.",
-  sourceName:"Food Pantry of Indian River County (foodpantryirc.org)", sourceUrl:"https://www.foodpantryirc.org/", web:"https://www.foodpantryirc.org/", lat:27.64122, lon:-80.40091, hoursHt:"Lendi, mèkredi ak vandredi, 9:00 AM–12:30 PM; madi ak jedi, 2:00–5:00 PM.", hoursPt:"Segunda, quarta e sexta, 9h–12h30; terça e quinta, 14h–17h.", whatHt:"Manje ijans (anjeneral pwovizyon pou 3–4 jou). Rezidan Indian River County ka vini jiska de fwa pa mwa.", whatPt:"Alimentos de emergência (geralmente mantimentos para 3–4 dias). Moradores de Indian River County podem vir até duas vezes por mês."},
- {id:"the-source", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
-  name:"The Source",
+  hoursEn:"Monday, Wednesday & Friday, from 9:00 AM \u2014 the closing time is listed as 12:30 PM in one source and 1:00 PM in the pantry\u2019s own newsletter, so please call to confirm. Tuesday & Thursday, 2:00\u20135:00 PM.",
+  hoursEs:"Lunes, mi\u00e9rcoles y viernes, desde las 9:00 AM \u2014 la hora de cierre aparece como 12:30 PM en una fuente y 1:00 PM en el bolet\u00edn de la propia despensa, as\u00ed que llama para confirmar. Martes y jueves, 2:00\u20135:00 PM.",
+  whatEn:"Emergency food (usually 3\u20134 days of staples). Open to county residents and people passing through; visits up to twice a month.",
+  whatEs:"Alimentos de emergencia (normalmente para 3\u20134 d\u00edas). Abierto a residentes del condado y a personas de paso; hasta dos visitas al mes.",
+  sourceName:"Food Pantry of Indian River County (foodpantryirc.org)", sourceUrl:"https://www.foodpantryirc.org/", web:"https://www.foodpantryirc.org/", lat:27.64122, lon:-80.40091, hoursHt:"Lendi, m\u00e8kredi ak vandredi, apati 9:00 AM \u2014 l\u00e8 f\u00e8mti a par\u00e8t k\u00f2m 12:30 PM nan yon sous epi 1:00 PM nan bilten bank manje a li menm, kidonk tanpri rele pou konfime. Madi ak jedi, 2:00\u20135:00 PM.", hoursPt:"Segunda, quarta e sexta, a partir das 9h \u2014 o hor\u00e1rio de fechamento aparece como 12h30 em uma fonte e 13h no boletim do pr\u00f3prio banco de alimentos, ent\u00e3o ligue para confirmar. Ter\u00e7a e quinta, 14h\u201317h.", whatHt:"Manje ijans (anjeneral pwovizyon pou 3\u20134 jou). Li ouv\u00e8 pou rezidan konte a ak moun k ap pase; ou ka vini jiska de fwa pa mwa.", whatPt:"Alimentos de emerg\u00eancia (geralmente mantimentos para 3\u20134 dias). Aberto a moradores do condado e pessoas de passagem; at\u00e9 duas visitas por m\u00eas."},
+ {id:"the-source", verified:"2026-11-02", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
+  name:"The reSource Center of Indian River County",
   address:"1015 Commerce Avenue, Vero Beach, FL 32960",
   phone:"(772) 564-0202", tel:"+17725640202",
-  hoursEn:"Call to confirm hours — open six days a week.",
-  hoursEs:"Llama para confirmar el horario — abierto seis días a la semana.",
-  whatEn:"Hot meals, emergency food boxes, clothing, showers and laundry for people in need.",
-  whatEs:"Comidas calientes, cajas de alimentos de emergencia, ropa, duchas y lavandería para personas necesitadas.",
-  sourceName:"The Source (iamthesource.org)", sourceUrl:"https://www.iamthesource.org/", web:"https://www.iamthesource.org/", lat:27.61995, lon:-80.38995, hoursHt:"Rele pou konfime lè yo — ouvè sis jou pa semèn.", hoursPt:"Ligue para confirmar os horários — aberto seis dias por semana.", whatHt:"Manje cho, bwat manje ijans, rad, douch ak lesiv pou moun ki nan bezwen.", whatPt:"Refeições quentes, caixas de alimentos de emergência, roupas, chuveiros e lavanderia para pessoas em necessidade."},
- {id:"salvation-army-vero", cat:"food", tier:2, distMi:15, townEn:"Vero Beach", townEs:"Vero Beach",
+  hoursEn:"Breakfast Monday\u2013Friday, 6:30\u20139:00 AM; dinner Monday\u2013Friday, 4:00\u20137:00 PM; coffee & donuts Saturday & Sunday, 8:00 AM\u201312:00 PM (members); Family Dinner Saturday, 1:00\u20136:00 PM. Programs run seven days a week \u2014 call to confirm.",
+  hoursEs:"Desayuno de lunes a viernes, 6:30\u20139:00 AM; cena de lunes a viernes, 4:00\u20137:00 PM; caf\u00e9 y donas s\u00e1bado y domingo, 8:00 AM\u201312:00 PM (miembros); Cena Familiar s\u00e1bado, 1:00\u20136:00 PM. Los programas funcionan los siete d\u00edas de la semana \u2014 llama para confirmar.",
+  whatEn:"Hot meals, showers, laundry and clothing for people in need. Start at the intake desk at 1015 Commerce Avenue: Indian River County residents register, receive a member ID, and use it for ongoing meal services \u2014 call to ask how to get started.",
+  whatEs:"Comidas calientes, duchas, lavander\u00eda y ropa para personas necesitadas. Empieza en la mesa de admisi\u00f3n (intake) en 1015 Commerce Avenue: los residentes del condado de Indian River se registran, reciben una identificaci\u00f3n de miembro y la usan para los servicios continuos de comidas \u2014 llama para preguntar c\u00f3mo empezar.",
+  sourceName:"The Source (iamthesource.org)", sourceUrl:"https://www.iamthesource.org/", web:"https://www.iamthesource.org/", lat:27.61995, lon:-80.38995, hoursHt:"Dejene lendi rive vandredi, 6:30\u20139:00 AM; dine lendi rive vandredi, 4:00\u20137:00 PM; kafe ak don\u00e8t samdi ak dimanch, 8:00 AM\u201312:00 PM (manm); Dine Fanmi samdi, 1:00\u20136:00 PM. Pwogram yo mache s\u00e8t jou pa sem\u00e8n \u2014 rele pou konfime.", hoursPt:"Caf\u00e9 da manh\u00e3 de segunda a sexta, 6h30\u20139h; jantar de segunda a sexta, 16h\u201319h; caf\u00e9 e donuts s\u00e1bado e domingo, 8h\u201312h (membros); Jantar em Fam\u00edlia s\u00e1bado, 13h\u201318h. Os programas funcionam sete dias por semana \u2014 ligue para confirmar.", whatHt:"Manje cho, douch, lesiv ak rad pou moun ki nan bezwen. K\u00f2manse nan biwo admisyon an (intake) nan 1015 Commerce Avenue: rezidan Indian River County anrejistre, yo resevwa yon kat idantite manm, epi yo s\u00e8vi av\u00e8 l pou s\u00e8vis manje kontiny\u00e8l \u2014 rele pou mande kijan pou w k\u00f2manse.", whatPt:"Refei\u00e7\u00f5es quentes, chuveiros, lavanderia e roupas para pessoas necessitadas. Comece no balc\u00e3o de admiss\u00e3o (intake) em 1015 Commerce Avenue: moradores de Indian River County fazem o cadastro, recebem um cart\u00e3o de membro e o usam para os servi\u00e7os cont\u00ednuos de refei\u00e7\u00f5es \u2014 ligue para saber como come\u00e7ar.", noteEn:"Not a member yet? Families who are not members can be referred for the Saturday Family Dinner by a partner agency, such as Hope for Families, United Against Poverty, Childcare Resources, or the School District of Indian River County.", noteEs:"\u00bfTodav\u00eda no eres miembro? Las familias que no son miembros pueden ser referidas para la Cena Familiar del s\u00e1bado por una agencia asociada, como Hope for Families, United Against Poverty, Childcare Resources o el Distrito Escolar de Indian River County.", noteHt:"Ou poko manm? Yon ajans patn\u00e8, tankou Hope for Families, United Against Poverty, Childcare Resources, oswa Distri Lek\u00f2l Indian River County, ka refere fanmi ki pa manm pou Dine Fanmi samdi a.", notePt:"Ainda n\u00e3o \u00e9 membro? Fam\u00edlias que n\u00e3o s\u00e3o membros podem ser encaminhadas para o Jantar em Fam\u00edlia de s\u00e1bado por uma ag\u00eancia parceira, como Hope for Families, United Against Poverty, Childcare Resources ou o Distrito Escolar de Indian River County."},
+ {id:"salvation-army-vero", verified:"2026-11-02", cat:"food", tier:2, distMi:15, townEn:"Vero Beach", townEs:"Vero Beach",
   name:"The Salvation Army — Vero Beach",
   address:"2655 5th Street SW, Vero Beach, FL 32962",
   phone:"(772) 978-0265", tel:"+17729780265",
-  hoursEn:"Food pantry: Monday–Friday, 9:00 AM–12:00 PM and 1:00 PM–4:00 PM.",
-  hoursEs:"Despensa de alimentos: lunes a viernes, 9:00 AM–12:00 PM y 1:00 PM–4:00 PM.",
-  whatEn:"Food pantry and social services.",
-  whatEs:"Despensa de alimentos y servicios sociales.",
-  sourceName:"The Salvation Army — Indian River County Corps", sourceUrl:"http://www.salvationarmyflorida.org/verobeach/", web:"http://www.salvationarmyflorida.org/verobeach/", lat:27.59336, lon:-80.41294, hoursHt:"Bank manje: lendi rive vandredi, 9:00 AM–12:00 PM ak 1:00 PM–4:00 PM.", hoursPt:"Banco de alimentos: segunda a sexta, 9h–12h e 13h–16h.", whatHt:"Bank manje ak sèvis sosyal.", whatPt:"Banco de alimentos e serviços sociais."},
- {id:"st-helen-svdp", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
-  name:"St. Helen Catholic Church — St. Vincent de Paul Pantry",
+  hoursEn:"Food pantry: Tuesday\u2013Thursday, 9:00\u201311:00 AM and 1:00\u20133:00 PM \u2014 drive-thru until further notice.",
+  hoursEs:"Despensa de alimentos: martes a jueves, 9:00\u201311:00 AM y 1:00\u20133:00 PM \u2014 servicio desde el auto (drive-thru) hasta nuevo aviso.",
+  whatEn:"Food pantry, hygiene items, and hot meals on Wednesday & Thursday at noon. Help with utility bills or clothing may be available case by case, by appointment.",
+  whatEs:"Despensa de alimentos, art\u00edculos de higiene y comidas calientes los mi\u00e9rcoles y jueves al mediod\u00eda. Puede haber ayuda con las facturas de servicios o con ropa, seg\u00fan el caso, con cita previa.",
+  sourceName:"The Salvation Army — Indian River County Corps", sourceUrl:"http://www.salvationarmyflorida.org/verobeach/", web:"http://www.salvationarmyflorida.org/verobeach/", lat:27.59336, lon:-80.41294, hoursHt:"Bank manje: madi rive jedi, 9:00\u201311:00 AM ak 1:00\u20133:00 PM \u2014 s\u00e8vis drive-thru (nan machin) jiskaske gen l\u00f2t avi.", hoursPt:"Banco de alimentos: ter\u00e7a a quinta, 9h\u201311h e 13h\u201315h \u2014 atendimento drive-thru at\u00e9 novo aviso.", whatHt:"Bank manje, atik ijy\u00e8n, ak manje cho m\u00e8kredi ak jedi a midi. \u00c8d ak b\u00f2dwo s\u00e8vis oswa rad ka disponib selon ka a, sou randevou.", whatPt:"Banco de alimentos, itens de higiene e refei\u00e7\u00f5es quentes \u00e0s quartas e quintas ao meio-dia. Ajuda com contas de servi\u00e7os ou roupas pode estar dispon\u00edvel caso a caso, com agendamento.", noteEn:"Who can come: Indian River County residents. Please bring a photo ID for yourself and for everyone in your household, and proof of address if the address on your ID is different. Intake starts by phone \u2014 please call ahead.", noteEs:"Qui\u00e9nes pueden venir: residentes del condado de Indian River. Trae una identificaci\u00f3n con foto tuya y de todas las personas de tu hogar, y un comprobante de domicilio si la direcci\u00f3n de tu identificaci\u00f3n es diferente. El proceso de admisi\u00f3n empieza por tel\u00e9fono \u2014 llama antes de ir.", noteHt:"Ki moun ki ka vini: rezidan Indian River County. Tanpri pote yon idantifikasyon ak foto pou wou menm ak pou chak moun lakay ou, ak pr\u00e8v ad\u00e8s si ad\u00e8s sou idantifikasyon w la diferan. Pwosesis admisyon an k\u00f2manse pa telef\u00f2n \u2014 tanpri rele anvan w ale.", notePt:"Quem pode vir: moradores de Indian River County. Traga um documento com foto seu e de todas as pessoas da sua casa, e um comprovante de endere\u00e7o se o endere\u00e7o do documento for diferente. O atendimento come\u00e7a por telefone \u2014 ligue antes de ir."},
+ {id:"st-helen-svdp", verified:"2026-11-02", cat:"food", tier:2, distMi:14, townEn:"Vero Beach", townEs:"Vero Beach",
+  name:"Mercy House \u2014 St. Helen Parish Outreach Ministry",
   address:"1031 18th Street, Suites F & G, Vero Beach, FL 32960",
   phone:"(772) 567-5193", tel:"+17725675193",
-  hoursEn:"Call to confirm hours.",
-  hoursEs:"Llama para confirmar el horario.",
-  whatEn:"Parish food pantry run by the Society of St. Vincent de Paul.",
-  whatEs:"Despensa parroquial de alimentos de la Sociedad de San Vicente de Paúl.",
-  sourceName:"St. Helen Catholic Church (sthelenvero.org)", sourceUrl:"https://www.sthelenvero.org/", web:null, lat:27.63399, lon:-80.39405, hoursHt:"Rele pou konfime lè yo.", hoursPt:"Ligue para confirmar os horários.", whatHt:"Bank manje pawasyal Sosyete St. Vincent de Paul jere.", whatPt:"Banco de alimentos paroquial administrado pela Sociedade de São Vicente de Paulo."},
- {id:"our-fathers-table", cat:"food", tier:2, distMi:15, townEn:"Vero Beach (Gifford)", townEs:"Vero Beach (Gifford)",
+  hoursEn:"Monday\u2013Friday, 9:30 AM\u20131:00 PM \u2014 call to confirm.",
+  hoursEs:"Lunes a viernes, 9:30 AM\u20131:00 PM \u2014 llama para confirmar.",
+  whatEn:"Parish food pantry and outreach ministry (Mercy House) of St. Helen Catholic Church, helping people with financial needs.",
+  whatEs:"Despensa parroquial de alimentos y ministerio de asistencia (Mercy House) de la iglesia cat\u00f3lica St. Helen, que ayuda a personas con necesidades econ\u00f3micas.",
+  sourceName:"St. Helen Catholic Church (sthelenvero.org)", sourceUrl:"https://www.sthelenvero.org/", web:null, lat:27.63399, lon:-80.39405, hoursHt:"Lendi rive vandredi, 9:30 AM\u20131:00 PM \u2014 rele pou konfime.", hoursPt:"Segunda a sexta, 9h30\u201313h \u2014 ligue para confirmar.", whatHt:"Bank manje pawasyal ak minist\u00e8 \u00e8d sosyal (Mercy House) legliz katolik St. Helen, k ap ede moun ki gen bezwen finansye.", whatPt:"Banco de alimentos paroquial e minist\u00e9rio de assist\u00eancia (Mercy House) da igreja cat\u00f3lica St. Helen, que ajuda pessoas com necessidades financeiras."},
+ {id:"our-fathers-table", verified:"2026-11-02", cat:"food", tier:2, distMi:15, townEn:"Vero Beach (Gifford)", townEs:"Vero Beach (Gifford)",
   name:"Our Father's Table Soup Kitchen",
   address:"4221 28th Avenue, Vero Beach, FL 32967",
   phone:"(772) 562-6268", tel:"+17725626268",
@@ -691,7 +678,29 @@ var LOCAL_LISTINGS = [
   hoursEs:"Almuerzo gratuito de lunes a viernes, 12:00–1:00 PM.",
   whatEn:"Soup kitchen serving a free midday meal on weekdays.",
   whatEs:"Comedor comunitario que sirve un almuerzo gratuito entre semana.",
-  sourceName:"Our Father's Table Soup Kitchen", sourceUrl:"https://ourfatherstablesoupkitchen.org/", web:"https://ourfatherstablesoupkitchen.org/", lat:27.66996, lon:-80.41381, hoursHt:"Dejene gratis lendi rive vandredi, 12:00–1:00 PM.", hoursPt:"Almoço gratuito de segunda a sexta, 12h–13h.", whatHt:"Kantin kominotè k ap sèvi yon dejene gratis nan mitan jounen an nan jou semèn.", whatPt:"Cozinha comunitária que serve um almoço gratuito ao meio-dia nos dias de semana."}
+  sourceName:"Our Father's Table Soup Kitchen", sourceUrl:"https://ourfatherstablesoupkitchen.org/", web:"https://ourfatherstablesoupkitchen.org/", lat:27.66996, lon:-80.41381, hoursHt:"Dejene gratis lendi rive vandredi, 12:00–1:00 PM.", hoursPt:"Almoço gratuito de segunda a sexta, 12h–13h.", whatHt:"Kantin kominotè k ap sèvi yon dejene gratis nan mitan jounen an nan jou semèn.", whatPt:"Cozinha comunitária que serve um almoço gratuito ao meio-dia nos dias de semana."},
+ {id:"irc-section8", cat:"housing", tier:2, distMi:15, townEn:"Vero Beach", townEs:"Vero Beach", verified:"2026-11-04",
+  name:"Indian River County Rental Assistance \u2014 Section 8 Housing Vouchers",
+  address:"1800 27th Street, Building B, Vero Beach, FL 32960",
+  phone:"(772) 226-4360", tel:"+17722264360",
+  hoursEn:"Office hours listed as Tuesday\u2013Thursday, 8:00 AM\u20134:00 PM \u2014 call to confirm.",
+  hoursEs:"Horario de oficina publicado: martes a jueves, 8:00 AM\u20134:00 PM \u2014 llama para confirmar.",
+  whatEn:"This county office runs the Section 8 Housing Choice Voucher program for all of Indian River County \u2014 Sebastian, Fellsmere and Vero Beach. Vouchers help low-income families, seniors and people with disabilities pay rent to a private landlord.",
+  whatEs:"Esta oficina del condado administra el programa de vales de vivienda de la Secci\u00f3n 8 (Housing Choice Voucher) para todo el condado de Indian River \u2014 Sebastian, Fellsmere y Vero Beach. Los vales ayudan a familias de bajos ingresos, personas mayores y personas con discapacidades a pagar el alquiler a un propietario privado.",
+  noteEn:"WAITING LIST CLOSED \u2014 rechecked November 4, 2026. The list opens rarely and only for a short time (the last opening was a single day in March 2025). Call to confirm the current status and ask how the next opening will be announced. Please confirm hours and eligibility before traveling.",
+  noteEs:"LISTA DE ESPERA CERRADA \u2014 verificado de nuevo el 4 de noviembre de 2026. La lista abre rara vez y solo por poco tiempo (la \u00faltima apertura fue un solo d\u00eda en marzo de 2025). Llama para confirmar el estado actual y preguntar c\u00f3mo se anunciar\u00e1 la pr\u00f3xima apertura. Por favor confirma los horarios y la elegibilidad antes de viajar.",
+  sourceName:"Indian River County Housing Services (indianriver.gov)", sourceUrl:"https://indianriver.gov/services/community_services/housing_services/index.php", web:"https://indianriver.gov/services/community_services/housing_services/index.php", lat:27.64692, lon:-80.4034, hoursHt:"Or\u00e8 biwo a par\u00e8t k\u00f2m madi rive jedi, 8:00 AM\u20134:00 PM \u2014 rele pou konfime.", hoursPt:"Hor\u00e1rio do escrit\u00f3rio listado como ter\u00e7a a quinta, 8h\u201316h \u2014 ligue para confirmar.", whatHt:"Biwo konte sa a jere pwogram koupon lojman Seksyon 8 (Housing Choice Voucher) pou tout Indian River County \u2014 Sebastian, Fellsmere ak Vero Beach. Koupon yo ede fanmi ki gen ti revni, granmoun ak moun andikape peye lwaye bay yon pwopriyet\u00e8 prive.", whatPt:"Este escrit\u00f3rio do condado administra o programa de vouchers de moradia Se\u00e7\u00e3o 8 (Housing Choice Voucher) para todo o Indian River County \u2014 Sebastian, Fellsmere e Vero Beach. Os vouchers ajudam fam\u00edlias de baixa renda, idosos e pessoas com defici\u00eancia a pagar aluguel a um propriet\u00e1rio privado.", noteHt:"LIS ATANT LA F\u00c8MEN \u2014 yo te verifye l ank\u00f2 4 novanm 2026. Lis la ouvri raman epi s\u00e8lman pou yon ti tan (d\u00e8nye ouv\u00e8ti a te yon s\u00e8l jou an mas 2025). Rele pou konfime estati akty\u00e8l la epi mande kijan y ap anonse pwochen ouv\u00e8ti a. Tanpri konfime or\u00e8 ak elijiblite anvan w vwayaje.", notePt:"LISTA DE ESPERA FECHADA \u2014 verificado novamente em 4 de novembro de 2026. A lista abre raramente e por pouco tempo (a \u00faltima abertura foi um \u00fanico dia em mar\u00e7o de 2025). Ligue para confirmar o status atual e perguntar como a pr\u00f3xima abertura ser\u00e1 anunciada. Por favor, confirme hor\u00e1rios e elegibilidade antes de viajar."},
+ {id:"habc-section8", cat:"housing", tier:2, distMi:25, townEn:"Melbourne \u2014 serves Palm Bay & Brevard County", townEs:"Melbourne \u2014 atiende Palm Bay y el condado de Brevard", verified:"2026-11-04",
+  name:"Housing Authority of Brevard County \u2014 Section 8 Housing Vouchers",
+  address:"1401 Guava Avenue, Melbourne, FL 32935",
+  phone:"(321) 775-1592", tel:"+13217751592",
+  hoursEn:"Call to confirm hours.",
+  hoursEs:"Llama para confirmar el horario.",
+  whatEn:"Brevard County's housing authority runs the Section 8 Housing Choice Voucher program for Palm Bay, Melbourne and all of Brevard County. Community Bridge's home area is Indian River County \u2014 Section 8 is organized by county, so Brevard County residents apply here.",
+  whatEs:"La autoridad de vivienda del condado de Brevard administra el programa de vales de la Secci\u00f3n 8 para Palm Bay, Melbourne y todo el condado de Brevard. El \u00e1rea principal de Community Bridge es el condado de Indian River \u2014 la Secci\u00f3n 8 se organiza por condado, as\u00ed que los residentes de Brevard solicitan aqu\u00ed.",
+  noteEn:"ALL WAITING LISTS CLOSED \u2014 rechecked on the authority's own website on November 4, 2026: Section 8, public housing and its apartment lists. When Section 8 opens, selection is by lottery and the average wait is about 5 years \u2014 call to confirm status and ask how openings are announced. For waitlist status, 211 Brevard lists an HCV waitlist line, (321) 301-1982 \u2014 please confirm that number with HABC before relying on it. Please confirm hours and eligibility before traveling.",
+  noteEs:"TODAS LAS LISTAS DE ESPERA EST\u00c1N CERRADAS \u2014 verificado en el sitio oficial de la autoridad el 4 de noviembre de 2026: Secci\u00f3n 8, vivienda p\u00fablica y sus listas de apartamentos. Cuando la Secci\u00f3n 8 abre, la selecci\u00f3n es por loter\u00eda y la espera promedio es de unos 5 a\u00f1os \u2014 llama para confirmar el estado y preguntar c\u00f3mo se anuncian las aperturas. Para el estado de la lista de espera, el 211 de Brevard publica una l\u00ednea de vales HCV, (321) 301-1982 \u2014 por favor confirma ese n\u00famero con HABC antes de confiar en \u00e9l. Por favor confirma los horarios y la elegibilidad antes de viajar.",
+  sourceName:"Housing Authority of Brevard County (habc.us)", sourceUrl:"https://habc.us/abouthcv/", web:"https://habc.us/", lat:28.12948, lon:-80.62752, hoursHt:"Rele pou konfime l\u00e8 yo.", hoursPt:"Ligue para confirmar os hor\u00e1rios.", whatHt:"Otorite lojman Brevard County jere pwogram koupon Seksyon 8 pou Palm Bay, Melbourne ak tout Brevard County. Z\u00f2n prensipal Community Bridge se Indian River County \u2014 Seksyon 8 \u00f2ganize pa konte, kidonk rezidan Brevard aplike isit la.", whatPt:"A autoridade habitacional do condado de Brevard administra o programa de vouchers da Se\u00e7\u00e3o 8 para Palm Bay, Melbourne e todo o condado de Brevard. A \u00e1rea principal da Community Bridge \u00e9 o condado de Indian River \u2014 a Se\u00e7\u00e3o 8 \u00e9 organizada por condado, ent\u00e3o moradores de Brevard se inscrevem aqui.", noteHt:"TOUT LIS ATANT YO F\u00c8MEN \u2014 yo te verifye sa sou sit ofisy\u00e8l otorite a 4 novanm 2026: Seksyon 8, lojman piblik ak lis apatman li yo. L\u00e8 Seksyon 8 ouvri, seleksyon an f\u00e8t pa tiraj os\u00f2 epi atant an mway\u00e8n se anviwon 5 an \u2014 rele pou konfime estati a epi mande kijan y ap anonse ouv\u00e8ti yo. Pou estati lis atant la, 211 Brevard bay yon liy koupon HCV, (321) 301-1982 \u2014 tanpri konfime nimewo sa a ak HABC anvan w s\u00e8vi av\u00e8 l. Tanpri konfime or\u00e8 ak elijiblite anvan w vwayaje.", notePt:"TODAS AS LISTAS DE ESPERA EST\u00c3O FECHADAS \u2014 verificado no site oficial da autoridade em 4 de novembro de 2026: Se\u00e7\u00e3o 8, habita\u00e7\u00e3o p\u00fablica e suas listas de apartamentos. Quando a Se\u00e7\u00e3o 8 abre, a sele\u00e7\u00e3o \u00e9 por loteria e a espera m\u00e9dia \u00e9 de cerca de 5 anos \u2014 ligue para confirmar o status e perguntar como as aberturas s\u00e3o anunciadas. Para o status da lista de espera, o 211 de Brevard lista uma linha de vouchers HCV, (321) 301-1982 \u2014 por favor, confirme esse n\u00famero com a HABC antes de confiar nele. Por favor, confirme hor\u00e1rios e elegibilidade antes de viajar."}
 ];
 
 /* Covered places, nearest-first expansion tiers: 0 Fellsmere, 1 Sebastian area, 2 Vero Beach area */
@@ -743,16 +752,16 @@ function nearestPlace(lat, lon){ return nearestDist(lat, lon).place; }
 var KEYWORDS = {
   crisis:["crisis","suicide","suicidal","kill myself","self harm","self-harm","domestic violence","violencia domestica","abuse","abus","veteran","veterano","hotline","linea de crisis","emergency","emergencia","danger","peligro","child abuse","maltrato","988","suicidio","depressed","depresion","kriz","ijans","vyolans domestik","swisid","crise","preciso de ajuda","ajuda urgente"],
   food:["food","hungry","hunger","comida","hambre","pantry","despensa","groceries","comestibles","meal","meals","comidas","aliment","snap","hunger hotline","manje","grangou","èd manje","ed manje","manje gratis","ajuda com comida","ajuda comida","comida gratis","onde encontrar comida","preciso de comida"],
-  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir","lojman","san kay","lwaye","abri","moradia","abrigo","sem casa","aluguel","preciso de moradia"],
-  health:["health","clinic","clinica","doctor","medico","insurance","seguro","salud","uninsured","medical","healthcare","enroll","coverage","cobertura","dentist","vacuna","vaccine"],
-  mental:["mental","anxiety","ansiedad","anxious","ansios","sad","triste","counsel","consejer","therapy","terapia","substance","sustancia","drug","droga","alcohol","addiction","adiccion","overwhelmed","agobiad","postpartum","posparto","pregnant","embarazada","samhsa","listening"],
-  jobs:["job","jobs","work","trabajo","empleo","career","carrera","resume","curriculum","hiring","contrat","training","capacitacion","unemployed","desemple"],
-  legal:["legal","lawyer","abogado","law","ley","court","corte","attorney","rights","derechos","eviction court","benefits appeal"],
-  transit:["ride","rides","transit","transporte","transportation","bus","viaje","viajes","travel","appointment ride","paratransit","driver","conducir","llevar"],
-  childcare:["child care","childcare","daycare","guarderia","cuidado infantil","cuidado de ninos","babysit","ninos","children care","after school"],
-  utilities:["utilities","utility","servicios basicos","electric","electricidad","luz","heat","calefaccion","water","agua","bill","recibo","factura","shutoff","corte de luz","liheap","power","energia","gas bill"],
-  seniors:["senior","seniors","older adult","adultos mayores","elder","eldercare","anciano","caregiver","cuidador","aging","envejec","meals on wheels","lunch senior"],
-  education:["education","educacion","english classes","clases de ingles","esl","ged","learning","aprendizaje","aprender","adult learning","school","escuela","learn english","aprender ingles","classes","clases"]
+  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir","lojman","san kay","lwaye","abri","moradia","abrigo","sem casa","aluguel","preciso de moradia","section 8","seccion 8","seksyon 8","secao 8","voucher","vouchers","housing choice voucher"],
+  health:["health","clinic","clinica","doctor","medico","insurance","seguro","salud","uninsured","medical","healthcare","enroll","coverage","cobertura","dentist","vacuna","vaccine","sante","klinik","dokte","asirans","swen sante","vaksen","dantis","saude","dentista","sem seguro","atendimento medico"],
+  mental:["mental","anxiety","ansiedad","anxious","ansios","sad","triste","counsel","consejer","therapy","terapia","substance","sustancia","drug","droga","alcohol","addiction","adiccion","overwhelmed","agobiad","postpartum","posparto","pregnant","embarazada","samhsa","listening","sante mantal","enkyetid","tristes","konsey","terapi","dwog","alkol","depandans","sibstans","saude mental","ansiedade","aconselhamento","terapia","drogas","alcool","dependencia","sobrecarregado"],
+  jobs:["job","jobs","work","trabajo","empleo","career","carrera","resume","curriculum","hiring","contrat","training","capacitacion","unemployed","desemple","djob","anboch","f\u00f2masyon","chomaj","ap ch\u00e8che travay","karye","emprego","vagas","contrata\u00e7\u00e3o","curr\u00edculo","treinamento","desempregado","procuro emprego"],
+  legal:["legal","lawyer","abogado","law","ley","court","corte","attorney","rights","derechos","eviction court","benefits appeal","\u00e8d legal","avoka","lalwa","tribinal","dwa moun","ajuda jur\u00eddica","advogado","tribunal","direitos"],
+  transit:["ride","rides","transit","transporte","transportation","bus","viaje","viajes","travel","appointment ride","paratransit","driver","conducir","llevar","transp\u00f2","vwayaj","otobis","woulib","\u00f4nibus","carona","motorista"],
+  childcare:["child care","childcare","daycare","guarderia","cuidado infantil","cuidado de ninos","babysit","ninos","children care","after school","gad timoun","gadri","swen timoun","apre lekol","creche","ber\u00e7\u00e1rio","cuidados com crian\u00e7as"],
+  utilities:["utilities","utility","servicios basicos","electric","electricidad","luz","heat","calefaccion","water","agua","bill","recibo","factura","shutoff","corte de luz","liheap","power","energia","gas bill","s\u00e8vis debaz","kouran","elektrisite","dlo","b\u00f2dwo","chal\u00e8","conta de luz","conta de \u00e1gua","energia el\u00e9trica","aquecimento","contas b\u00e1sicas"],
+  seniors:["senior","seniors","older adult","adultos mayores","elder","eldercare","anciano","caregiver","cuidador","aging","envejec","meals on wheels","lunch senior","granmoun","moun aje","s\u00e8vis pou granmoun","manje pou granmoun","idosos","servi\u00e7os para idosos","refei\u00e7\u00f5es para idosos","aposentado"],
+  education:["education","educacion","english classes","clases de ingles","esl","ged","learning","aprendizaje","aprender","adult learning","school","escuela","learn english","aprender ingles","classes","clases","aprann","klas angl\u00e8","lek\u00f2l","aprantisaj","aprann angl\u00e8","aulas de ingl\u00eas","educa\u00e7\u00e3o de adultos","aprendizagem","curso"]
 };
 function norm(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
 function routeCategory(q){
@@ -775,7 +784,7 @@ function searchListings(q){
     return terms.every(function(w){ return t.indexOf(w) !== -1; });
   });
   var localMatches = LOCAL_LISTINGS.filter(function(l){
-    var t = norm(l.name + " " + l.townEn + " " + l.whatEn + " " + l.whatEs + " " + l.address + " " + l.cat);
+    var t = norm(l.name + " " + l.townEn + " " + l.whatEn + " " + l.whatEs + " " + (l.whatHt || "") + " " + (l.whatPt || "") + " " + l.hoursEn + " " + l.hoursEs + " " + (l.hoursHt || "") + " " + (l.hoursPt || "") + " " + (l.noteEn || "") + " " + (l.noteEs || "") + " " + (l.noteHt || "") + " " + (l.notePt || "") + " " + l.address + " " + l.cat);
     return terms.every(function(w){ return t.indexOf(w) !== -1; });
   }).map(function(l){ return {kind:"local", ref:l}; });
   return localMatches.concat(listingMatches);
@@ -804,8 +813,10 @@ function LF(l, f){ var v = l[f]; if (v == null) return ""; return typeof v === "
 function LP(l, base){ var cap = state.lang.charAt(0).toUpperCase() + state.lang.slice(1); return l[base + cap] || l[base + "En"]; }
 function flatV(v){ return typeof v === "string" ? v : Object.keys(v).map(function(k){ return v[k]; }).join(" "); }
 function pubListings(slug){ return LISTINGS.filter(function(l){ return l.cat === slug && l.scope !== "sample"; }); }
+function housingLocals(){ return LOCAL_LISTINGS.filter(function(l){ return l.cat === "housing"; }); }
 function catItems(slug){
   var items = pubListings(slug);
+  if (slug === "housing"){ housingLocals().forEach(function(l){ items.push({kind:"local", ref:l}); }); }
   if (!items.length) return [noteItem(t("notCoveredCat").replace(/\{category\}/g, catName(catBySlug(slug)).toLowerCase())), byId("dial-211")];
   return items;
 }
@@ -838,6 +849,7 @@ function listingCard(l){
     var smsHref = "sms:" + l.textNum + (l.textBody ? "?&body=" + encodeURIComponent(l.textBody) : "");
     h += '<a class="textbtn" href="' + smsHref + '">💬 ' + esc(t("text")) + " " + (l.textBody ? esc(l.textBody) + " " + esc(t("smsTo")) + " " + esc(l.textNum) : esc(l.text)) + "</a>";
   }
+  h += '<button class="listenbtn" type="button" data-listen="nat:' + l.id + '">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div>";
   var open = !!state.openDetails[l.id];
   h += '<button class="detailsbtn" type="button" data-details="' + l.id + '">' + (open ? esc(t("hide")) : esc(t("details"))) + "</button>";
@@ -858,6 +870,11 @@ function listingCard(l){
   return h;
 }
 
+function verifiedText(l){
+  if (l.verified === "2026-11-02") return t("recheckedLocal") + " 2026-11-02";
+  if (l.verified) return t("verifiedLocal") + " " + l.verified;
+  return t("unverifiedLocal");
+}
 function localCard(l){
   var cat = catBySlug(l.cat);
   var town = state.lang === "es" ? l.townEs : l.townEn;
@@ -869,7 +886,7 @@ function localCard(l){
   var dist = dmi < 0.5 ? t("inTown") : "≈ " + (Math.round(dmi * 10) / 10) + " mi " + refLabel;
   var h = '<article class="card localcard" data-local="' + l.id + '">';
   h += '<div class="scope">' + esc(catName(cat)) + " · " + esc(town) + ", FL · " + esc(dist);
-  h += '<span class="chip-verified">✓ ' + esc(t("verifiedLocal")) + " " + LOCAL_VERIFIED_DATE + "</span></div>";
+  h += '<span class="' + (l.verified ? "chip-verified" : "chip-unverified") + '">' + (l.verified ? "✓ " : "⚠ ") + esc(verifiedText(l)) + "</span></div>";
   h += '<div class="lname">' + esc(l.name) + "</div>";
   h += '<p class="ldesc">' + esc(LP(l, "what")) + "</p>";
   h += '<p class="laddr">📍 ' + esc(l.address) + "</p>";
@@ -879,15 +896,28 @@ function localCard(l){
   h += '<a class="callbtn bigbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
   h += '<a class="dirbtn bigbtn" href="' + mapsUrl(l) + '" target="_blank" rel="noopener">🗺️ ' + esc(t("directions")) + "</a>";
   if (l.web) h += '<a class="textbtn bigbtn" href="' + l.web + '" target="_blank" rel="noopener">' + esc(t("websiteBtn")) + "</a>";
+  h += '<button class="listenbtn bigbtn" type="button" data-listen="local:' + l.id + '">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div>";
-  h += '<p class="srcline">' + esc(t("source")) + ': <a href="' + l.sourceUrl + '" target="_blank" rel="noopener">' + esc(l.sourceName) + "</a> · " + esc(t("verifiedLocal")) + " " + LOCAL_VERIFIED_DATE + "</p>";
+  h += '<p class="srcline">' + esc(t("source")) + ': <a href="' + l.sourceUrl + '" target="_blank" rel="noopener">' + esc(l.sourceName) + "</a> · " + esc(verifiedText(l)) + "</p>";
   h += "</article>";
   return h;
 }
 function noteItem(text){ return {kind:"note", text:text}; }
+function tcfbCard(){
+  var h = '<article class="card localcard" data-tcfb="1">';
+  h += '<div class="scope">' + esc(catName(catBySlug("food"))) + " \u00b7 Online</div>";
+  h += '<div class="lname">' + esc(t("tcfbTitle")) + "</div>";
+  h += '<p class="ldesc">' + esc(t("tcfbText")) + "</p>";
+  h += '<div class="actions">';
+  h += '<a class="callbtn bigbtn" href="https://stophunger.org/food-finder/" target="_blank" rel="noopener">' + esc(t("tcfbBtn")) + "</a>";
+  h += '<button class="listenbtn bigbtn" type="button" data-listen="tcfb">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
+  h += "</div></article>";
+  return h;
+}
 function renderItem(it){
   if (!it) return "";
   if (it.kind === "note") return '<div class="card notecard"><p>' + esc(it.text) + "</p></div>";
+  if (it.kind === "tcfb") return tcfbCard();
   if (it.kind === "local") return localCard(it.ref);
   return listingCard(it);
 }
@@ -925,6 +955,32 @@ function renderHome(){
   var cats = grid.querySelectorAll("[data-cat]");
   for (var i=0;i<cats.length;i++){ cats[i].addEventListener("click", function(){ openCategory(this.getAttribute("data-cat")); }); }
 }
+function speakTextFor(spec){
+  var parts = spec.split(":"), kind = parts[0], id = parts[1], i, l = null;
+  if (kind === "tcfb"){ return t("tcfbTitle") + ". " + t("tcfbText"); }
+  if (kind === "local"){
+    for (i=0;i<LOCAL_LISTINGS.length;i++) if (LOCAL_LISTINGS[i].id === id) l = LOCAL_LISTINGS[i];
+    if (!l) return "";
+    return l.name + ". " + LP(l, "what") + " " + t("hours") + ": " + LP(l, "hours");
+  }
+  l = byId(id);
+  if (!l) return "";
+  return l.name + ". " + LF(l, "desc") + " " + t("hours") + ": " + LF(l, "hours");
+}
+function speakCard(spec, btn){
+  var status = btn.parentNode ? btn.parentNode.querySelector(".listenstatus") : null;
+  if (!("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function"){
+    if (status) status.textContent = t("listenUnsupported");
+    return;
+  }
+  if (status) status.textContent = "";
+  try {
+    window.speechSynthesis.cancel();
+    var u = new window.SpeechSynthesisUtterance(speakTextFor(spec));
+    u.lang = ({en:"en-US", es:"es-US", ht:"ht-HT", pt:"pt-BR"})[state.lang] || "en-US";
+    window.speechSynthesis.speak(u);
+  } catch(e){ if (status) status.textContent = t("listenUnsupported"); }
+}
 function bindCards(container){
   var btns = container.querySelectorAll("[data-details]");
   for (var i=0;i<btns.length;i++){
@@ -933,6 +989,10 @@ function bindCards(container){
       state.openDetails[id] = !state.openDetails[id];
       render();
     });
+  }
+  var lbtns = container.querySelectorAll("[data-listen]");
+  for (var j=0;j<lbtns.length;j++) {
+    lbtns[j].addEventListener("click", function(){ speakCard(this.getAttribute("data-listen"), this); });
   }
 }
 function renderResults(){
@@ -966,6 +1026,7 @@ function openCategory(slug){
   if (slug === "food"){
     var items = [noteItem(t("localSection") + " — " + t("localFoodNote"))];
     localsFor(0, "food").forEach(function(l){ items.push({kind:"local", ref:l}); });
+    items.push({kind:"tcfb"});
     items.push(noteItem(t("supplement")));
     state.results = items.concat(listings);
   } else {
@@ -987,6 +1048,7 @@ function showLocalFood(place, viaGeo){
     : t("localHeading") + " — " + placeName + ", Florida. " + t("localFoodNote");
   var items = [noteItem(head)];
   localsFor(place.tier, "food").forEach(function(l){ items.push({kind:"local", ref:l}); });
+  items.push({kind:"tcfb"});
   items.push(noteItem(t("supplement")));
   items.push(byId("dial-211"));
   items.push(byId("hunger-hotline"));
@@ -1040,6 +1102,7 @@ function doAsk(){
   if (place && place.type === "uncovered"){
     var uItems = [noteItem(t("notCovered").replace("{place}", place.label)), byId("dial-211")];
     if (slug === "food") uItems.push(byId("hunger-hotline"));
+    if (slug === "housing"){ housingLocals().forEach(function(l){ uItems.push({kind:"local", ref:l}); }); }
     state.view = "results"; state.category = slug;
     state.results = uItems; state.titleMode = slug ? "ask" : "search"; state.query = q;
     render();
