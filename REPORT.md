@@ -20,6 +20,7 @@ Region assumed (existing site): **Indian River County, Florida** — Fellsmere, 
 - Confidential-shelter cards (SafeSpace) do not show a map or a street address.
 - Live-test defect fixes in the same PR: Listen control glyph, favicon, 44px tap targets, 390px overflow, retarget of a dead 211 PDF source link.
 - Leftover `\U0001f50a` Listen escapes were removed from preview candidate HTML files. Favicon links were added on every HTML page in the repo.
+- **Correction (same draft, later the same morning):** every listing field now has en/es/ht/pt values (titles/descriptors, sources, towns, confidential address, notes). Screen-reader attributes (`aria-label`, `alt`, placeholders, `title`) switch with the language, including after a runtime language change. An automated listing-DATA sweep (plus attribute in-place switch) is in `evidence/sweep-listings.py`.
 
 ### (2) Where
 - **Branch:** `draft/ged-transit-housing-sections`
@@ -41,7 +42,7 @@ Region assumed (existing site): **Indian River County, Florida** — Fellsmere, 
 - Favicon: `favicon.ico` and `favicon-32.png` return 200 from the local server; `link rel="icon"` is present.
 - Listen buttons: U+1F50A speaker emoji + translated label (Listen / Escuchar / Koute / Ouvir) in all four languages. Code point confirmed in Playwright.
 - HT expanded labels on a featured national card: ORÈ, POU KI MOUN LI YE, PRI, LANG, AKSÈ POU CHÈZ WOULAN, ZÒN LI KOUVRI, SIT ENTÈNÈT — no English chrome labels.
-- Translation audit of visible UI chrome (buttons, headings, field labels) across all 13 categories in es/ht/pt: no leftover English UI strings. Organization names (proper nouns) remain in English.
+- Translation audit of visible UI chrome alone was **not sufficient**. An independent 390px check found leftover English in listing titles, source lines, the SafeSpace warning, and the Microphone / Welcome / Ask / Search aria-labels. That is now addressed; see the listing-data sweep below. Organization names (proper nouns) remain in English and are on an explicit allowlist.
 - Link crawl of the live page plus all listing `web` / `sourceUrl` values: **0 of 65 HTTP(S) links returned 404**. Status of every URL is in `evidence/verify-results.json` and summarized below. Some pre-existing hosts returned 403, 500, 202, or a client timeout (0); those are not 404 and are flagged NEEDS VERIFICATION.
 
 ### (5) Status label
@@ -67,7 +68,7 @@ Every new phone, address, hour, fee, and program fact was read from a first-part
 - Pre-existing hosts that return 403/500 (Childhelp, Salvation Army HTTP URL, HRSA, Our Father’s Table, `http://seniorresourceassociation.org/` without www) were not rewritten except the 404 PDF cited below.
 
 ### (9) Decisions needed from Josue
-- Native-speaker review of all new es / ht / pt strings (listings + the updated `nonFoodLocal` / `confidentialLocation` phrases).
+- Native-speaker review of **all** es / ht / pt strings, including the new listing titles/descriptors, source lines, warnings, aria-labels, and alt text. Status: **NEEDS VERIFICATION**.
 - Whether Community Coach should also appear as a Transit card, or stay only under Mobility Equipment.
 - Whether to keep the honest conflict notes (GoLine hours, UAP address, IRSC dates) or shorten the cards.
 - Approval to merge this draft PR (Pages will only change after a merge you approve).
@@ -211,3 +212,55 @@ Before images are the live-test captures from `/workspace/community-bridge-test-
 ## Full link-status table (this branch, Nov 13, 2026, ET)
 
 See `evidence/verify-results.json` for the machine-readable list (url, status, note, date). New-resource rows used in the three sections are all 200 except as noted in the source tables above.
+
+
+---
+
+## Listing-data and screen-reader i18n (same draft PR, no merge)
+
+This section answers the independent 390px review that found leftover English in listing *content*, and the follow-up that `Microphone`, `Ask`, `Search`, and `Welcome` aria-labels stay English on live `main` too.
+
+### Sweep method
+`evidence/sweep-listings.py` does two things:
+
+1. **Static:** every national listing must have `nameEn/Es/Ht/Pt`; every local listing must have `name*`, `sourceName*`, `town*`, `what*`, `hours*`, and `note*` / `address*` when those fields exist. Confidential cards require `address*` in all four languages.
+2. **Runtime (Playwright, 390px):** for es/ht/pt, render every category with listings expanded, plus searches `ged`, `housing`, and `bus`. Collect visible text **and** `aria-label` / `title` / `placeholder` / `alt`. Flag strings identical to the English rendering or matching an English phrase list, minus the explicit allowlist in `evidence/sweep-allowlist.txt` (official organization names, place names, URLs, phones, street addresses, acronyms, and the site brand).
+
+A second protocol opens a view in English, then **switches language at runtime without a reload**, and checks that the chrome attributes actually change.
+
+### Counts — before vs after
+
+| Check | Before (this branch at `572b375`, before the listing-field work) | After (this commit, local draft) | Live `main` (regression baseline) |
+|---|---|---|---|
+| Static listings complete (all lang fields present) | 0 of 36 | **36 of 36** | not applicable (live HTML has no per-language name fields) |
+| Runtime leftover-English flags (es / ht / pt) | 34 / 34 / 34 (**102** total) | **0 / 0 / 0** | 25 / 25 / 25 (listing titles still English on live) |
+| Attribute flags in the full crawl (es / ht / pt) | 4 chrome labels each (Microphone, Welcome, Ask, Search) plus listing strings | **0 / 0 / 0** | **5 / 5 / 5** (those four aria-labels + the guide `alt`) |
+| In-place language switch: English labels still present | (not measured on `572b375`; same four labels were hardcoded) | **0 stuck, 0 missing expected** in es/ht/pt | Microphone, Welcome, Ask, Search, and `alt="Moose, your Community Bridge guide"` stay English after a language click |
+
+The 0 after-count is the sweep result after subtracting the allowlist. Official organization names that are the same in every language (for example `St. Vincent de Paul — Sebastian / Wabasso`, `The Salvation Army — Vero Beach`, `Operation Hope of Fellsmere`, `211`) are still visible and are justified as proper nouns on that allowlist. Street addresses stay in their official English form. The sweep does **not** claim those names were rewritten.
+
+### What was translated (kept official org names; translated descriptive parts)
+- Listing titles such as “Free GED & English Tutoring”, “Crisis Stabilization”, “Coordinated Entry”, “Public Buses”, “Housing Vouchers”, national hotline names, and similar descriptors, in es/ht/pt.
+- Source lines that were English sentences (“official site…”, “coordinated-entry page…”, “GED Preparation page…”).
+- SafeSpace confidential-address warning (the full paragraph the review flagged).
+- Town descriptors such as “serves Palm Bay & Brevard County” (ht/pt; es already existed).
+- Screen-reader attributes: `welcomeAria`, `askAria`, `micAria`, `searchAria`, `langGroupAria`, `guideAlt`. `renderChrome` applies `aria-label`, `alt`, `title`, and placeholders, and is called on every language change. Dynamically rendered cards pick up `Llang()` names/sources/addresses on the same `render()`. While the mic is listening, its aria-label becomes the translated “Listening…” string.
+
+### 390px evidence (after)
+- Haitian Creole GED result title: `evidence/after/ht-ged-result.png` — “Literacy Services of Indian River County — tutorat gratis pou GED ak angle” (also es and pt).
+- SafeSpace warning: `evidence/after/ht-safespace.png` (and es, pt) — the confidential paragraph is in the UI language.
+- Microphone aria-label: `evidence/after/ht-microphone.png` (and es, pt). The dashed “aria-label: Mikwofòn” (Micrófono / Microfone) box is a temporary screenshot annotation, not site chrome.
+
+### Overflow and tap targets (rechecked after this work)
+- Horizontal overflow at 390px: **none** on home, education, transit, and housing in en/es/ht/pt (`scrollWidth === 390`).
+- Tap targets: Haitian Creole “Detay” on the home featured cards was 40.9px wide. `.detailsbtn` / `.backbtn` now have `min-width: 44px`. Recheck: **0** controls under 44×44 px in those 16 views.
+
+### Regression against live main
+`evidence/regression-live-main.py` compared this draft at `http://127.0.0.1:8770` with `https://mrjosueayalaperez-dev.github.io/Community-Bridge-/`:
+
+- Same 13 category buttons; every live element `id` and labeled control is still present (**no newly missing labels**).
+- No new console errors or page errors on the draft. Live and local pageerrors: none (favicon 404 at the user-site root on live is a known Pages issue, already addressed in this PR by a relative favicon, and was filtered out of the comparison as it is not a draft regression).
+- Result: **PASS**. Details in `evidence/regression-live-main.json`.
+
+### Status
+**IMPLEMENTED** and **TESTED** locally. **Not deployed.** Spanish, Haitian Creole, and Portuguese wording is **NEEDS VERIFICATION** by native speakers. Do not treat the 0 sweep count as a substitute for that review.

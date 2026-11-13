@@ -1,0 +1,179 @@
+# Exact-string allowlist (trimmed, case-insensitive). Proper nouns, official
+# organization names, place names, program names often left untranslated,
+# URLs, phones, addresses, acronyms, and site brand. One entry per line.
+# Comments start with #.
+
+# Site / guide
+Community Bridge
+Moose
+MNQ
+Online
+
+# Languages already shown in the language toggle
+EN
+ES
+HT
+PT
+EN ES
+Language / Idioma / Lang / Língua
+Language / Idioma / Lang / Lingua
+
+# Places
+Fellsmere
+Sebastian
+Roseland
+Wabasso
+Vero Beach
+Vero Beach (Gifford)
+Sebastian (Roseland)
+Gifford
+Melbourne
+West Melbourne
+Rockledge
+Cocoa
+Palm Bay
+Brevard
+Brevard County
+Indian River
+Indian River County
+Konte Indian River
+Condado de Indian River
+Florida
+FL
+Treasure Coast
+Mueller
+Campus Mueller
+Kanpis Mueller
+Mueller Campus
+Stuart
+Fort Pierce
+Port St. Lucie
+Okeechobee
+Malabar
+Martin
+St. Lucie
+St. Lucie Avenue
+St Lucie Avenue
+
+# Official organizations and program names (kept as names)
+Operation Hope
+Operation Hope of Fellsmere
+Operation Hope (operationhopefl.org)
+Fellsmere Community Enrichment Program
+Roseland Ecumenical Food Pantry
+Roseland United Methodist Church
+St. Vincent de Paul
+St. Vincent de Paul — Sebastian / Wabasso
+Food Pantry of Indian River County
+Food Pantry of Indian River County (foodpantryirc.org)
+The reSource Center of Indian River County
+The Source
+The Source (iamthesource.org)
+The Salvation Army
+The Salvation Army — Vero Beach
+The Salvation Army — Indian River County Corps
+Mercy House
+St. Helen
+St. Helen Parish Outreach Ministry
+St. Helen Catholic Church
+St. Helen Catholic Church (sthelenvero.org)
+Our Father's Table
+Our Father's Table Soup Kitchen
+Indian River County Housing Services
+Indian River County Housing Services (indianriver.gov)
+Housing Authority of Brevard County
+Housing Authority of Brevard County (habc.us)
+Treasure Coast Homeless Services Council
+Treasure Coast Homeless Services Council (tchelpspot.org)
+Hope for Families
+Hope for Families Center
+Hope for Families Center (hopeforfamiliescenter.org)
+SafeSpace
+SafeSpace Florida
+SafeSpace Florida (safespacefl.org)
+United Against Poverty
+United Against Poverty Indian River
+Literacy Services of Indian River County
+Literacy Services of Indian River County (literacyservicesirc.org)
+Indian River State College
+Indian River State College GED Preparation page (irsc.edu)
+GoLine
+Senior Resource Association
+Senior Resource Association (seniorresourceassociation.org)
+RCDS
+RCDS Loan Closet
+Resource Center for Disability Solutions
+RCDS — Resource Center for Disability Solutions (rcdsfl.org)
+Brevard Alzheimer's Foundation
+Brevard Alzheimer's Foundation (brevardalz.org)
+Sunflower House
+Aging Matters in Brevard
+Aging Matters in Brevard — Sunflower House (agingmattersbrevard.org)
+Community Coach
+Space Coast Area Transit
+Space Coast Area Transit (321transit.com)
+211 Palm Beach / Treasure Coast
+211 Palm Beach / Treasure Coast (211palmbeach.org)
+Childhelp
+USDA
+SAMHSA
+FAAST
+HUD
+TCHSC
+HABC
+IRSC
+SRA
+UAP
+IRC
+ADA
+CASAS
+ITIN
+SSN
+GED
+Section 8
+Seksyon 8
+Seção 8
+Sección 8
+988
+211
+911
+
+# Acronyms / programs
+SNAP
+WIC
+CSP
+
+# Units / date fragments that appear next to translated copy
+mi
+AM
+PM
+ET
+EST
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Nov
+Dec
+Kreyòl
+Español
+Português
+English
+Crisis
+Treasure Coast Food Bank
+Food Finder
+TCFB
+TCFB Food Finder
