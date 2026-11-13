@@ -936,7 +936,7 @@ function listingCard(l){
     var smsHref = "sms:" + l.textNum + (l.textBody ? "?&body=" + encodeURIComponent(l.textBody) : "");
     h += '<a class="textbtn" href="' + smsHref + '">💬 ' + esc(t("text")) + " " + (l.textBody ? esc(l.textBody) + " " + esc(t("smsTo")) + " " + esc(l.textNum) : esc(l.text)) + "</a>";
   }
-  h += '<button class="listenbtn" type="button" data-listen="nat:' + l.id + '">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
+  h += '<button class="listenbtn" type="button" data-listen="nat:' + l.id + '">🔊 ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div>";
   var open = !!state.openDetails[l.id];
   h += '<button class="detailsbtn" type="button" data-details="' + l.id + '">' + (open ? esc(t("hide")) : esc(t("details"))) + "</button>";
@@ -983,7 +983,7 @@ function localCard(l){
   h += '<a class="callbtn bigbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
   h += '<a class="dirbtn bigbtn" href="' + mapsUrl(l) + '" target="_blank" rel="noopener">🗺️ ' + esc(t("directions")) + "</a>";
   if (l.web) h += '<a class="textbtn bigbtn" href="' + l.web + '" target="_blank" rel="noopener">' + esc(t("websiteBtn")) + "</a>";
-  h += '<button class="listenbtn bigbtn" type="button" data-listen="local:' + l.id + '">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
+  h += '<button class="listenbtn bigbtn" type="button" data-listen="local:' + l.id + '">🔊 ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div>";
   h += '<p class="srcline">' + esc(t("source")) + ': <a href="' + l.sourceUrl + '" target="_blank" rel="noopener">' + esc(l.sourceName) + "</a> · " + esc(verifiedText(l)) + "</p>";
   h += "</article>";
@@ -997,7 +997,7 @@ function tcfbCard(){
   h += '<p class="ldesc">' + esc(t("tcfbText")) + "</p>";
   h += '<div class="actions">';
   h += '<a class="callbtn bigbtn" href="https://stophunger.org/food-finder/" target="_blank" rel="noopener">' + esc(t("tcfbBtn")) + "</a>";
-  h += '<button class="listenbtn bigbtn" type="button" data-listen="tcfb">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
+  h += '<button class="listenbtn bigbtn" type="button" data-listen="tcfb">🔊 ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div></article>";
   return h;
 }
@@ -1152,8 +1152,8 @@ function showLocalFood(place, viaGeo){
 }
 function showGeoFallback(slug){
   var items = [noteItem(t("geoDenied")), byId("dial-211")];
-  if (slug === "food" || !slug) items.push(byId("hunger-hotline"));
-  state.view = "results"; state.category = slug || "food";
+  if (slug === "food") items.push(byId("hunger-hotline"));
+  state.view = "results"; state.category = slug || null;
   state.results = items; state.titleMode = "ask";
   render();
   window.scrollTo(0,0);
@@ -1237,7 +1237,7 @@ document.getElementById("backBtn").addEventListener("click", goHome);
 document.getElementById("privacyBtn").addEventListener("click", openPrivacy);
 document.getElementById("privacyBackBtn").addEventListener("click", goHome);
 document.getElementById("askBtn").addEventListener("click", doAsk);
-document.getElementById("locBtn").addEventListener("click", function(){ locateAndAsk("food"); });
+document.getElementById("locBtn").addEventListener("click", function(){ var q = document.getElementById("askInput").value; var slug = (q && q.trim()) ? routeCategory(q) : "food"; locateAndAsk(slug || "food"); });
 document.getElementById("askInput").addEventListener("keydown", function(e){ if (e.key === "Enter") doAsk(); });
 document.getElementById("searchInput").addEventListener("input", doSearch);
 
