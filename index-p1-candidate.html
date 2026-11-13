@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Community Bridge — Find help nearby / Encuentra ayuda cerca de ti</title>
 <style>
@@ -848,7 +850,7 @@ function listingCard(l){
     var smsHref = "sms:" + l.textNum + (l.textBody ? "?&body=" + encodeURIComponent(l.textBody) : "");
     h += '<a class="textbtn" href="' + smsHref + '">💬 ' + esc(t("text")) + " " + (l.textBody ? esc(l.textBody) + " " + esc(t("smsTo")) + " " + esc(l.textNum) : esc(l.text)) + "</a>";
   }
-  h += '<button class="listenbtn" type="button" data-listen="nat:' + l.id + '">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
+  h += '<button class="listenbtn" type="button" data-listen="nat:' + l.id + '">🔊 ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div>";
   var open = !!state.openDetails[l.id];
   h += '<button class="detailsbtn" type="button" data-details="' + l.id + '">' + (open ? esc(t("hide")) : esc(t("details"))) + "</button>";
@@ -890,7 +892,7 @@ function localCard(l){
   h += '<a class="callbtn bigbtn" href="tel:' + l.tel + '">📞 ' + esc(t("call")) + " " + esc(l.phone) + "</a>";
   h += '<a class="dirbtn bigbtn" href="' + mapsUrl(l) + '" target="_blank" rel="noopener">🗺️ ' + esc(t("directions")) + "</a>";
   if (l.web) h += '<a class="textbtn bigbtn" href="' + l.web + '" target="_blank" rel="noopener">' + esc(t("websiteBtn")) + "</a>";
-  h += '<button class="listenbtn bigbtn" type="button" data-listen="local:' + l.id + '">\U0001f50a ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
+  h += '<button class="listenbtn bigbtn" type="button" data-listen="local:' + l.id + '">🔊 ' + esc(t("listen")) + '</button><span class="listenstatus" role="status"></span>';
   h += "</div>";
   h += '<p class="srcline">' + esc(t("source")) + ': <a href="' + l.sourceUrl + '" target="_blank" rel="noopener">' + esc(l.sourceName) + "</a> · " + esc(t("verifiedLocal")) + " " + LOCAL_VERIFIED_DATE + "</p>";
   h += "</article>";
