@@ -1036,6 +1036,14 @@ function catItems(slug){
   if (!items.length) return [noteItem(t("notCoveredCat").replace(/\{category\}/g, catName(catBySlug(slug)).toLowerCase())), byId("dial-211")];
   return items;
 }
+function categoryListingCount(slug){
+  var n = 0, i;
+  for (i = 0; i < LISTINGS.length; i++) if (LISTINGS[i].cat === slug && LISTINGS[i].scope !== "sample") n++;
+  for (i = 0; i < LOCAL_LISTINGS.length; i++) if (LOCAL_LISTINGS[i].cat === slug) n++;
+  return n;
+}
+function categoryHasListings(slug){ return categoryListingCount(slug) > 0; }
+function visibleCategories(){ return CATEGORIES.filter(function(c){ return categoryHasListings(c.slug); }); }
 function showOutsideCoverage(slug){
   state.distRef = null;
   var items = [noteItem(t("geoOutside"))];
@@ -1173,7 +1181,7 @@ function renderChrome(){
 }
 function renderHome(){
   var grid = document.getElementById("catGrid");
-  grid.innerHTML = CATEGORIES.map(function(c){
+  grid.innerHTML = visibleCategories().map(function(c){
     return '<button class="cat" type="button" data-cat="' + c.slug + '"><b>' + esc(catName(c)) + "</b><span>" + esc(catDesc(c)) + "</span></button>";
   }).join("");
   document.getElementById("featured").innerHTML = FEATURED.map(function(id){ return listingCard(byId(id)); }).join("");
@@ -1333,6 +1341,17 @@ function doAsk(){
     state.results = uItems; state.titleMode = slug ? "ask" : "search"; state.query = q;
     render();
     window.scrollTo(0,0);
+    return;
+  }
+  if (slug && !categoryHasListings(slug)){
+    state.view = "results"; state.category = slug; state.query = q;
+    var emptyNote = noteItem(t("notCoveredCat").replace(/\{category\}/g, catName(catBySlug(slug)).toLowerCase()));
+    var searched = searchListings(q);
+    var emptyItems = [emptyNote].concat(searched);
+    if (!searched.length) emptyItems.push(byId("dial-211"));
+    state.results = emptyItems;
+    state.titleMode = "ask";
+    render(); window.scrollTo(0,0);
     return;
   }
   if (slug){
