@@ -952,12 +952,12 @@ function nearestPlace(lat, lon){ return nearestDist(lat, lon).place; }
 var KEYWORDS = {
   crisis:["crisis","suicide","suicidal","kill myself","self harm","self-harm","domestic violence","violencia domestica","abuse","abus","veteran","veterano","hotline","linea de crisis","emergency","emergencia","danger","peligro","child abuse","maltrato","988","suicidio","depressed","depresion","kriz","ijans","vyolans domestik","swisid","crise","preciso de ajuda","ajuda urgente"],
   food:["food","hungry","hunger","comida","hambre","pantry","despensa","groceries","comestibles","meal","meals","comidas","aliment","snap","hunger hotline","manje","grangou","èd manje","ed manje","manje gratis","ajuda com comida","ajuda comida","comida gratis","onde encontrar comida","preciso de comida"],
-  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir","lojman","san kay","lwaye","abri","moradia","abrigo","sem casa","aluguel","preciso de moradia","section 8","seccion 8","seksyon 8","secao 8","voucher","vouchers","housing choice voucher"],
+  housing:["housing","shelter","homeless","vivienda","refugio","sin hogar","rent","alquiler","bed","cama","evict","desalojo","sleep","dormir","lojman","san kay","kay","lwaye","abri","moradia","abrigo","sem casa","aluguel","preciso de moradia","section 8","seccion 8","seksyon 8","secao 8","voucher","vouchers","housing choice voucher"],
   health:["health","clinic","clinica","doctor","medico","insurance","seguro","salud","uninsured","medical","healthcare","enroll","coverage","cobertura","dentist","vacuna","vaccine","sante","klinik","dokte","asirans","swen sante","vaksen","dantis","saude","dentista","sem seguro","atendimento medico"],
   mental:["mental","anxiety","ansiedad","anxious","ansios","sad","triste","counsel","consejer","therapy","terapia","substance","sustancia","drug","droga","alcohol","addiction","adiccion","overwhelmed","agobiad","postpartum","posparto","pregnant","embarazada","samhsa","listening","sante mantal","enkyetid","tristes","konsey","terapi","dwog","alkol","depandans","sibstans","saude mental","ansiedade","aconselhamento","terapia","drogas","alcool","dependencia","sobrecarregado"],
-  jobs:["job","jobs","work","trabajo","empleo","career","carrera","resume","curriculum","hiring","contrat","training","capacitacion","unemployed","desemple","djob","anboch","f\u00f2masyon","chomaj","ap ch\u00e8che travay","karye","emprego","vagas","contrata\u00e7\u00e3o","curr\u00edculo","treinamento","desempregado","procuro emprego"],
+  jobs:["job","jobs","work","trabajo","empleo","career","carrera","resume","curriculum","hiring","contrat","training","capacitacion","unemployed","desemple","djob","anboch","f\u00f2masyon","chomaj","ap ch\u00e8che travay","travay","karye","emprego","vagas","contrata\u00e7\u00e3o","curr\u00edculo","treinamento","desempregado","procuro emprego"],
   legal:["legal","lawyer","abogado","law","ley","court","corte","attorney","rights","derechos","eviction court","benefits appeal","\u00e8d legal","avoka","lalwa","tribinal","dwa moun","ajuda jur\u00eddica","advogado","tribunal","direitos"],
-  transit:["ride","rides","transit","transporte","transportation","bus","viaje","viajes","travel","appointment ride","driver","conducir","llevar","transp\u00f2","vwayaj","otobis","woulib","\u00f4nibus","carona","motorista","goline","go line","fixed route","ruta","autobus gratis","free bus","zero fare"],
+  transit:["ride","rides","transit","transporte","transportation","bus","autobus","viaje","viajes","travel","appointment ride","driver","conducir","llevar","transp\u00f2","vwayaj","otobis","bis","woulib","\u00f4nibus","onibus","carona","motorista","goline","go line","fixed route","ruta","autobus gratis","free bus","zero fare"],
   childcare:["child care","childcare","daycare","guarderia","cuidado infantil","cuidado de ninos","babysit","ninos","children care","after school","gad timoun","gadri","swen timoun","apre lekol","creche","ber\u00e7\u00e1rio","cuidados com crian\u00e7as"],
   utilities:["utilities","utility","servicios basicos","electric","electricidad","luz","heat","calefaccion","water","agua","bill","recibo","factura","shutoff","corte de luz","liheap","power","energia","gas bill","s\u00e8vis debaz","kouran","elektrisite","dlo","b\u00f2dwo","chal\u00e8","conta de luz","conta de \u00e1gua","energia el\u00e9trica","aquecimento","contas b\u00e1sicas"],
   seniors:["senior","seniors","older adult","adultos mayores","elder","eldercare","anciano","caregiver","cuidador","aging","envejec","meals on wheels","lunch senior","granmoun","moun aje","s\u00e8vis pou granmoun","manje pou granmoun","idosos","servi\u00e7os para idosos","refei\u00e7\u00f5es para idosos","aposentado"],
@@ -965,14 +965,25 @@ var KEYWORDS = {
   education:["education","educacion","english classes","clases de ingles","esl","ged","learning","aprendizaje","aprender","adult learning","school","escuela","learn english","aprender ingles","classes","clases","aprann","klas angl\u00e8","lek\u00f2l","aprantisaj","aprann angl\u00e8","aulas de ingl\u00eas","educa\u00e7\u00e3o de adultos","aprendizagem","curso","ged prep","ged test","examen ged","egzamen ged","high school equivalency","equivalencia","diploma","alfabetizacion","literacy","literacy services","preparacion ged","ekivalans"]
 };
 function norm(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+/* Short/ambiguous tokens that would false-hit inside other words (kay in okay). */
+var WHOLE_WORD_KEYS = { kay:true, bis:true, travay:true };
+function hasKeyword(n, key){
+  var k = norm(key);
+  if (!k) return false;
+  if (WHOLE_WORD_KEYS[k]) return new RegExp("(^|[^a-z0-9])" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "([^a-z0-9]|$)").test(n);
+  return n.indexOf(k) !== -1;
+}
 function routeCategory(q){
   var n = " " + norm(q) + " ";
-  var best = null, bestScore = 0;
+  var best = null, bestScore = 0, scores = {};
   for (var slug in KEYWORDS){
     var score = 0, keys = KEYWORDS[slug];
-    for (var i=0;i<keys.length;i++){ if (n.indexOf(norm(keys[i])) !== -1) score += keys[i].length; }
+    for (var i=0;i<keys.length;i++){ if (hasKeyword(n, keys[i])) score += keys[i].length; }
+    scores[slug] = score;
     if (score > bestScore){ bestScore = score; best = slug; }
   }
+  /* Transit intent wins over jobs when both are present ("bus to work"). */
+  if (best === "jobs" && scores.transit > 0) best = "transit";
   return bestScore > 0 ? best : null;
 }
 function listingText(l){ return norm([l.name,l.nameEn,l.nameEs,l.nameHt,l.namePt].filter(Boolean).join(" ") + " " + flatV(l.desc) + " " + flatV(l.notes) + " " + flatV(l.coverage) + " " + l.cat); }

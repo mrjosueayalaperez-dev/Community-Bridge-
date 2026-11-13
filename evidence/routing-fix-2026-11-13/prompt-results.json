@@ -1,0 +1,466 @@
+{
+  "when": "2026-11-13 08:17:45 EST",
+  "base": "http://127.0.0.1:8771/index.html",
+  "summary": {
+    "original_pass": 12,
+    "original_total": 12,
+    "jobs_pass": 4,
+    "jobs_total": 4,
+    "other_pass": 8,
+    "other_total": 8,
+    "all_pass": true,
+    "home": {
+      "en": {
+        "sw": 390,
+        "cw": 390,
+        "mic": "Microphone",
+        "overflow": false
+      },
+      "es": {
+        "sw": 390,
+        "cw": 390,
+        "mic": "Micrófono",
+        "overflow": false
+      },
+      "ht": {
+        "sw": 390,
+        "cw": 390,
+        "mic": "Mikwofòn",
+        "overflow": false
+      },
+      "pt": {
+        "sw": 390,
+        "cw": 390,
+        "mic": "Microfone",
+        "overflow": false
+      }
+    },
+    "any_console": false
+  },
+  "rows": [
+    {
+      "group": "original",
+      "lang": "en",
+      "prompt": "I need my GED",
+      "expected": "education",
+      "routed": "education",
+      "ui_slug": "education",
+      "title": "Showing help for: Learning",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "en",
+      "prompt": "bus to work",
+      "expected": "transit",
+      "routed": "transit",
+      "ui_slug": "transit",
+      "title": "Showing help for: Transit",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "FAIL (routed to jobs)",
+      "screenshot": "/workspace/community-bridge/evidence/routing-fix-2026-11-13/after-en-transit.png"
+    },
+    {
+      "group": "original",
+      "lang": "en",
+      "prompt": "I need housing",
+      "expected": "housing",
+      "routed": "housing",
+      "ui_slug": "housing",
+      "title": "Showing help for: Housing",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "es",
+      "prompt": "necesito mi GED",
+      "expected": "education",
+      "routed": "education",
+      "ui_slug": "education",
+      "title": "Mostrando ayuda para: Educación",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "es",
+      "prompt": "autobús al trabajo",
+      "expected": "transit",
+      "routed": "transit",
+      "ui_slug": "transit",
+      "title": "Mostrando ayuda para: Transporte",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "FAIL (routed to jobs)",
+      "screenshot": "/workspace/community-bridge/evidence/routing-fix-2026-11-13/after-es-transit.png"
+    },
+    {
+      "group": "original",
+      "lang": "es",
+      "prompt": "necesito vivienda",
+      "expected": "housing",
+      "routed": "housing",
+      "ui_slug": "housing",
+      "title": "Mostrando ayuda para: Vivienda",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "ht",
+      "prompt": "mwen bezwen GED",
+      "expected": "education",
+      "routed": "education",
+      "ui_slug": "education",
+      "title": "Èd pou: Aprann",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "ht",
+      "prompt": "bis pou travay",
+      "expected": "transit",
+      "routed": "transit",
+      "ui_slug": "transit",
+      "title": "Èd pou: Transpò",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "FAIL (no transit keyword; search fallback found GoLine)",
+      "screenshot": "/workspace/community-bridge/evidence/routing-fix-2026-11-13/after-ht-transit.png"
+    },
+    {
+      "group": "original",
+      "lang": "ht",
+      "prompt": "mwen bezwen kay",
+      "expected": "housing",
+      "routed": "housing",
+      "ui_slug": "housing",
+      "title": "Èd pou: Lojman",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "FAIL (no housing keyword)",
+      "screenshot": "/workspace/community-bridge/evidence/routing-fix-2026-11-13/after-ht-housing.png"
+    },
+    {
+      "group": "original",
+      "lang": "pt",
+      "prompt": "preciso do meu GED",
+      "expected": "education",
+      "routed": "education",
+      "ui_slug": "education",
+      "title": "Mostrando ajuda para: Aprendizagem",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "pt",
+      "prompt": "ônibus para o trabalho",
+      "expected": "transit",
+      "routed": "transit",
+      "ui_slug": "transit",
+      "title": "Mostrando ajuda para: Transporte",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "original",
+      "lang": "pt",
+      "prompt": "preciso de moradia",
+      "expected": "housing",
+      "routed": "housing",
+      "ui_slug": "housing",
+      "title": "Mostrando ajuda para: Moradia",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "PASS"
+    },
+    {
+      "group": "jobs",
+      "lang": "en",
+      "prompt": "I need a job",
+      "expected": "jobs",
+      "routed": "jobs",
+      "ui_slug": "jobs",
+      "title": "Showing help for: Work",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "jobs",
+      "lang": "es",
+      "prompt": "necesito trabajo",
+      "expected": "jobs",
+      "routed": "jobs",
+      "ui_slug": "jobs",
+      "title": "Mostrando ayuda para: Trabajo",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "jobs",
+      "lang": "ht",
+      "prompt": "mwen bezwen travay",
+      "expected": "jobs",
+      "routed": "jobs",
+      "ui_slug": "jobs",
+      "title": "Èd pou: Travay",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "jobs",
+      "lang": "pt",
+      "prompt": "preciso de emprego",
+      "expected": "jobs",
+      "routed": "jobs",
+      "ui_slug": "jobs",
+      "title": "Mostrando ajuda para: Trabalho",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "en",
+      "prompt": "I need food",
+      "expected": "food",
+      "routed": "food",
+      "ui_slug": "food",
+      "title": "Showing help for: Food",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "en",
+      "prompt": "I am in crisis",
+      "expected": "crisis",
+      "routed": "crisis",
+      "ui_slug": "crisis",
+      "title": "Showing help for: Crisis",
+      "found": [
+        "988"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "es",
+      "prompt": "necesito comida",
+      "expected": "food",
+      "routed": "food",
+      "ui_slug": "food",
+      "title": "Mostrando ayuda para: Comida",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "es",
+      "prompt": "estoy en crisis",
+      "expected": "crisis",
+      "routed": "crisis",
+      "ui_slug": "crisis",
+      "title": "Mostrando ayuda para: Crisis",
+      "found": [
+        "988"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "ht",
+      "prompt": "mwen bezwen manje",
+      "expected": "food",
+      "routed": "food",
+      "ui_slug": "food",
+      "title": "Èd pou: Manje",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "ht",
+      "prompt": "mwen nan kriz",
+      "expected": "crisis",
+      "routed": "crisis",
+      "ui_slug": "crisis",
+      "title": "Èd pou: Kriz",
+      "found": [
+        "988"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "pt",
+      "prompt": "preciso de comida",
+      "expected": "food",
+      "routed": "food",
+      "ui_slug": "food",
+      "title": "Mostrando ajuda para: Comida",
+      "found": [],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    },
+    {
+      "group": "other",
+      "lang": "pt",
+      "prompt": "estou em crise",
+      "expected": "crisis",
+      "routed": "crisis",
+      "ui_slug": "crisis",
+      "title": "Mostrando ajuda para: Crise",
+      "found": [
+        "988"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "before": "n/a (new check)"
+    }
+  ]
+}
