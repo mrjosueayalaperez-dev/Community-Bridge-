@@ -1,0 +1,184 @@
+{
+  "shots": {
+    "es-ged": {
+      "path": "/workspace/community-bridge/evidence/after/es-ged-result.png",
+      "title": "Literacy Services of Indian River County — tutoría gratuita de GED e inglés"
+    },
+    "es-safespace": {
+      "path": "/workspace/community-bridge/evidence/after/es-safespace.png",
+      "name": "SafeSpace — refugio de emergencia por violencia doméstica y línea 24 horas",
+      "address": "🔒 La dirección del refugio es confidencial. Llame a la línea las 24 horas: no vaya a una oficina a buscar el refugio."
+    },
+    "es-microphone": {
+      "path": "/workspace/community-bridge/evidence/after/es-microphone.png",
+      "aria-label": "Micrófono"
+    },
+    "ht-ged": {
+      "path": "/workspace/community-bridge/evidence/after/ht-ged-result.png",
+      "title": "Literacy Services of Indian River County — tutorat gratis pou GED ak angle"
+    },
+    "ht-safespace": {
+      "path": "/workspace/community-bridge/evidence/after/ht-safespace.png",
+      "name": "SafeSpace — refij ijans pou vyolans domestik ak liy 24 èdtan",
+      "address": "🔒 Adrès refij la se konfidansyèl. Rele liy 24 èdtan an — pa ale nan yon biwo pou chèche refij la."
+    },
+    "ht-microphone": {
+      "path": "/workspace/community-bridge/evidence/after/ht-microphone.png",
+      "aria-label": "Mikwofòn"
+    },
+    "pt-ged": {
+      "path": "/workspace/community-bridge/evidence/after/pt-ged-result.png",
+      "title": "Literacy Services of Indian River County — tutoria gratuita de GED e inglês"
+    },
+    "pt-safespace": {
+      "path": "/workspace/community-bridge/evidence/after/pt-safespace.png",
+      "name": "SafeSpace — abrigo de emergência para violência doméstica e linha 24 horas",
+      "address": "🔒 O endereço do abrigo é confidencial. Ligue para a linha 24 horas — não vá a um escritório à procura do abrigo."
+    },
+    "pt-microphone": {
+      "path": "/workspace/community-bridge/evidence/after/pt-microphone.png",
+      "aria-label": "Microfone"
+    }
+  },
+  "metrics": [
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "home-es"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "ged-es"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "housing-es"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "education-es"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "transit-es"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [
+        {
+          "sel": ".detailsbtn",
+          "id": "",
+          "text": "Detay",
+          "w": 40.9,
+          "h": 44
+        },
+        {
+          "sel": ".detailsbtn",
+          "id": "",
+          "text": "Detay",
+          "w": 40.9,
+          "h": 44
+        },
+        {
+          "sel": ".detailsbtn",
+          "id": "",
+          "text": "Detay",
+          "w": 40.9,
+          "h": 44
+        },
+        {
+          "sel": ".detailsbtn",
+          "id": "",
+          "text": "Detay",
+          "w": 40.9,
+          "h": 44
+        }
+      ],
+      "label": "home-ht"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "ged-ht"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "housing-ht"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "education-ht"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "transit-ht"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "home-pt"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "ged-pt"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "housing-pt"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "education-pt"
+    },
+    {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "undersized": [],
+      "label": "transit-pt"
+    }
+  ],
+  "aria": {
+    "es": "Micrófono",
+    "ht": "Mikwofòn",
+    "pt": "Microfone"
+  }
+}

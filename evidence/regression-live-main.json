@@ -1,0 +1,90 @@
+{
+  "live": {
+    "url": "https://mrjosueayalaperez-dev.github.io/Community-Bridge-/",
+    "status": 200,
+    "cats_en": [
+      "Crisis",
+      "Food",
+      "Housing",
+      "Mobility Equipment",
+      "Health",
+      "Mental health",
+      "Work",
+      "Legal",
+      "Transit",
+      "Child care",
+      "Utilities",
+      "Older adults",
+      "Learning"
+    ],
+    "button_ids": [
+      "askBtn",
+      "backBtn",
+      "btn-en",
+      "btn-es",
+      "btn-ht",
+      "btn-pt",
+      "locBtn",
+      "micBtn",
+      "privacyBackBtn",
+      "privacyBtn"
+    ],
+    "section_ids": [
+      "homeView",
+      "resultsView",
+      "privacyView"
+    ],
+    "console": [],
+    "pageerrors": [],
+    "title": "Community Bridge — Find help nearby / Encuentra ayuda cerca de ti"
+  },
+  "local": {
+    "url": "http://127.0.0.1:8770/index.html",
+    "status": 200,
+    "cats_en": [
+      "Crisis",
+      "Food",
+      "Housing",
+      "Mobility Equipment",
+      "Health",
+      "Mental health",
+      "Work",
+      "Legal",
+      "Transit",
+      "Child care",
+      "Utilities",
+      "Older adults",
+      "Learning"
+    ],
+    "button_ids": [
+      "askBtn",
+      "backBtn",
+      "btn-en",
+      "btn-es",
+      "btn-ht",
+      "btn-pt",
+      "locBtn",
+      "micBtn",
+      "privacyBackBtn",
+      "privacyBtn"
+    ],
+    "section_ids": [
+      "homeView",
+      "resultsView",
+      "privacyView"
+    ],
+    "console": [],
+    "pageerrors": [],
+    "title": "Community Bridge — Find help nearby / Encuentra ayuda cerca de ti"
+  },
+  "missing_ids": [],
+  "new_ids": [],
+  "missing_button_ids": [],
+  "newly_missing_labels": [],
+  "live_console_filtered": [],
+  "local_console_filtered": [],
+  "new_console_errors_or_warnings": [],
+  "live_pageerrors": [],
+  "local_pageerrors": [],
+  "ok": true
+}

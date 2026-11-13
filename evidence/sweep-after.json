@@ -1,0 +1,115 @@
+{
+  "html": "/workspace/community-bridge/index.html",
+  "allowlist_size": 163,
+  "allowlist_path": "/workspace/community-bridge/evidence/sweep-allowlist.txt",
+  "english_phrases": [
+    "microphone",
+    "free ged & english tutoring",
+    "crisis stabilization",
+    "coordinated entry",
+    "emergency shelter for families",
+    "domestic violence emergency shelter",
+    "24-hour hotline",
+    "public buses",
+    "door-to-door rides",
+    "housing vouchers",
+    "ged preparation",
+    "official site",
+    "the shelter address is confidential",
+    "do not go to an office",
+    "rental assistance",
+    "free medical equipment",
+    "medical equipment bank",
+    "free equipment lending",
+    "soup kitchen",
+    "english tutoring",
+    "transportation page",
+    "coordinated-entry page",
+    "crisis stabilization program pages"
+  ],
+  "static": {
+    "listings_checked": 36,
+    "complete": 36,
+    "incomplete": 0,
+    "missing": []
+  },
+  "runtime": {
+    "en_strings_collected": 520,
+    "by_lang": {
+      "es": {
+        "strings_collected": 520,
+        "flagged": 0,
+        "attribute_flagged": 0,
+        "attribute_flags": [],
+        "flags": []
+      },
+      "ht": {
+        "strings_collected": 520,
+        "flagged": 0,
+        "attribute_flagged": 0,
+        "attribute_flags": [],
+        "flags": []
+      },
+      "pt": {
+        "strings_collected": 520,
+        "flagged": 0,
+        "attribute_flagged": 0,
+        "attribute_flags": [],
+        "flags": []
+      }
+    },
+    "attribute_inplace_switch": {
+      "es": {
+        "attributes_collected": 8,
+        "flagged": 0,
+        "flags": [],
+        "english_labels_still_present_after_switch": [],
+        "expected_translated_labels_missing": [],
+        "attribute_values": [
+          "alt: Moose, su guía de Community Bridge",
+          "aria-label: Bienvenida",
+          "aria-label: Buscar",
+          "aria-label: Idioma",
+          "aria-label: Micrófono",
+          "aria-label: Preguntar",
+          "placeholder: Buscar en todos los listados…",
+          "placeholder: ¿Qué necesitas? Ej.: comida, refugio, una clínica"
+        ]
+      },
+      "ht": {
+        "attributes_collected": 8,
+        "flagged": 0,
+        "flags": [],
+        "english_labels_still_present_after_switch": [],
+        "expected_translated_labels_missing": [],
+        "attribute_values": [
+          "alt: Moose, gid Community Bridge ou",
+          "aria-label: Byenveni",
+          "aria-label: Chèche",
+          "aria-label: Lang",
+          "aria-label: Mande",
+          "aria-label: Mikwofòn",
+          "placeholder: Chèche nan tout lis yo…",
+          "placeholder: Kisa w bezwen? Egz.: manje, yon kote pou dòmi, yon klinik"
+        ]
+      },
+      "pt": {
+        "attributes_collected": 8,
+        "flagged": 0,
+        "flags": [],
+        "english_labels_still_present_after_switch": [],
+        "expected_translated_labels_missing": [],
+        "attribute_values": [
+          "alt: Moose, seu guia do Community Bridge",
+          "aria-label: Boas-vindas",
+          "aria-label: Língua",
+          "aria-label: Microfone",
+          "aria-label: Perguntar",
+          "aria-label: Pesquisar",
+          "placeholder: Buscar em todas as listas…",
+          "placeholder: Do que você precisa? Ex.: comida, abrigo, uma clínica"
+        ]
+      }
+    }
+  }
+}

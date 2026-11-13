@@ -1,0 +1,1846 @@
+{
+  "html": "/workspace/community-bridge/index.html",
+  "allowlist_size": 165,
+  "allowlist_path": "/workspace/community-bridge/evidence/sweep-allowlist.txt",
+  "english_phrases": [
+    "microphone",
+    "free ged & english tutoring",
+    "crisis stabilization",
+    "coordinated entry",
+    "emergency shelter for families",
+    "domestic violence emergency shelter",
+    "24-hour hotline",
+    "public buses",
+    "door-to-door rides",
+    "housing vouchers",
+    "ged preparation",
+    "official site",
+    "the shelter address is confidential",
+    "do not go to an office",
+    "rental assistance",
+    "free medical equipment",
+    "medical equipment bank",
+    "free equipment lending",
+    "soup kitchen",
+    "english tutoring",
+    "transportation page",
+    "coordinated-entry page",
+    "crisis stabilization program pages"
+  ],
+  "static": {
+    "listings_checked": 36,
+    "complete": 0,
+    "incomplete": 36,
+    "missing": [
+      {
+        "kind": "national",
+        "id": "988",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "ndvh",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "childhelp",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "veterans-crisis",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "dial-211",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "hunger-hotline",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "marketplace",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "maternal-mental",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "samhsa",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "eldercare",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "national",
+        "id": "faast",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "operation-hope",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "fellsmere-enrichment",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "roseland-pantry",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "svdp-wabasso",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "food-pantry-irc",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "the-source",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "salvation-army-vero",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "st-helen-svdp",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "our-fathers-table",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "irc-section8",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "habc-section8",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "tchsc-coordinated-entry",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "hope-for-families",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "safespace-shelter",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt",
+          "addressEn",
+          "addressEs",
+          "addressHt",
+          "addressPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "uap-irc-housing",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "rcds-vero",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "sra-vero",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "rcds-rockledge",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "brevard-alz",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "sunflower-house",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "community-coach",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "scat-paratransit",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "literacy-services-irc",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "irsc-ged-mueller",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      },
+      {
+        "kind": "local",
+        "id": "goline-transit",
+        "missing": [
+          "nameEn",
+          "nameEs",
+          "nameHt",
+          "namePt",
+          "sourceNameEn",
+          "sourceNameEs",
+          "sourceNameHt",
+          "sourceNamePt",
+          "townHt",
+          "townPt"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "en_strings_collected": 519,
+    "by_lang": {
+      "es": {
+        "strings_collected": 519,
+        "flagged": 34,
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Domestic Violence Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "ndvh",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Childhelp National Child Abuse Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "childhelp",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Veterans Crisis Line",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "veterans-crisis",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fuente: Our Father's Table Soup Kitchen · Local reverificado 2026-11-02",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "our-fathers-table",
+            "visible": true,
+            "reasons": [
+              "english_phrase:soup kitchen"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River County Rental Assistance — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers,rental assistance"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Housing Authority of Brevard County — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "habc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Treasure Coast Homeless Services Council — Coordinated Entry",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "tchsc-coordinated-entry",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:coordinated entry"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Hope for Families Center — Emergency Shelter for Families",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "hope-for-families",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:emergency shelter for families"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SafeSpace — Domestic Violence Emergency Shelter & 24-Hour Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "safespace-shelter",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:domestic violence emergency shelter,24-hour hotline"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "United Against Poverty — Crisis Stabilization (Indian River)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "uap-irc-housing",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:crisis stabilization"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fuente: Hope for Families Center (hopeforfamiliescenter.org) and TCHSC coordinated-entry page · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "hope-for-families",
+            "visible": true,
+            "reasons": [
+              "english_phrase:coordinated-entry page"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fuente: United Against Poverty Indian River campus and Crisis Stabilization Program pages · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "uap-irc-housing",
+            "visible": true,
+            "reasons": [
+              "english_phrase:crisis stabilization,crisis stabilization program pages"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "🔒 The shelter address is confidential. Call the 24-hour hotline — do not go to an office looking for the shelter.",
+            "sel": ".laddr",
+            "id": "",
+            "cls": "laddr",
+            "listing": "safespace-shelter",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:24-hour hotline,the shelter address is confidential,do not go to an office"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "FAAST — Florida Assistive Technology Program",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "faast",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Senior Resource Association — Medical Equipment (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sra-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Brevard)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-rockledge",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Brevard Alzheimer's Foundation — Free Equipment Lending (Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "brevard-alz",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free equipment lending"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sunflower House — Medical Equipment Bank (West Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sunflower-house",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:medical equipment bank"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Community Coach — Door-to-Door Rides (Indian River County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "community-coach",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:door-to-door rides"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Space Coast Area Transit — Paratransit (Brevard County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "scat-paratransit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Health Insurance Marketplace",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "marketplace",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Maternal Mental Health Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "maternal-mental",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SAMHSA National Helpline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "samhsa",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "GoLine — Indian River County Public Buses",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "goline-transit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:public buses"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fuente: GoLine official site (golineirt.com) and Senior Resource Association transportation page · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "goline-transit",
+            "visible": true,
+            "reasons": [
+              "english_phrase:official site,transportation page"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Eldercare Locator",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "eldercare",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Literacy Services of Indian River County — Free GED & English Tutoring",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "literacy-services-irc",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free ged & english tutoring,english tutoring"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River State College — GED Preparation (Mueller Campus)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irsc-ged-mueller",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:ged preparation"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fuente: Indian River State College GED Preparation page (irsc.edu) · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "irsc-ged-mueller",
+            "visible": true,
+            "reasons": [
+              "english_phrase:ged preparation"
+            ]
+          }
+        ]
+      },
+      "ht": {
+        "strings_collected": 519,
+        "flagged": 34,
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Domestic Violence Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "ndvh",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Childhelp National Child Abuse Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "childhelp",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Veterans Crisis Line",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "veterans-crisis",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sous: Our Father's Table Soup Kitchen · Lokal re-verifye 2026-11-02",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "our-fathers-table",
+            "visible": true,
+            "reasons": [
+              "english_phrase:soup kitchen"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River County Rental Assistance — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers,rental assistance"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Housing Authority of Brevard County — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "habc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Treasure Coast Homeless Services Council — Coordinated Entry",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "tchsc-coordinated-entry",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:coordinated entry"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Hope for Families Center — Emergency Shelter for Families",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "hope-for-families",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:emergency shelter for families"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SafeSpace — Domestic Violence Emergency Shelter & 24-Hour Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "safespace-shelter",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:domestic violence emergency shelter,24-hour hotline"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "United Against Poverty — Crisis Stabilization (Indian River)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "uap-irc-housing",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:crisis stabilization"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sous: Hope for Families Center (hopeforfamiliescenter.org) and TCHSC coordinated-entry page · Lokal verifye 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "hope-for-families",
+            "visible": true,
+            "reasons": [
+              "english_phrase:coordinated-entry page"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sous: United Against Poverty Indian River campus and Crisis Stabilization Program pages · Lokal verifye 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "uap-irc-housing",
+            "visible": true,
+            "reasons": [
+              "english_phrase:crisis stabilization,crisis stabilization program pages"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "🔒 The shelter address is confidential. Call the 24-hour hotline — do not go to an office looking for the shelter.",
+            "sel": ".laddr",
+            "id": "",
+            "cls": "laddr",
+            "listing": "safespace-shelter",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:24-hour hotline,the shelter address is confidential,do not go to an office"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "FAAST — Florida Assistive Technology Program",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "faast",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Senior Resource Association — Medical Equipment (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sra-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Brevard)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-rockledge",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Brevard Alzheimer's Foundation — Free Equipment Lending (Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "brevard-alz",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free equipment lending"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sunflower House — Medical Equipment Bank (West Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sunflower-house",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:medical equipment bank"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Community Coach — Door-to-Door Rides (Indian River County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "community-coach",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:door-to-door rides"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Space Coast Area Transit — Paratransit (Brevard County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "scat-paratransit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Health Insurance Marketplace",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "marketplace",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Maternal Mental Health Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "maternal-mental",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SAMHSA National Helpline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "samhsa",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "GoLine — Indian River County Public Buses",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "goline-transit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:public buses"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sous: GoLine official site (golineirt.com) and Senior Resource Association transportation page · Lokal verifye 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "goline-transit",
+            "visible": true,
+            "reasons": [
+              "english_phrase:official site,transportation page"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Eldercare Locator",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "eldercare",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Literacy Services of Indian River County — Free GED & English Tutoring",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "literacy-services-irc",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free ged & english tutoring,english tutoring"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River State College — GED Preparation (Mueller Campus)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irsc-ged-mueller",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:ged preparation"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sous: Indian River State College GED Preparation page (irsc.edu) · Lokal verifye 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "irsc-ged-mueller",
+            "visible": true,
+            "reasons": [
+              "english_phrase:ged preparation"
+            ]
+          }
+        ]
+      },
+      "pt": {
+        "strings_collected": 519,
+        "flagged": 34,
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Domestic Violence Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "ndvh",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Childhelp National Child Abuse Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "childhelp",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Veterans Crisis Line",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "veterans-crisis",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fonte: Our Father's Table Soup Kitchen · Local reverificado 2026-11-02",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "our-fathers-table",
+            "visible": true,
+            "reasons": [
+              "english_phrase:soup kitchen"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River County Rental Assistance — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers,rental assistance"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Housing Authority of Brevard County — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "habc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Treasure Coast Homeless Services Council — Coordinated Entry",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "tchsc-coordinated-entry",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:coordinated entry"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Hope for Families Center — Emergency Shelter for Families",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "hope-for-families",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:emergency shelter for families"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SafeSpace — Domestic Violence Emergency Shelter & 24-Hour Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "safespace-shelter",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:domestic violence emergency shelter,24-hour hotline"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "United Against Poverty — Crisis Stabilization (Indian River)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "uap-irc-housing",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:crisis stabilization"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fonte: Hope for Families Center (hopeforfamiliescenter.org) and TCHSC coordinated-entry page · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "hope-for-families",
+            "visible": true,
+            "reasons": [
+              "english_phrase:coordinated-entry page"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fonte: United Against Poverty Indian River campus and Crisis Stabilization Program pages · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "uap-irc-housing",
+            "visible": true,
+            "reasons": [
+              "english_phrase:crisis stabilization,crisis stabilization program pages"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "🔒 The shelter address is confidential. Call the 24-hour hotline — do not go to an office looking for the shelter.",
+            "sel": ".laddr",
+            "id": "",
+            "cls": "laddr",
+            "listing": "safespace-shelter",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:24-hour hotline,the shelter address is confidential,do not go to an office"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "FAAST — Florida Assistive Technology Program",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "faast",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Senior Resource Association — Medical Equipment (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sra-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Brevard)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-rockledge",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Brevard Alzheimer's Foundation — Free Equipment Lending (Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "brevard-alz",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free equipment lending"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sunflower House — Medical Equipment Bank (West Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sunflower-house",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:medical equipment bank"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Community Coach — Door-to-Door Rides (Indian River County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "community-coach",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:door-to-door rides"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Space Coast Area Transit — Paratransit (Brevard County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "scat-paratransit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Health Insurance Marketplace",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "marketplace",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Maternal Mental Health Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "maternal-mental",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SAMHSA National Helpline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "samhsa",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "GoLine — Indian River County Public Buses",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "goline-transit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:public buses"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fonte: GoLine official site (golineirt.com) and Senior Resource Association transportation page · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "goline-transit",
+            "visible": true,
+            "reasons": [
+              "english_phrase:official site,transportation page"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Eldercare Locator",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "eldercare",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Literacy Services of Indian River County — Free GED & English Tutoring",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "literacy-services-irc",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free ged & english tutoring,english tutoring"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River State College — GED Preparation (Mueller Campus)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irsc-ged-mueller",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:ged preparation"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fonte: Indian River State College GED Preparation page (irsc.edu) · Local verificado 2026-11-13",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "irsc-ged-mueller",
+            "visible": true,
+            "reasons": [
+              "english_phrase:ged preparation"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

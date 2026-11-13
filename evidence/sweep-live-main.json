@@ -1,0 +1,1453 @@
+{
+  "html": "/workspace/community-bridge/index.html",
+  "allowlist_size": 163,
+  "allowlist_path": "/workspace/community-bridge/evidence/sweep-allowlist.txt",
+  "english_phrases": [
+    "microphone",
+    "free ged & english tutoring",
+    "crisis stabilization",
+    "coordinated entry",
+    "emergency shelter for families",
+    "domestic violence emergency shelter",
+    "24-hour hotline",
+    "public buses",
+    "door-to-door rides",
+    "housing vouchers",
+    "ged preparation",
+    "official site",
+    "the shelter address is confidential",
+    "do not go to an office",
+    "rental assistance",
+    "free medical equipment",
+    "medical equipment bank",
+    "free equipment lending",
+    "soup kitchen",
+    "english tutoring",
+    "transportation page",
+    "coordinated-entry page",
+    "crisis stabilization program pages"
+  ],
+  "static": {
+    "listings_checked": 36,
+    "complete": 36,
+    "incomplete": 0,
+    "missing": []
+  },
+  "runtime": {
+    "en_strings_collected": 439,
+    "by_lang": {
+      "es": {
+        "strings_collected": 439,
+        "flagged": 25,
+        "attribute_flagged": 5,
+        "attribute_flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ],
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "988 Suicide & Crisis Lifeline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "988",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Domestic Violence Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "ndvh",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "USDA National Hunger Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "hunger-hotline",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Childhelp National Child Abuse Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "childhelp",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Veterans Crisis Line",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "veterans-crisis",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fuente: Our Father's Table Soup Kitchen · Local reverificado 2026-11-02",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "our-fathers-table",
+            "visible": true,
+            "reasons": [
+              "english_phrase:soup kitchen"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River County Rental Assistance — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers,rental assistance"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Housing Authority of Brevard County — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "habc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "FAAST — Florida Assistive Technology Program",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "faast",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Senior Resource Association — Medical Equipment (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sra-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Brevard)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-rockledge",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Brevard Alzheimer's Foundation — Free Equipment Lending (Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "brevard-alz",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free equipment lending"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sunflower House — Medical Equipment Bank (West Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sunflower-house",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:medical equipment bank"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Community Coach — Door-to-Door Rides (Indian River County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "community-coach",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:door-to-door rides"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Space Coast Area Transit — Paratransit (Brevard County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "scat-paratransit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Health Insurance Marketplace",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "marketplace",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Maternal Mental Health Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "maternal-mental",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SAMHSA National Helpline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "samhsa",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Eldercare Locator",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "eldercare",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ]
+      },
+      "ht": {
+        "strings_collected": 439,
+        "flagged": 25,
+        "attribute_flagged": 5,
+        "attribute_flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ],
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "988 Suicide & Crisis Lifeline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "988",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Domestic Violence Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "ndvh",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "USDA National Hunger Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "hunger-hotline",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Childhelp National Child Abuse Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "childhelp",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Veterans Crisis Line",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "veterans-crisis",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sous: Our Father's Table Soup Kitchen · Lokal re-verifye 2026-11-02",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "our-fathers-table",
+            "visible": true,
+            "reasons": [
+              "english_phrase:soup kitchen"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River County Rental Assistance — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers,rental assistance"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Housing Authority of Brevard County — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "habc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "FAAST — Florida Assistive Technology Program",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "faast",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Senior Resource Association — Medical Equipment (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sra-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Brevard)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-rockledge",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Brevard Alzheimer's Foundation — Free Equipment Lending (Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "brevard-alz",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free equipment lending"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sunflower House — Medical Equipment Bank (West Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sunflower-house",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:medical equipment bank"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Community Coach — Door-to-Door Rides (Indian River County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "community-coach",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:door-to-door rides"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Space Coast Area Transit — Paratransit (Brevard County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "scat-paratransit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Health Insurance Marketplace",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "marketplace",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Maternal Mental Health Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "maternal-mental",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SAMHSA National Helpline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "samhsa",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Eldercare Locator",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "eldercare",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ]
+      },
+      "pt": {
+        "strings_collected": 439,
+        "flagged": 25,
+        "attribute_flagged": 5,
+        "attribute_flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ],
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "988 Suicide & Crisis Lifeline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "988",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Domestic Violence Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "ndvh",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "USDA National Hunger Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "hunger-hotline",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Childhelp National Child Abuse Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "childhelp",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Veterans Crisis Line",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "veterans-crisis",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Fonte: Our Father's Table Soup Kitchen · Local reverificado 2026-11-02",
+            "sel": ".srcline",
+            "id": "",
+            "cls": "srcline",
+            "listing": "our-fathers-table",
+            "visible": true,
+            "reasons": [
+              "english_phrase:soup kitchen"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Indian River County Rental Assistance — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "irc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers,rental assistance"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Housing Authority of Brevard County — Section 8 Housing Vouchers",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "habc-section8",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:housing vouchers"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "FAAST — Florida Assistive Technology Program",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "faast",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Senior Resource Association — Medical Equipment (Vero Beach)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sra-vero",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "RCDS Loan Closet — Free Medical Equipment Loans (Brevard)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "rcds-rockledge",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free medical equipment"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Brevard Alzheimer's Foundation — Free Equipment Lending (Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "brevard-alz",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:free equipment lending"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Sunflower House — Medical Equipment Bank (West Melbourne)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "sunflower-house",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:medical equipment bank"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Community Coach — Door-to-Door Rides (Indian River County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "community-coach",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:door-to-door rides"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Space Coast Area Transit — Paratransit (Brevard County)",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "scat-paratransit",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Health Insurance Marketplace",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "marketplace",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "National Maternal Mental Health Hotline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "maternal-mental",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "SAMHSA National Helpline",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "samhsa",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "text",
+            "text": "Eldercare Locator",
+            "sel": ".lname",
+            "id": "",
+            "cls": "lname",
+            "listing": "eldercare",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ]
+      }
+    },
+    "attribute_inplace_switch": {
+      "es": {
+        "attributes_collected": 8,
+        "flagged": 5,
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ],
+        "english_labels_still_present_after_switch": [
+          "Microphone",
+          "Welcome",
+          "Ask",
+          "Search",
+          "Moose, your Community Bridge guide"
+        ],
+        "expected_translated_labels_missing": [
+          "Micrófono",
+          "Bienvenida",
+          "Preguntar",
+          "Buscar",
+          "Moose, su guía de Community Bridge",
+          "Idioma"
+        ],
+        "attribute_values": [
+          "alt: Moose, your Community Bridge guide",
+          "aria-label: Ask",
+          "aria-label: Language / Idioma / Lang / Língua",
+          "aria-label: Microphone",
+          "aria-label: Search",
+          "aria-label: Welcome",
+          "placeholder: Buscar en todos los listados…",
+          "placeholder: ¿Qué necesitas? Ej.: comida, refugio, una clínica"
+        ]
+      },
+      "ht": {
+        "attributes_collected": 8,
+        "flagged": 5,
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ],
+        "english_labels_still_present_after_switch": [
+          "Microphone",
+          "Welcome",
+          "Ask",
+          "Search",
+          "Moose, your Community Bridge guide"
+        ],
+        "expected_translated_labels_missing": [
+          "Mikwofòn",
+          "Byenveni",
+          "Mande",
+          "Chèche",
+          "Moose, gid Community Bridge ou",
+          "Lang"
+        ],
+        "attribute_values": [
+          "alt: Moose, your Community Bridge guide",
+          "aria-label: Ask",
+          "aria-label: Language / Idioma / Lang / Língua",
+          "aria-label: Microphone",
+          "aria-label: Search",
+          "aria-label: Welcome",
+          "placeholder: Chèche nan tout lis yo…",
+          "placeholder: Kisa w bezwen? Egz.: manje, yon kote pou dòmi, yon klinik"
+        ]
+      },
+      "pt": {
+        "attributes_collected": 8,
+        "flagged": 5,
+        "flags": [
+          {
+            "type": "aria-label",
+            "text": "Welcome",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card greet-card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "alt",
+            "text": "Moose, your Community Bridge guide",
+            "tag": "IMG",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Ask",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "card",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Microphone",
+            "tag": "BUTTON",
+            "id": "micBtn",
+            "cls": "btn btn-mic",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english",
+              "english_phrase:microphone"
+            ]
+          },
+          {
+            "type": "aria-label",
+            "text": "Search",
+            "tag": "SECTION",
+            "id": "",
+            "cls": "",
+            "listing": "",
+            "visible": true,
+            "reasons": [
+              "identical_to_english"
+            ]
+          }
+        ],
+        "english_labels_still_present_after_switch": [
+          "Microphone",
+          "Welcome",
+          "Ask",
+          "Search",
+          "Moose, your Community Bridge guide"
+        ],
+        "expected_translated_labels_missing": [
+          "Microfone",
+          "Boas-vindas",
+          "Perguntar",
+          "Pesquisar",
+          "Moose, seu guia do Community Bridge",
+          "Língua"
+        ],
+        "attribute_values": [
+          "alt: Moose, your Community Bridge guide",
+          "aria-label: Ask",
+          "aria-label: Language / Idioma / Lang / Língua",
+          "aria-label: Microphone",
+          "aria-label: Search",
+          "aria-label: Welcome",
+          "placeholder: Buscar em todas as listas…",
+          "placeholder: Do que você precisa? Ex.: comida, abrigo, uma clínica"
+        ]
+      }
+    }
+  }
+}

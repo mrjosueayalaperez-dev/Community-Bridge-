@@ -1,0 +1,632 @@
+{
+  "tests": [
+    {
+      "name": "home category count",
+      "status": "PASS",
+      "detail": "found 13"
+    },
+    {
+      "name": "food listings unique (no catItems duplicate)",
+      "status": "PASS",
+      "detail": "9 cards, 9 unique: ['operation-hope', 'fellsmere-enrichment', 'roseland-pantry', 'svdp-wabasso', 'food-pantry-irc', 'the-source', 'st-helen-svdp', 'salvation-army-vero', 'our-fathers-table']"
+    },
+    {
+      "name": "mobility still lists local equipment + coach",
+      "status": "PASS",
+      "detail": "ids=['rcds-vero', 'sra-vero', 'rcds-rockledge', 'brevard-alz', 'sunflower-house', 'community-coach', 'scat-paratransit']"
+    },
+    {
+      "name": "mobility not empty-state",
+      "status": "PASS",
+      "detail": "category has listings rather than empty fallback"
+    },
+    {
+      "name": "education lists expected cards",
+      "status": "PASS",
+      "detail": "got ['literacy-services-irc', 'irsc-ged-mueller']; missing []"
+    },
+    {
+      "name": "education is not the empty fallback",
+      "status": "PASS",
+      "detail": "listings rendered"
+    },
+    {
+      "name": "transit lists expected cards",
+      "status": "PASS",
+      "detail": "got ['goline-transit']; missing []"
+    },
+    {
+      "name": "transit is not the empty fallback",
+      "status": "PASS",
+      "detail": "listings rendered"
+    },
+    {
+      "name": "housing lists expected cards",
+      "status": "PASS",
+      "detail": "got ['irc-section8', 'habc-section8', 'tchsc-coordinated-entry', 'hope-for-families', 'safespace-shelter', 'uap-irc-housing']; missing []"
+    },
+    {
+      "name": "housing is not the empty fallback",
+      "status": "PASS",
+      "detail": "listings rendered"
+    },
+    {
+      "name": "SafeSpace card present",
+      "status": "PASS",
+      "detail": "count=1"
+    },
+    {
+      "name": "SafeSpace has no Maps/directions link",
+      "status": "PASS",
+      "detail": "hrefs=['tel:+17722887023', 'https://safespacefl.org/overview-intervention-services/', 'https://safespacefl.org/overview-intervention-services/']"
+    },
+    {
+      "name": "SafeSpace call button uses official hotline",
+      "status": "PASS",
+      "detail": "hrefs=['tel:+17722887023', 'https://safespacefl.org/overview-intervention-services/', 'https://safespacefl.org/overview-intervention-services/']"
+    },
+    {
+      "name": "SafeSpace uses confidential copy, not a street address",
+      "status": "PASS",
+      "detail": "HOUSING \u00b7 INDIAN RIVER COUNTY, FL \u00b7 LOCATION KEPT PRIVATE \u2014 CALL FIRST\u2713 VERIFIED LOCAL 2026-11-13\nSafeSpace \u2014 Domestic Violence Emergency Shelter & 24-Hour Hotline\n\nSafeSpace is the state-certified domestic violence center for Indian River,"
+    },
+    {
+      "name": "ask 'ged' routes to education",
+      "status": "PASS",
+      "detail": "ids=['literacy-services-irc', 'irsc-ged-mueller']"
+    },
+    {
+      "name": "ask 'goline' routes to transit",
+      "status": "PASS",
+      "detail": "ids=['goline-transit']"
+    },
+    {
+      "name": "ask 'bus' routes to transit",
+      "status": "PASS",
+      "detail": "ids=['goline-transit']"
+    },
+    {
+      "name": "ask 'shelter' routes to housing",
+      "status": "PASS",
+      "detail": "ids=['irc-section8', 'habc-section8', 'tchsc-coordinated-entry', 'hope-for-families', 'safespace-shelter', 'uap-irc-housing']"
+    },
+    {
+      "name": "ask 'housing' routes to housing",
+      "status": "PASS",
+      "detail": "ids=['irc-section8', 'habc-section8', 'tchsc-coordinated-entry', 'hope-for-families', 'safespace-shelter', 'uap-irc-housing']"
+    },
+    {
+      "name": "privacy page opens",
+      "status": "PASS",
+      "detail": "opened"
+    },
+    {
+      "name": "privacy back returns home",
+      "status": "PASS",
+      "detail": "home visible"
+    },
+    {
+      "name": "no horizontal overflow at 375/1280 in 4 languages",
+      "status": "FAIL",
+      "detail": "overflow: ['home-en-mobile', 'education-en-mobile', 'transit-en-mobile', 'housing-en-mobile', 'home-es-mobile', 'education-es-mobile', 'transit-es-mobile', 'housing-es-mobile', 'home-ht-mobile', 'education-ht-mobile', 'transit-ht-mobile', 'housing-ht-mobile', 'home-pt-mobile', 'education-pt-mobile', 'transit-pt-mobile', 'housing-pt-mobile']"
+    },
+    {
+      "name": "tap targets reviewed",
+      "status": "WARN",
+      "detail": "16 contexts had controls shorter/narrower than 24px (existing site pattern may include text buttons). Details saved."
+    },
+    {
+      "name": "collected links",
+      "status": "PASS",
+      "detail": "65 http(s), 31 tel/sms"
+    },
+    {
+      "name": "external/internal link crawl (2xx/3xx)",
+      "status": "FAIL",
+      "detail": "56/65 ok; problems=[{'url': 'http://seniorresourceassociation.org/', 'status': 500, 'note': 'HTTP Error 500: Internal Server Error', 'date': '2026-11-13'}, {'url': 'http://www.salvationarmyflorida.org/verobeach/', 'status': 500, 'note': 'HTTP Error 500: Internal Server Error', 'date': '2026-11-13'}, {'url': 'https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf', 'status': 404, 'note': 'HTTP Error 404: Not Found', 'date': '2026-11-13'}, {'url': 'https://brevardalz.org', 'status': 202, 'note': '', 'date': '2026-11-13'}, {'url': 'https://brevardalz.org/', 'status': 202, 'note': '', 'date': '2026-11-13'}, {'url': 'https://brevardalz.org/health-equipment-lending-program/', 'status': 202, 'note': '', 'date': '2026-11-13'}, {'url': 'https://mchb.hrsa.gov', 'status': 403, 'note': 'HTTP Error 403: Forbidden', 'date': '2026-11-13'}, {'url': 'https://ourfatherstablesoupkitchen.org/', 'status': 403, 'note': 'HTTP Error 403: Forbidden', 'date': '2026-11-13'}, {'url': 'https://www.childhelp.org', 'status': 500, 'note': 'HTTP Error 500: Internal Server Error', 'date': '2026-11-13'}]"
+    },
+    {
+      "name": "axe home",
+      "status": "WARN",
+      "detail": "1 violation types"
+    },
+    {
+      "name": "axe education",
+      "status": "WARN",
+      "detail": "1 violation types"
+    },
+    {
+      "name": "axe transit",
+      "status": "WARN",
+      "detail": "1 violation types"
+    },
+    {
+      "name": "axe housing",
+      "status": "WARN",
+      "detail": "1 violation types"
+    }
+  ],
+  "failed": 2,
+  "passed": 27,
+  "warnings": 5,
+  "screenshots": [
+    "/workspace/community-bridge/evidence/mobile-home-en.png",
+    "/workspace/community-bridge/evidence/mobile-education-en.png",
+    "/workspace/community-bridge/evidence/mobile-transit-en.png",
+    "/workspace/community-bridge/evidence/mobile-housing-en.png",
+    "/workspace/community-bridge/evidence/mobile-housing-safespace-en.png",
+    "/workspace/community-bridge/evidence/mobile-home-es.png",
+    "/workspace/community-bridge/evidence/mobile-education-es.png",
+    "/workspace/community-bridge/evidence/mobile-transit-es.png",
+    "/workspace/community-bridge/evidence/mobile-housing-es.png",
+    "/workspace/community-bridge/evidence/mobile-housing-safespace-es.png",
+    "/workspace/community-bridge/evidence/mobile-home-ht.png",
+    "/workspace/community-bridge/evidence/mobile-education-ht.png",
+    "/workspace/community-bridge/evidence/mobile-transit-ht.png",
+    "/workspace/community-bridge/evidence/mobile-housing-ht.png",
+    "/workspace/community-bridge/evidence/mobile-housing-safespace-ht.png",
+    "/workspace/community-bridge/evidence/mobile-home-pt.png",
+    "/workspace/community-bridge/evidence/mobile-education-pt.png",
+    "/workspace/community-bridge/evidence/mobile-transit-pt.png",
+    "/workspace/community-bridge/evidence/mobile-housing-pt.png",
+    "/workspace/community-bridge/evidence/mobile-housing-safespace-pt.png",
+    "/workspace/community-bridge/evidence/desktop-home-en.png",
+    "/workspace/community-bridge/evidence/desktop-education-en.png",
+    "/workspace/community-bridge/evidence/desktop-transit-en.png",
+    "/workspace/community-bridge/evidence/desktop-housing-en.png",
+    "/workspace/community-bridge/evidence/desktop-housing-safespace-en.png",
+    "/workspace/community-bridge/evidence/desktop-home-es.png",
+    "/workspace/community-bridge/evidence/desktop-education-es.png",
+    "/workspace/community-bridge/evidence/desktop-transit-es.png",
+    "/workspace/community-bridge/evidence/desktop-housing-es.png",
+    "/workspace/community-bridge/evidence/desktop-housing-safespace-es.png",
+    "/workspace/community-bridge/evidence/desktop-home-ht.png",
+    "/workspace/community-bridge/evidence/desktop-education-ht.png",
+    "/workspace/community-bridge/evidence/desktop-transit-ht.png",
+    "/workspace/community-bridge/evidence/desktop-housing-ht.png",
+    "/workspace/community-bridge/evidence/desktop-housing-safespace-ht.png",
+    "/workspace/community-bridge/evidence/desktop-home-pt.png",
+    "/workspace/community-bridge/evidence/desktop-education-pt.png",
+    "/workspace/community-bridge/evidence/desktop-transit-pt.png",
+    "/workspace/community-bridge/evidence/desktop-housing-pt.png",
+    "/workspace/community-bridge/evidence/desktop-housing-safespace-pt.png"
+  ],
+  "links": [
+    {
+      "url": "http://seniorresourceassociation.org/",
+      "status": 500,
+      "note": "HTTP Error 500: Internal Server Error",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "http://www.salvationarmyflorida.org/verobeach/",
+      "status": 500,
+      "note": "HTTP Error 500: Internal Server Error",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://211palmbeach.org/wp-content/uploads/2021/12/Food-Reference-Guide-IRC.pdf",
+      "status": 404,
+      "note": "HTTP Error 404: Not Found",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://321transit.com",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://321transit.com/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://321transit.com/special-services/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://988lifeline.org",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://agingmattersbrevard.org/services/sunflower-house",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://brevardalz.org",
+      "status": 202,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://brevardalz.org/",
+      "status": 202,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://brevardalz.org/health-equipment-lending-program/",
+      "status": 202,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://eldercare.acl.gov",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://eridan.websrvcs.com/templates/System/details.asp?id=42377&PID=1055143",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://faast.org",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://habc.us/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://habc.us/abouthcv/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://hopeforfamiliescenter.org/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://indianriver.gov/services/community_services/housing_services/index.php",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://irsc.edu/program/ged-preparation/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://mchb.hrsa.gov",
+      "status": 403,
+      "note": "HTTP Error 403: Forbidden",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://operationhopefl.org/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://ourfatherstablesoupkitchen.org/",
+      "status": 403,
+      "note": "HTTP Error 403: Forbidden",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://rcdsfl.org",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://rcdsfl.org/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://rcdsfl.org/services/durable-medical-equipment/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://safespacefl.org/overview-intervention-services/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://stophunger.org/food-finder/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://tchelpspot.org/coordinated-entry-homeless-assistance/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://unitedagainstpoverty.org/campus/indian-river/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://unitedagainstpoverty.org/crisis-stabilization-program/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.211.org",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.childhelp.org",
+      "status": 500,
+      "note": "HTTP Error 500: Internal Server Error",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.foodpantryirc.org/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.golineirt.com/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=10074%20Esperanza%20Circle%2C%20Fellsmere%2C%20FL%2032948",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1015%20Commerce%20Avenue%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1031%2018th%20Street%2C%20Suites%20F%20%26%20G%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=12285%20County%20Road%20512%2C%20Fellsmere%2C%20FL%2032948",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=12962%20Roseland%20Road%2C%20Sebastian%2C%20FL%2032958",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1400%2027th%20Street%2C%20Room%20208%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1400%2027th%20Street%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1401%20Guava%20Avenue%2C%20Melbourne%2C%20FL%2032935",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1600%2021st%20Street%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=1800%2027th%20Street%2C%20Building%20B%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=2206%2016th%20Avenue%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=2525%20St%20Lucie%20Avenue%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=2655%205th%20Street%20SW%2C%20Vero%20Beach%2C%20FL%2032962",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=3125%20Fell%20Road%2C%20West%20Melbourne%2C%20FL%2032904",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=401%20South%20Varr%20Avenue%2C%20Cocoa%2C%20FL%2032922",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=4221%2028th%20Avenue%2C%20Vero%20Beach%2C%20FL%2032967",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=4676%20N.%20Wickham%20Road%2C%20Melbourne%2C%20FL%2032935",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=5480%2085th%20Street%2C%20Wabasso%2C%20FL%2032967",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=597%20Haverty%20Court%2C%20Suite%20130%2C%20Rockledge%2C%20FL%2032955",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=6155%20College%20Lane%2C%20Building%20A%2C%20Room%20130%2C%20Vero%20Beach%2C%20FL%2032966",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=694%2014th%20Street%2C%20Vero%20Beach%2C%20FL%2032960",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=720%204th%20Street%2C%20Vero%20Beach%2C%20FL%2032962",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.healthcare.gov",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.hungerfreeamerica.org",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.iamthesource.org/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.literacyservicesirc.org/students/become-a-student/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.samhsa.gov",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.seniorresourceassociation.org/services/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.sthelenvero.org/",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.thehotline.org",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    },
+    {
+      "url": "https://www.veteranscrisisline.net",
+      "status": 200,
+      "note": "",
+      "date": "2026-11-13"
+    }
+  ],
+  "axe": {
+    "home": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "help": "All page content should be contained by landmarks",
+          "nodes": 3
+        }
+      ],
+      "count": 1
+    },
+    "education": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "help": "All page content should be contained by landmarks",
+          "nodes": 3
+        }
+      ],
+      "count": 1
+    },
+    "transit": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "help": "All page content should be contained by landmarks",
+          "nodes": 3
+        }
+      ],
+      "count": 1
+    },
+    "housing": {
+      "violations": [
+        {
+          "id": "region",
+          "impact": "moderate",
+          "help": "All page content should be contained by landmarks",
+          "nodes": 3
+        }
+      ],
+      "count": 1
+    }
+  }
+}
