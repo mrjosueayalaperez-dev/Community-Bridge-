@@ -1,0 +1,768 @@
+{
+  "file": "file:///workspace/community-bridge/index.html",
+  "when": "2026-11-13 10:07:47 EST",
+  "tiles": {
+    "1280x-en": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Crisis",
+        "Food",
+        "Housing",
+        "Mobility Equipment",
+        "Health",
+        "Mental health",
+        "Transit",
+        "Older adults",
+        "Learning"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "1280x-es": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Crisis",
+        "Comida",
+        "Vivienda",
+        "Equipo de Movilidad",
+        "Salud",
+        "Salud mental",
+        "Transporte",
+        "Adultos mayores",
+        "Educación"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "1280x-ht": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Kriz",
+        "Manje",
+        "Lojman",
+        "Ekipman Mobilite",
+        "Sante",
+        "Sante mantal",
+        "Transpò",
+        "Granmoun",
+        "Aprann"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "1280x-pt": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Crise",
+        "Comida",
+        "Moradia",
+        "Equipamentos de Mobilidade",
+        "Saúde",
+        "Saúde mental",
+        "Transporte",
+        "Idosos",
+        "Aprendizagem"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "390x-en": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Crisis",
+        "Food",
+        "Housing",
+        "Mobility Equipment",
+        "Health",
+        "Mental health",
+        "Transit",
+        "Older adults",
+        "Learning"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 390,
+      "cw": 390,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "390x-es": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Crisis",
+        "Comida",
+        "Vivienda",
+        "Equipo de Movilidad",
+        "Salud",
+        "Salud mental",
+        "Transporte",
+        "Adultos mayores",
+        "Educación"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 390,
+      "cw": 390,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "390x-ht": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Kriz",
+        "Manje",
+        "Lojman",
+        "Ekipman Mobilite",
+        "Sante",
+        "Sante mantal",
+        "Transpò",
+        "Granmoun",
+        "Aprann"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 390,
+      "cw": 390,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    },
+    "390x-pt": {
+      "slugs": [
+        "crisis",
+        "food",
+        "housing",
+        "mobility",
+        "health",
+        "mental",
+        "transit",
+        "seniors",
+        "education"
+      ],
+      "labels": [
+        "Crise",
+        "Comida",
+        "Moradia",
+        "Equipamentos de Mobilidade",
+        "Saúde",
+        "Saúde mental",
+        "Transporte",
+        "Idosos",
+        "Aprendizagem"
+      ],
+      "count": 9,
+      "featured": [
+        "988",
+        "ndvh",
+        "dial-211",
+        "hunger-hotline"
+      ],
+      "overflow": false,
+      "sw": 390,
+      "cw": 390,
+      "hidden_present": [],
+      "missing_visible": [],
+      "extra": []
+    }
+  },
+  "prompts": [
+    {
+      "lang": "en",
+      "prompt": "I need my GED",
+      "expected": "education",
+      "routed": "education",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Showing help for: Learning"
+    },
+    {
+      "lang": "en",
+      "prompt": "bus to work",
+      "expected": "transit",
+      "routed": "jobs",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "UNCHANGED_ROUTING_MISS",
+      "title": "Showing help for: Work"
+    },
+    {
+      "lang": "en",
+      "prompt": "I need housing",
+      "expected": "housing",
+      "routed": "housing",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Showing help for: Housing"
+    },
+    {
+      "lang": "es",
+      "prompt": "necesito mi GED",
+      "expected": "education",
+      "routed": "education",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Mostrando ayuda para: Educación"
+    },
+    {
+      "lang": "es",
+      "prompt": "autobús al trabajo",
+      "expected": "transit",
+      "routed": "jobs",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "UNCHANGED_ROUTING_MISS",
+      "title": "Mostrando ayuda para: Trabajo"
+    },
+    {
+      "lang": "es",
+      "prompt": "necesito vivienda",
+      "expected": "housing",
+      "routed": "housing",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Mostrando ayuda para: Vivienda"
+    },
+    {
+      "lang": "ht",
+      "prompt": "mwen bezwen GED",
+      "expected": "education",
+      "routed": "education",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Èd pou: Aprann"
+    },
+    {
+      "lang": "ht",
+      "prompt": "bis pou travay",
+      "expected": "transit",
+      "routed": null,
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "UNCHANGED_ROUTING_MISS",
+      "title": "Rezilta: bis pou travay"
+    },
+    {
+      "lang": "ht",
+      "prompt": "mwen bezwen kay",
+      "expected": "housing",
+      "routed": null,
+      "found": [],
+      "missing": [
+        "safespace-shelter"
+      ],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "UNCHANGED_ROUTING_MISS",
+      "title": "Rezilta: mwen bezwen kay"
+    },
+    {
+      "lang": "pt",
+      "prompt": "preciso do meu GED",
+      "expected": "education",
+      "routed": "education",
+      "found": [
+        "literacy-services-irc",
+        "irsc-ged-mueller"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Mostrando ajuda para: Aprendizagem"
+    },
+    {
+      "lang": "pt",
+      "prompt": "ônibus para o trabalho",
+      "expected": "transit",
+      "routed": "transit",
+      "found": [
+        "goline-transit"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Mostrando ajuda para: Transporte"
+    },
+    {
+      "lang": "pt",
+      "prompt": "preciso de moradia",
+      "expected": "housing",
+      "routed": "housing",
+      "found": [
+        "safespace-shelter"
+      ],
+      "missing": [],
+      "overflow": false,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS",
+      "title": "Mostrando ajuda para: Moradia"
+    }
+  ],
+  "empty_ask": [
+    {
+      "lang": "en",
+      "prompt": "I need a job",
+      "expected_empty_slug": "jobs",
+      "info": {
+        "view": "results",
+        "slug": "jobs",
+        "title": "Showing help for: Work",
+        "note": "We don't have a verified local listing for work in our coverage area yet. Call 211 — free, 24/7 in most areas — for local help with work anywhere.",
+        "notes": [
+          "We don't have a verified local listing for work in our coverage area yet. Call 211 — free, 24/7 in most areas — for local help with work anywhere.",
+          "FOOD · NATIONAL\n211\n\nCall 211 to reach local information and referral for food, housing, utilities, and other basic needs.\n\n📞 Call 211\n🔊 Listen\nDetails"
+        ],
+        "ids": [
+          "988",
+          "ndvh",
+          "dial-211",
+          "hunger-hotline",
+          "dial-211"
+        ],
+        "htmlLength": 722,
+        "sw": 390,
+        "cw": 390
+      },
+      "blank": false,
+      "has_211": true,
+      "has_message": true,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS"
+    },
+    {
+      "lang": "es",
+      "prompt": "necesito trabajo",
+      "expected_empty_slug": "jobs",
+      "info": {
+        "view": "results",
+        "slug": "jobs",
+        "title": "Mostrando ayuda para: Trabajo",
+        "note": "Todavía no tenemos un listado local verificado para trabajo en nuestra área de cobertura. Llama al 211 — gratis, 24/7 en la mayoría de las áreas — para ayuda local con trabajo en cualquier lugar.",
+        "notes": [
+          "Todavía no tenemos un listado local verificado para trabajo en nuestra área de cobertura. Llama al 211 — gratis, 24/7 en la mayoría de las áreas — para ayuda local con trabajo en cualquier lugar.",
+          "COMIDA · NACIONAL\n211\n\nLlama al 211 para información y referencias locales sobre alimentos, vivienda, servicios básicos y otras necesidades esenciales.\n\n📞 Llamar 211\n🔊 Escuchar\nDetalles"
+        ],
+        "ids": [
+          "988",
+          "ndvh",
+          "dial-211",
+          "hunger-hotline",
+          "dial-211"
+        ],
+        "htmlLength": 805,
+        "sw": 390,
+        "cw": 390
+      },
+      "blank": false,
+      "has_211": true,
+      "has_message": true,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS"
+    },
+    {
+      "lang": "pt",
+      "prompt": "preciso de emprego",
+      "expected_empty_slug": "jobs",
+      "info": {
+        "view": "results",
+        "slug": "jobs",
+        "title": "Mostrando ajuda para: Trabalho",
+        "note": "Ainda não temos uma lista local verificada para trabalho na nossa área de cobertura. Ligue para 211 — gratuito, 24 horas na maioria das áreas — para ajuda local com trabalho em qualquer lugar.",
+        "notes": [
+          "Ainda não temos uma lista local verificada para trabalho na nossa área de cobertura. Ligue para 211 — gratuito, 24 horas na maioria das áreas — para ajuda local com trabalho em qualquer lugar.",
+          "COMIDA · NACIONAL\n211\n\nLigue para 211 para informações e indicações locais sobre comida, moradia, serviços básicos e outras necessidades essenciais.\n\n📞 Ligar 211\n🔊 Ouvir\nDetalhes"
+        ],
+        "ids": [
+          "988",
+          "ndvh",
+          "dial-211",
+          "hunger-hotline",
+          "dial-211"
+        ],
+        "htmlLength": 795,
+        "sw": 390,
+        "cw": 390
+      },
+      "blank": false,
+      "has_211": true,
+      "has_message": true,
+      "console": [],
+      "pageerrors": [],
+      "verdict": "PASS"
+    }
+  ],
+  "reappear": {
+    "before": [
+      "crisis",
+      "food",
+      "housing",
+      "mobility",
+      "health",
+      "mental",
+      "transit",
+      "seniors",
+      "education"
+    ],
+    "after_add": [
+      "crisis",
+      "food",
+      "housing",
+      "mobility",
+      "health",
+      "mental",
+      "jobs",
+      "transit",
+      "seniors",
+      "education"
+    ],
+    "restored": [
+      "crisis",
+      "food",
+      "housing",
+      "mobility",
+      "health",
+      "mental",
+      "transit",
+      "seniors",
+      "education"
+    ],
+    "jobs_appeared": true,
+    "jobs_gone_again": true
+  },
+  "overflow": [
+    {
+      "view": "home-1280-en",
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280
+    },
+    {
+      "view": "home-1280-es",
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280
+    },
+    {
+      "view": "home-1280-ht",
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280
+    },
+    {
+      "view": "home-1280-pt",
+      "overflow": false,
+      "sw": 1280,
+      "cw": 1280
+    },
+    {
+      "view": "home-390-en",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "home-390-es",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "home-390-ht",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "home-390-pt",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-en",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-en",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-en",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-es",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-es",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-es",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-ht",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-ht",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-ht",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-pt",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-pt",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    },
+    {
+      "view": "ask-390-pt",
+      "overflow": false,
+      "sw": 390,
+      "cw": 390
+    }
+  ],
+  "console": [],
+  "after_lang_switch_slugs": [
+    "crisis",
+    "food",
+    "housing",
+    "mobility",
+    "health",
+    "mental",
+    "transit",
+    "seniors",
+    "education"
+  ],
+  "pageerrors": [],
+  "console_all": [],
+  "summary": {
+    "tile_grids_ok": true,
+    "prompts_pass": 8,
+    "prompts_unchanged_routing_miss": 4,
+    "prompts_fail": 0,
+    "empty_ask_ok": true,
+    "reappear_ok": true,
+    "any_overflow": false,
+    "pageerrors": [],
+    "lang_switch_hides_empty": true
+  }
+}
